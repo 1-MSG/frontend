@@ -54,6 +54,9 @@ body {
 .main-flex-container1{
   width: fit-content;
 }
+.main-flex-container2{
+  width: fit-content;
+}
 
 .slider {
   display: flex;
