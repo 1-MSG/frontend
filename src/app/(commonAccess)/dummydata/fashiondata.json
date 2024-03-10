@@ -1,0 +1,36 @@
+{
+    "products": [
+        {
+            "product_id": 1,
+            "image_url": "https://sitem.ssgcdn.com/64/46/80/item/1000577804664_i1_300.jpg",
+            "category": "DIOR",
+            "product_name": "디올 뚜주흐 Toujours 미디엄 블랙 매크로까르띠에",
+            "discount_rate": 25,
+            "price": "6,554,307"
+        },
+        {
+            "product_id": 2,
+            "image_url": "https://sitem.ssgcdn.com/11/93/46/item/1000558469311_i1_300.jpg",
+            "category": "코치",
+            "product_name": "[공식] 라나 숄더 백23 CM545 B4/BK",
+            "discount_rate": 10,
+            "price": "585,000"
+        },
+        {
+            "product_id": 3,
+            "image_url": "https://sitem.ssgcdn.com/29/44/76/item/1000552764429_i1_300.jpg",
+            "category": "루이 비통",
+            "product_name": "반지갑 빅토린월릿 모노그램 M6247272 BL/WI",
+            "discount_rate": 25,
+            "price": "960,016"
+        },
+        {
+            "product_id": 4,
+            "image_url": "https://sitem.ssgcdn.com/99/14/61/item/1000531611499_i1_300.jpg",
+            "category": "몽블랑",
+            "product_name": "샤토리얼 6cc 지갑 130315",
+            "discount_rate": 7,
+            "price": "530,100"
+        }
+    ]
+}
