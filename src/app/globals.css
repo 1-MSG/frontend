@@ -71,3 +71,16 @@ body {
 .main-flex-container2{
   display: flex;
 }
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* 모바일 화면에서 */
+@media (max-width: 767px) {
+  .web-only {
+    display: none;
+  }
+}
