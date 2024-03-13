@@ -1,12 +1,16 @@
+import Link from 'next/link'
 import React from 'react'
 
 function SearchForm() {
+
   return (
     <form className='relative w-full'>
-      <input 
-        type="text" 
-        className='h-[40px] w-full rounded-full bg-[#F5F5F5]'
-      />
+      <Link href={'/search'}>
+        <input 
+          type="text" 
+          className='h-[40px] w-full rounded-full bg-[#F5F5F5]'
+        />
+      </Link>
       <div 
         className='"pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2'>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
