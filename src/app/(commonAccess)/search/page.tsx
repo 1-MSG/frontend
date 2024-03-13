@@ -1,11 +1,11 @@
-import SearchForm from "@/app/(commonAccess)/search/_components/searchForm";
+import SearchForm from "@/app/(commonAccess)/search/_components/SearchForm";
 import CartIcon from "@/images/svgs/CartIcon";
 import Image from "next/image";
-import BackBtn from '@/app/(commonAccess)/search/_components/backBtn';
+import BackBtn from '@/app/(commonAccess)/search/_components/BackBtn';
 
-import RecommendSearch from "@/app/(commonAccess)/search/_serverComponents/recommendSearch";
-import Event from "@/app/(commonAccess)/search/_serverComponents/event";
-import RecentSearch from "./_components/recentSearch";
+import RecommendSearch from "@/app/(commonAccess)/search/_serverComponents/RecommendSearch";
+import Event from "@/app/(commonAccess)/search/_serverComponents/Event";
+import RecentSearch from "./_components/RecentSearch";
 
 
 export default function Page() {

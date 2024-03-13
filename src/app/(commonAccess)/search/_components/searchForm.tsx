@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import SearchList from './searchList';
+import SearchList from './SearchList';
 
 function SearchForm() {
   const [searchText, setSearchText] = useState('');
