@@ -16,7 +16,7 @@ export default function LoginAuthIcon() {
             <Image src={authIcon1} alt='' style={{width:'53px', height:'73px'}}></Image>
             <Image src={authIcon2} alt='' style={{width:'54px', height:'73px'}}></Image>
             <Image src={authIcon3} alt='' style={{width:'53px', height:'73px'}}></Image>
-            <Image src={authIcon4} alt='' style={{width:'55px', height:'73px'}}></Image>
+            <Image src={authIcon4} alt='' style={{width:'55px', height:'72px'}}></Image>
             <Image src={authIcon5} alt='' style={{width:'51px', height:'73px'}}></Image>
         </div>
         </>

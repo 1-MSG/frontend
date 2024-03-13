@@ -12,13 +12,13 @@ function Nav() {
   return (
     <div className='w-full'>
         <div style={{position:'fixed', bottom:0 ,background:'white', padding:'5px', width:'100%', height:'50px', display:'flex', justifyContent:'space-evenly'}}>
-            <Image src={nav1} alt='' style={{width: '40px', height:'40px'}}></Image>      
-            <Image src={nav2} alt='' style={{width: '40px', height:'40px'}}></Image>     
+            <Image src={nav1} alt='' style={{width: '37px', height:'40px'}}></Image>      
+            <Image src={nav2} alt='' style={{width: '37px', height:'40px'}}></Image>     
             <Image src={nav3} alt='' style={{width: '40px', height:'40px'}}></Image>     
             <Link href={'/login'}>
-              <Image src={nav4} alt='' style={{width: '33px', height:'40px'}}></Image>
+              <Image src={nav4} alt='' style={{width: '37px', height:'40px'}}></Image>
             </Link>     
-            <Image src={nav5} alt='' style={{width: '33px', height:'40px'}}></Image>     
+            <Image src={nav5} alt='' style={{width: '37px', height:'40px'}}></Image>     
         </div>
     </div>
   )
