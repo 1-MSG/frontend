@@ -5,6 +5,7 @@ import nav2 from '@/assets/image/nav/nav2.png'
 import nav3 from '@/assets/image/nav/nav3.png'
 import nav4 from '@/assets/image/nav/nav4.png'
 import nav5 from '@/assets/image/nav/nav5.png'
+import Link from 'next/link'
 
 
 function Nav() {
@@ -14,8 +15,10 @@ function Nav() {
             <Image src={nav1} alt='' style={{width: '40px', height:'40px'}}></Image>      
             <Image src={nav2} alt='' style={{width: '40px', height:'40px'}}></Image>     
             <Image src={nav3} alt='' style={{width: '40px', height:'40px'}}></Image>     
-            <Image src={nav4} alt='' style={{width: '40px', height:'40px'}}></Image>     
-            <Image src={nav5} alt='' style={{width: '40px', height:'40px'}}></Image>     
+            <Link href={'/login'}>
+              <Image src={nav4} alt='' style={{width: '33px', height:'40px'}}></Image>
+            </Link>     
+            <Image src={nav5} alt='' style={{width: '33px', height:'40px'}}></Image>     
         </div>
     </div>
   )
