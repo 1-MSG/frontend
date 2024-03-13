@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-import BackBtn from "../search/_components/backBtn";
+import BackBtn from "../search/_components/BackBtn";
 import nullImg from "@/assets/image/etc/nullImg.png"
 import Footer from "@/components/layout/Footer";
-import LoginContainer from "@/app/(commonAccess)/login/_components/loginConatiner"
-import LoginAuthIcon from "@/app/(commonAccess)/login/_components/loginAuthIcon";
+import LoginContainer from "@/app/(commonAccess)/login/_components/LoginConatiner"
+import LoginAuthIcon from "@/app/(commonAccess)/login/_components/LoginAuthIcon";
 import adv4 from '@/assets/image/mainadvertisement/adv4.png'
 import Link from "next/link";
 
