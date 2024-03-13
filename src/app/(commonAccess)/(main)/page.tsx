@@ -1,9 +1,9 @@
 import MainCategory from "@/components/MainCategory/MainCategory";
 import MainBanner from "@/components/banner/MainBanner";
 
-import PreviewProducts from "./_serverComponets/previewProducts";
-import PreviewCards from "./_serverComponets/previewCards";
-import PreviewPopularityProducts from "./_serverComponets/previewPopularityProducts";
+import PreviewProducts from "./_serverComponents/previewProducts";
+import PreviewCards from "./_serverComponents/previewCards";
+import PreviewPopularityProducts from "./_serverComponents/previewPopularityProducts";
 import Footer from "@/components/layout/Footer";
 import Nav from "@/components/layout/Nav";
 
