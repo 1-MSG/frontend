@@ -36,7 +36,7 @@ export default function LoginContainer() {
         <p style={{paddingLeft:'8px',borderRight:'1px solid grey'}}></p>
         <p style={{paddingLeft:'8px', fontSize:'12px'}}>비밀번호 찾기</p>
         <p style={{paddingLeft:'8px',borderRight:'1px solid grey'}}></p>
-        <Link href={'/signIn'}><p style={{paddingLeft:'8px',fontSize:'12px'}}>회원가입</p></Link>
+        <Link href={'/join'}><p style={{paddingLeft:'8px',fontSize:'12px'}}>회원가입</p></Link>
       </div>
     </>
   );
