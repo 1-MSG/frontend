@@ -3,9 +3,13 @@ import Image from "next/image";
 import BackBtn from "../../../search/_components/BackBtn";
 import nullImg from "@/assets/image/etc/nullImg.png";
 import UserInfo from "@/app/(commonAccess)/(join)/join/[id]/_components/userInfo";
+import { auth } from '@/auth';
 
-
-export default function Page(props: any) {
+export default async function Page(props: any) {
+    const session = await auth();
+    
+    console.log("auth하고 받은 전체 정보",session);
+    console.log("auth하고 받은 user 정보",session?.user);
 
     return (
         <>
@@ -23,7 +27,7 @@ export default function Page(props: any) {
                 </div>
             </div>
 
-            <UserInfo name={props.params.id}/>
+            <UserInfo name={props.params.id} info={session?.user}/>
 
             <Footer />
         </>

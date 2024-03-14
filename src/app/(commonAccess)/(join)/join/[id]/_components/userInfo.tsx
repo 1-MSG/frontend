@@ -6,7 +6,9 @@ import Link from "next/link";
 
 export default function UserInfo(props : any) {
 
+    //나중에 지울 필요 있음
     console.log(props.name)
+    console.log(props.info)
 
     return (
         <>
@@ -15,12 +17,23 @@ export default function UserInfo(props : any) {
             <div style={{ width:'100%', padding:'18px'}}>
                 
                 {/* 1 */}
-                <div style={{ fontSize:'13px',width:'100%', display:'flex', borderBottom : '1px solid #d1d1d1'}}>
-                    <div style={{width:'25%', paddingTop:'20px', paddingBottom:'20px', color:'grey'}}>
-                        *아이디
+                {props.name === 'integrated' && (
+                    <div style={{ fontSize:'13px',width:'100%', display:'flex', borderBottom : '1px solid #d1d1d1'}}>
+                        <div style={{width:'25%', paddingTop:'20px', paddingBottom:'20px', color:'grey'}}>
+                            *아이디
+                        </div>
+                        <input style={{ width:'30%', border: '1px solid #d1d1d1', height:'35px', marginTop:'13px', paddingLeft:'7px'}} />
                     </div>
-                    <input style={{ width:'30%', border: '1px solid #d1d1d1', height:'35px', marginTop:'13px', paddingLeft:'7px'}} />
-                </div>
+                )}
+                {props.name === 'easy' && (
+                    <div style={{ fontSize:'13px',width:'100%', display:'flex', borderBottom : '1px solid #d1d1d1'}}>
+                        <div style={{width:'25%', paddingTop:'20px', paddingBottom:'20px', color:'grey'}}>
+                            *아이디
+                        </div>
+                        <p style={{ width:'30%', height:'35px', marginTop:'18px', paddingLeft:'7px'}}>{props.info.email}</p>
+                    </div>
+                )}
+
                 {/* 2 */}
                 {props.name === 'integrated' && (
                     <div style={{ fontSize:'13px',width:'100%', display:'flex', borderBottom : '1px solid #d1d1d1'}}>

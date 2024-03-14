@@ -7,6 +7,7 @@ import PreviewPopularityProducts from "@/app/(commonAccess)/(main)/_serverCompon
 import Footer from "@/components/layout/Footer";
 import Nav from "@/components/layout/Nav";
 
+
 export default function Home() {
   return (
     <>

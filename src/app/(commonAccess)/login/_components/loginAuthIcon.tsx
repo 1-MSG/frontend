@@ -6,7 +6,6 @@ import authIcon3 from '@/assets/image/authIcon/authIcon3.png'
 import authIcon4 from '@/assets/image/authIcon/authIcon4.png'
 import authIcon5 from '@/assets/image/authIcon/authIcon5.png'
 
-
 export default function LoginAuthIcon() {
 
 

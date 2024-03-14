@@ -6,9 +6,16 @@ import authIcon2 from '@/assets/image/authIcon/authIcon2.png'
 import authIcon3 from '@/assets/image/authIcon/authIcon3.png'
 import authIcon6 from '@/assets/image/authIcon/authIcon6.png'
 import Link from "next/link";
+import { signIn } from 'next-auth/react';
 
 export default function SignInAuthIcon() {
-
+    
+    const onClick = async () => {
+        await signIn('kakao', {
+          redirect: true,
+          callbackUrl: '/join/easy',
+        });
+    };
 
     return (
         <>
@@ -17,7 +24,7 @@ export default function SignInAuthIcon() {
                 <Image src={authIcon6} alt='' style={{width:'54px', height:'73px'}}></Image>
                 <Image src={authIcon1} alt='' style={{width:'53px', height:'73px'}}></Image>
                 {/* 임시로, 라우트 되도록 구현 => 이후 auth 적용해서 로직 수정 필요 */}
-                <Link href={'/join/easy'}><Image src={authIcon2} alt='' style={{width:'53px', height:'73px'}}></Image></Link>
+                <Image src={authIcon2} alt='' style={{width:'53px', height:'73px'}} onClick={onClick}></Image>
                 <Image src={authIcon3} alt='' style={{width:'53px', height:'73px'}}></Image>
             </div>
         </>

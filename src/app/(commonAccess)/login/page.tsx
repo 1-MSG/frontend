@@ -6,10 +6,9 @@ import Footer from "@/components/layout/Footer";
 import LoginContainer from "@/app/(commonAccess)/login/_components/LoginConatiner"
 import LoginAuthIcon from "@/app/(commonAccess)/login/_components/LoginAuthIcon";
 import adv4 from '@/assets/image/mainadvertisement/adv4.png'
-import Link from "next/link";
+
 
 export default function Page() {
-
 
     return (
         <>
