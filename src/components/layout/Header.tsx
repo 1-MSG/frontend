@@ -6,7 +6,6 @@ function Header() {
   return (
     <header className='w-full'>
         <TopHeader />
-        <BottomHeader />
     </header>
   )
 }
