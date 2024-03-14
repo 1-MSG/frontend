@@ -6,6 +6,7 @@ export const {
     auth,
     } = NextAuth({
     pages: {
+      //앞으로 더 추가
       signIn: '/join',
     },
     providers: [
