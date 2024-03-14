@@ -9,6 +9,8 @@ import Link from 'next/link'
 
 
 function Nav() {
+
+  
   return (
     <div className='w-full'>
         <div style={{position:'fixed', bottom:0 ,background:'white', padding:'5px', width:'100%', height:'50px', display:'flex', justifyContent:'space-evenly'}}>
@@ -19,7 +21,7 @@ function Nav() {
             <Link href={'/'}>
               <Image src={nav3} alt='' style={{width: '40px', height:'40px'}}></Image>     
             </Link>
-            <Link href={'/login'}>
+            <Link href={'/mypage'}>
               <Image src={nav4} alt='' style={{width: '37px', height:'40px'}}></Image>
             </Link>     
             <Image src={nav5} alt='' style={{width: '35px', height:'40px'}}></Image>     
