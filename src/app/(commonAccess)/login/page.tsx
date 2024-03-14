@@ -16,7 +16,7 @@ export default function Page() {
                 <BackBtn/>
                 <h2 style={{fontWeight:'bold'}}>로그인</h2>
                 <div className="flex items-center justify-end">
-                <Image src={nullImg} alt=''></Image>
+                    <Image src={nullImg} alt=''></Image>
                 </div>
             </div>
             <LoginContainer/>
