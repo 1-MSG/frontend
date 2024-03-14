@@ -4,11 +4,13 @@ import Image from "next/image";
 import Etc3 from '@/assets/image/etc/etc3.png'
 import Link from "next/link";
 
-export default function UserInfo() {
+export default function UserInfo(props : any) {
 
+    console.log(props.name)
 
     return (
         <>
+            
             <div style={{background:'#F8F8F8', width:'100%', padding:'18px', fontSize:'14px', color:'grey'}}>회원정보</div>
             <div style={{ width:'100%', padding:'18px'}}>
                 
@@ -20,15 +22,17 @@ export default function UserInfo() {
                     <input style={{ width:'30%', border: '1px solid #d1d1d1', height:'35px', marginTop:'13px', paddingLeft:'7px'}} />
                 </div>
                 {/* 2 */}
-                <div style={{ fontSize:'13px',width:'100%', display:'flex', borderBottom : '1px solid #d1d1d1'}}>
-                    <div style={{width:'25%', paddingTop:'20px', paddingBottom:'20px', color:'grey'}}>
-                        *비밀번호
+                {props.name === 'integrated' && (
+                    <div style={{ fontSize:'13px',width:'100%', display:'flex', borderBottom : '1px solid #d1d1d1'}}>
+                        <div style={{width:'25%', paddingTop:'20px', paddingBottom:'20px', color:'grey'}}>
+                            *비밀번호
+                        </div>
+                        <div style={{ width:'75%', height:'90px', paddingBottom:'100px',}}>
+                            <input placeholder='영문, 숫자 조합 8~20자리' style={{ width:'100%', border: '1px solid #d1d1d1', height:'35px', marginTop:'10px', paddingLeft:'7px'}} />
+                            <input placeholder='비밀번호 재확인' style={{ width:'100%', border: '1px solid #d1d1d1', height:'35px', marginTop:'10px', paddingLeft:'7px'}} />
+                        </div>
                     </div>
-                    <div style={{ width:'75%', height:'90px', paddingBottom:'100px',}}>
-                        <input placeholder='영문, 숫자 조합 8~20자리' style={{ width:'100%', border: '1px solid #d1d1d1', height:'35px', marginTop:'10px', paddingLeft:'7px'}} />
-                        <input placeholder='비밀번호 재확인' style={{ width:'100%', border: '1px solid #d1d1d1', height:'35px', marginTop:'10px', paddingLeft:'7px'}} />
-                    </div>
-                </div>
+                )}
                 {/* 3 */}
                 <div style={{ fontSize:'13px',width:'100%', display:'flex', borderBottom : '1px solid #d1d1d1'}}>
                     <div style={{width:'25%', paddingTop:'20px', paddingBottom:'20px', color:'grey'}}>
@@ -46,12 +50,15 @@ export default function UserInfo() {
                     <input style={{ width:'75%', border: '1px solid #d1d1d1', height:'35px', marginTop:'13px', paddingLeft:'7px'}} />
                 </div>
                 {/* 6 */}
-                <div style={{ fontSize:'13px',width:'100%', display:'flex'}}>
-                    <div style={{width:'25%', paddingTop:'20px', color:'grey'}}>
-                        *이메일주소
+                {props.name === 'integrated' && (
+                    <div style={{ fontSize:'13px',width:'100%', display:'flex'}}>
+                        <div style={{width:'25%', paddingTop:'20px', color:'grey'}}>
+                            *이메일주소
+                        </div>
+                        <input style={{ width:'75%', border: '1px solid #d1d1d1', height:'35px', marginTop:'13px', paddingLeft:'7px'}} />
                     </div>
-                    <input style={{ width:'75%', border: '1px solid #d1d1d1', height:'35px', marginTop:'13px', paddingLeft:'7px'}} />
-                </div>
+                )}
+
 
             </div>
             <div style={{background:'#F8F8F8', width:'100%', padding:'18px', fontSize:'14px', color:'grey'}}>마케팅 정보 수신 동의</div>
