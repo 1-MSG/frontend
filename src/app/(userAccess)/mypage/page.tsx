@@ -9,6 +9,7 @@ import Footer from "@/components/layout/Footer";
 import Nav from "@/components/layout/Nav";
 import LeftNav from "@/components/layout/LeftNav";
 import RightNav from "@/components/layout/RightNav";
+import UserFooter from "@/components/layout/UserFooter";
 // ssg 렌더링 방식 적용 필요
 
 
@@ -41,7 +42,7 @@ export default function Page() {
                 <Image src={etc6} alt=""></Image>
             </div>
 
-            <Footer/> 
+            <UserFooter/>
             <LeftNav/>
             <RightNav/>
             <Nav/>
