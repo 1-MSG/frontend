@@ -1,0 +1,191 @@
+[
+    { 
+        "product_id": 1,
+        "product_item_number": 1234567,
+        "product_brand": "나이키",
+        "product_name": "나이키 공용 후드티 플리스 기모",
+        "product_price": 55500,
+        "product_img_url": [
+            {
+                "product_img_id" : 1,
+                "product_img_url_list": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+            },
+            {
+                "product_img_id" : 2,
+                "product_img_url_list": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+            },
+            {
+                "product_img_id" : 3,
+                "product_img_url_list": "https://sitem.ssgcdn.com/15/50/30/item/1000054305015_i1_750.jpg"
+            }
+        ],
+        "product_detail_url": [
+            "https://daelimco14.speedgabia.com/dlimages/BV3757-091.jpg",
+            "https://daelimco14.speedgabia.com/dlimages/BV3757-091.jpg"
+        ],
+        "product_star": 5,
+        "product_delivery_fee": 3000,
+        "product_delivery_fee_add": "제주 3,000원, 도서산간 3,000원 추가",
+        "min_delivery_fee": 10,
+        "product_review_count": 3,
+        "product_rate": 7,
+        "product_options": [
+            {
+                "product_option_id": 1,
+                "stock": 10,
+                "size": "S",
+                "color": "BLACK"
+            },
+            {
+                "product_option_id": 2,
+                "stock": 10,
+                "size": "M",
+                "color": "BLACK"
+            },
+            {
+                "product_option_id": 3,
+                "stock": 0,
+                "size": "S",
+                "color": "RED"
+            },
+            {
+                "product_option_id": 4,
+                "stock": 20,
+                "size": "M",
+                "color": "RED"
+            }
+        ],
+        "photo_reviews": [
+            {
+                "review_id": 1,
+                "review_img_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+            },
+            {
+                "review_id": 2,
+                "review_img_url": "https://sitem.ssgcdn.com/15/50/30/item/1000054305015_i1_750.jpg"
+            },
+            {
+                "review_id": 3,
+                "review_img_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+            },
+            {
+                "review_id": 4,
+                "review_img_url": "https://sitem.ssgcdn.com/15/50/30/item/1000054305015_i1_750.jpg"
+            },
+            {
+                "review_id": 5,
+                "review_img_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+            },
+            {
+                "review_id": 6,
+                "review_img_url": "https://sitem.ssgcdn.com/15/50/30/item/1000054305015_i1_750.jpg"
+            }
+        ],
+        "product_reviews": [
+            {
+                "review_id": 1,
+                "review_star": "5",
+                "review_createdate": "2023-03-13",
+                "review_content": "편해요",
+                "reviewer": "asdfg",
+                "review_img_url": [
+                    {
+                        "review_img_id": 1,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 2,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    }
+                ]
+            },
+            {
+                "review_id": 2,
+                "review_star": "5",
+                "review_createdate": "2023-03-14",
+                "review_content": "좋아요",
+                "reviewer": "qwert",
+                "review_img_url": [
+                    {
+                        "review_img_id": 1,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 2,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 3,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    }
+                ]
+            },
+            {
+                "review_id": 3,
+                "review_star": "5",
+                "review_createdate": "2023-03-15",
+                "review_content": "예뻐요",
+                "reviewer": "zxcvb",
+                "review_img_url": [
+                    {
+                        "review_img_id": 1,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 2,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 3,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    }
+                ]
+            },
+            {
+                "review_id": 4,
+                "review_star": "2",
+                "review_createdate": "2023-03-15",
+                "review_content": "평범해요",
+                "reviewer": "yuiop",
+                "review_img_url": [
+                    {
+                        "review_img_id": 1,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 2,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 3,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    }
+                ]
+            },
+            {
+                "review_id": 5,
+                "review_star": "2",
+                "review_createdate": "2023-03-15",
+                "review_content": "평범해요",
+                "reviewer": "hjklf",
+                "review_img_url": [
+                    {
+                        "review_img_id": 1,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 2,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    },
+                    {
+                        "review_img_id": 3,
+                        "review_img_detail_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+                    }
+                ]
+            }
+        ],
+        "product_category": 1,
+        "product_category_name": "스포츠웨어/용품",
+        "product_category_name_mid": "남성스포츠의류"
+    }
+]
