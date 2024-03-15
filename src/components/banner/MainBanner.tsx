@@ -14,6 +14,8 @@ function MainBanner() {
     setCurrentImageUrl(imageData[index].url);
   };
 
+  //test
+
   return (
     <div style={{ position: 'relative', overflow: 'hidden' }}>
         {/* 배경 이미지에 흐림 효과 적용 */}
