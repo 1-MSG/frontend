@@ -13,7 +13,8 @@
     "next-auth": "^5.0.0-beta.15",
     "react": "^18",
     "react-dom": "^18",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",

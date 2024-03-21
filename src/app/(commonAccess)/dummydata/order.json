@@ -1,0 +1,19 @@
+[
+    {
+        "login_id": "asdfg",
+        "user_name": "홍길동",
+        "address_name": "우리집",
+        "address": "[48060] 부산광역시 해운대구 APEC로17, 4층 스파로스 아카데미 (우동)",
+        "phone_number" : "010-1234-5678",
+        "email": "asdfg@naver.com",
+        "product_id": 1,
+        "product_name": "나이키 그레이 후드티",
+        "product_brand": "나이키",
+        "product_img_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg",
+        "product_price": 55500,
+        "product_rate": 7,
+        "min_delivery_fee": 100000,
+        "product_option_id": 1,
+        "product_delivery_fee": 3000
+    }
+]

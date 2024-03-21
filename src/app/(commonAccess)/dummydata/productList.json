@@ -1,0 +1,68 @@
+[
+    {
+        "product_id": 1,
+        "product_brand": "이마트",
+        "product_name": "애호박",
+        "product_price": 1880,
+        "product_rate": 0,
+        "product_img": "https://sitem.ssgcdn.com/08/54/54/item/1000007545408_i1_750.jpg",
+        "product_star": 4.9,
+        "product_review_count": 335000,
+        "product_like": true
+    },
+    {
+        "product_id": 2,
+        "product_brand": "이마트",
+        "product_name": "미국 부채살",
+        "product_price": 3990,
+        "product_rate": 50,
+        "product_img": "https://sitem.ssgcdn.com/14/44/40/item/0000007404414_i1_750.jpg",
+        "product_star": 4.7,
+        "product_review_count": 9000,
+        "product_like": false
+    },
+    {
+        "product_id": 3,
+        "product_brand": "노브랜드",
+        "product_name": "미네랄 워터",
+        "product_price": 1980,
+        "product_rate": 0,
+        "product_img": "https://sitem.ssgcdn.com/89/11/90/item/1000043901189_i1_750.jpg",
+        "product_star": 4.9,
+        "product_review_count": 600000,
+        "product_like": true
+    },
+    {
+        "product_id": 4,
+        "product_brand": "이마트",
+        "product_name": "애호박",
+        "product_price": 1880,
+        "product_rate": 0,
+        "product_img": "https://sitem.ssgcdn.com/08/54/54/item/1000007545408_i1_750.jpg",
+        "product_star": 4.9,
+        "product_review_count": 1000,
+        "product_like": true
+    },
+    {
+        "product_id": 5,
+        "product_brand": "이마트",
+        "product_name": "미국 부채살",
+        "product_price": 10000,
+        "product_rate": 20,
+        "product_img": "https://sitem.ssgcdn.com/14/44/40/item/0000007404414_i1_750.jpg",
+        "product_star": 4.7,
+        "product_review_count": 50,
+        "product_like": false
+    },
+    {
+        "product_id": 6,
+        "product_brand": "노브랜드",
+        "product_name": "미네랄 워터",
+        "product_price": 2000,
+        "product_rate": 0,
+        "product_img": "https://sitem.ssgcdn.com/89/11/90/item/1000043901189_i1_750.jpg",
+        "product_star": 5.0,
+        "product_review_count": 200,
+        "product_like": false
+    }
+]

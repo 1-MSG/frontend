@@ -1,0 +1,13 @@
+[
+    {
+        "login_id": "asdfg",
+        "buyer_name": "홍길동",
+        "address": "[48060] 부산광역시 해운대구 APEC로17, 4층 스파로스 아카데미 (우동)",
+        "buyer_phone_number" : "010-1234-5678",
+        "order_id": 1,
+        "order_created_at": "2024-03-19",
+        "total_amount": 200000,
+        "total_discount": 2000,
+        "total_delivery_fee": 6000
+    }
+]
