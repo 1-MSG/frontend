@@ -1,0 +1,54 @@
+[
+    {
+        "category_id": 1,
+        "category_name": "패션의류"
+    },
+    {
+        "category_id": 2,
+        "category_name": "패션잡화"
+    },
+    {
+        "category_id": 3,
+        "category_name": "명품"
+    },
+    {
+        "category_id": 4,
+        "category_name": "뷰티"
+    },
+    {
+        "category_id": 5,
+        "category_name": "스포츠레저"
+    },
+    {
+        "category_id": 6,
+        "category_name": "생활/주방"
+    },
+    {
+        "category_id": 7,
+        "category_name": "가구/인테리어"
+    },
+    {
+        "category_id": 8,
+        "category_name": "유아동"
+    },
+    {
+        "category_id": 9,
+        "category_name": "디지털/렌탈"
+    },
+    {
+        "category_id": 10,
+        "category_name": "e쿠폰/문구/도서"
+    },
+    {
+        "category_id": 11,
+        "category_name": "신선식품"
+    },
+    {
+        "category_id": 12,
+        "category_name": "건강/가공식품"
+    },
+    {
+        "category_id": 13,
+        "category_name": "반려동물"
+    }
+]
