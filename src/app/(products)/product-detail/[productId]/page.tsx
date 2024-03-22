@@ -9,7 +9,6 @@ import 'swiper/css/pagination';
 import Link from 'next/link'
 import React, { useRef, useState } from 'react'
 import data from '@/app/(commonAccess)/dummydata/product_detail_data.json'
-import GreyQuestion from '@/images/svgs/GreyQuestion';
 import Share from '@/images/svgs/Share';
 import Star from '@/images/svgs/Star';
 import Like from '@/images/svgs/Like';
@@ -39,7 +38,6 @@ export default function Page() {
         return (
             <div className='inline-block items-center'>
                 <p className='float-left'>{priceToString(data[0].product_price)}</p>
-                <GreyQuestion />
             </div>
         )
     }
