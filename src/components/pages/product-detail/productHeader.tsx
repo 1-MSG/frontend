@@ -26,7 +26,7 @@ export default function ProductHeader() {
             </div>
             <div className="flex">
                 <SearchIcon />
-                <div className="pt-[8px] pr-[8px]"><CartIcon /></div>
+                <div className="pt-[8px] pr-[8px]"><CartIcon w={32} h={32}/></div>
             </div>
         </div>
     )
