@@ -1,0 +1,43 @@
+[
+    {
+        "bundle_id": 1,
+        "bundle_brand": "에잇세컨즈",
+        "bundle_name": "24SS MID SALE 미드세일 할인",
+        "bundle_price": 16318,
+        "bundle_img_url": "https://sitem.ssgcdn.com/41/58/48/spclprc/1000022485841_sp.jpg"
+    },
+    {
+        "bundle_id": 2,
+        "bundle_brand": "동원에프앤비",
+        "bundle_name": "햄/어묵/맛살 통조림~1+2",
+        "bundle_price": 3136,
+        "bundle_img_url": "https://sitem.ssgcdn.com/86/64/10/spclprc/1000560106486_sp.jpg"
+    },
+    {
+        "bundle_id": 3,
+        "bundle_brand": "베베숲",
+        "bundle_name": "베베숲 물티슈 외 ~11%",
+        "bundle_price": 17955,
+        "bundle_img_url": "https://sitem.ssgcdn.com/52/27/09/spclprc/1000455092752_sp.jpg"
+    },
+    {
+        "bundle_id": 4,
+        "bundle_brand": "디스커버리",
+        "bundle_name": "봄시즌 가방/의류 가격인하 최대~60%",
+        "bundle_price": 29400,
+        "bundle_img_url": "https://sitem.ssgcdn.com/14/82/17/spclprc/1000521178214_sp.jpg"
+    },
+    {
+        "bundle_id": 5,
+        "bundle_brand": "입생로랑",
+        "bundle_name": "NEW 러브샤인 워터샤인 립스틱",
+        "bundle_price": 45980,
+        "bundle_img_url": "https://sitem.ssgcdn.com/84/41/54/spclprc/1000052544184_sp.jpg"
+    },{
+        "bundle_id": 6,
+        "bundle_brand": "풀무원",
+        "bundle_name": "2.5만원 이상 구매시 3천원 할인",
+        "bundle_price": 7500,
+        "bundle_img_url": "https://sitem.ssgcdn.com/42/43/63/spclprc/1000064634342_sp.jpg"
+    }
+]
