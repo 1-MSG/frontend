@@ -1,6 +1,6 @@
 import categoryList from '@/app/(commonAccess)/dummydata/category.json'
 import productList from '@/app/(commonAccess)/dummydata/productList.json'
-import CategoryTap from '@/components/pages/product-list/categoryTab'
+import CategoryTab from '@/components/pages/product-list/categoryTab'
 import ProductConetent from '@/components/pages/product-list/productContent'
 import RankingTab from '@/components/pages/product-list/ranking/rankingTab'
 import DepartmentIcon from '@/images/svgs/DepartmentIcon'
@@ -14,7 +14,7 @@ export default function Page() {
             <RankingTab/>
 
             {/* 카테고리 탭 */}
-            <CategoryTap categoryList={categoryList}/>
+            <CategoryTab categoryList={categoryList}/>
 
             <div>
                 <div className='my-[10px] pr-[16px] flex'>
