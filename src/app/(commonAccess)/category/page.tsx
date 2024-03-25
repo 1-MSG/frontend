@@ -23,8 +23,7 @@ import RightNav from "@/components/layout/RightNav";
 export default function Page() {
     return (
         <>
-            <Header/>
-            <Nav/>
+    
             <div style={{ background: 'linear-gradient(to right, red, #B404AE, purple)', width: '100%', height:'1.5px'}}>
 
             </div>
@@ -59,8 +58,6 @@ export default function Page() {
             <div style={{background:'#555555',marginTop:'50px',width: '100%', padding:'40px' , paddingBottom:'150px',display:'flex', justifyContent:'center'}}>
                 <Image src={etc5} alt='' style={{width:'200px', height:'auto'}}></Image>
             </div>
-            <LeftNav/>
-            <RightNav/>
         </>
     );
 }

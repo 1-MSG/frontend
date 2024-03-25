@@ -1,0 +1,28 @@
+[
+    {
+        "category_id": 1,
+        "category_name": "패션의류",
+        "category_id2": 1,
+        "category_name2": "여성트렌드패션",
+        "category_list": [
+            {
+                "category_name": "여성브랜드패션"
+            },
+            {
+                "category_name": "여성트렌드패션"
+            },
+            {
+                "category_name": "남성패션"
+            },
+            {
+                "category_name": "캐주얼/유니섹스"
+            },
+            {
+                "category_name": "언더웨어"
+            },
+            {
+                "category_name": "디자이너샵"
+            }
+        ]
+    }
+]

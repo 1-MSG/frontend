@@ -1,4 +1,4 @@
-export default function CategoryTap(props:any) {
+export default function CategoryTab(props:any) {
     const categoryList = props.categoryList
     return (
         <div className="sticky top-[46px] z-10 overflow-x-scroll overflow-y-hidden bg-white">
