@@ -12,7 +12,8 @@ function BottomHeader() {
                 <li className="px-4 py-2 whitespace-nowrap font-bold text-800" style={{ color: "#0B3B17" }}>패션명품쓱세일</li>
                 <li className="px-4 py-2 whitespace-nowrap">
                     <Link href='/'>홈</Link></li>
-                <li className="px-4 py-2 whitespace-nowrap">특가</li>
+                <li className="px-4 py-2 whitespace-nowrap">
+                    <Link href="/product-list/special-price">특가</Link></li>
                 <li className="px-4 py-2 whitespace-nowrap">
                     <Link href='/product-list/ranking'>베스트</Link></li>
                 <li className="px-4 py-2 whitespace-nowrap">명품</li>
