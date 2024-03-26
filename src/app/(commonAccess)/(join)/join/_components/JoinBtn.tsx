@@ -11,7 +11,7 @@ export default function SignInBtn() {
                 <Link href={'/join/integrated'}>
                     <button style={{width:'100%', background:'#ff5452', height:'50px', color:'white', fontSize:'15px', fontWeight:'bold'}}>멤버십 혜택 받고 통합회원 가입하기</button>
                 </Link>
-                <Link href={'/join/integrated'}>
+                <Link href={'/users/signup/union'}>
                     <button style={{width:'100%', background:'#d1d1d1', height:'50px', color:'white', marginTop:'10px', fontSize:'15px', fontWeight:'bold'}}>통합회원만 가입하기</button>
                 </Link>
             </div>

@@ -4,6 +4,7 @@ import React from 'react'
 import SearchForm from '../form/SearchForm'
 import AlarmIcon from '@/images/svgs/AlarmIcon'
 import CartIcon from '@/images/svgs/CartIcon'
+import Link from 'next/link'
 
 function TopHeader() {
     return (
@@ -16,7 +17,7 @@ function TopHeader() {
             <SearchForm />
             <div className="flex items-center">
                 <div className='w-[32px] h-[32px]'><AlarmIcon /></div>
-                <div className='w-[32px] h-[32px] mr-[10px]'><CartIcon w={32} h={32} /></div>
+                <Link href="/cart" className='w-[32px] h-[32px] mr-[10px]' ><CartIcon w={32} h={32} /></Link>
             </div>
         </div>
     )
