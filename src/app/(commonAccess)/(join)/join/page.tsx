@@ -9,8 +9,8 @@ import Footer from "@/components/layout/Footer";
 // import LoginAuthIcon from "@/app/(commonAccess)/login/_components/loginAuthIcon";
 // import adv4 from '@/assets/image/mainadvertisement/adv4.png'
 import Link from "next/link";
-import JoinBtn from "./_components/JoinBtn";
-import JoinAuthIcon from "./_components/JoinAuthIcon";
+import JoinBtn from "../../../../components/pages/join/JoinBtn";
+import JoinAuthIcon from "../../../../components/pages/join/JoinAuthIcon";
 
 export default function Page() {
 

@@ -6,11 +6,23 @@ import PreviewCards from "@/app/(commonAccess)/(main)/_serverComponents/PreviewC
 import PreviewPopularityProducts from "@/app/(commonAccess)/(main)/_serverComponents/PreviewPopularityProducts";
 import Footer from "@/components/layout/Footer";
 import Nav from "@/components/layout/Nav";
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import SsgNotification from "@/components/ui/SsgNotification";
 
 
-export default function Home() {
+export default async function Home() {
+
+  const session = await getServerSession(options);
+  console.log('mainsession',session);
+
   return (
     <>
+      <SsgNotification isView={session ? true : false} 
+      userData={{
+        userName: session?.user?.name || '손님',
+        userPhoto: session?.user?.image || '',
+      }}/>
       <MainBanner/>
       <MainCategory/>
       <PreviewProducts/>
