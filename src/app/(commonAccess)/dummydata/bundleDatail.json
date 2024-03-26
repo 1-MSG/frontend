@@ -1,0 +1,122 @@
+[
+    {
+        "bundle_id": 1,
+        "bundle_brand": "빌리프",
+        "bundle_name": "아쿠아 밤 점보 SSG 선런칭 단독 혜택 위크",
+        "bundle_price": 49400,
+        "bundle_star": 4.5,
+        "bundle_img_url": "https://sitem.ssgcdn.com/46/09/60/item/1000031600946_i1_750.jpg",
+        "bundle_review_count": 10000,
+        "bundle_product_list": [
+            {
+                "product_id": 1,
+                "product_name": "[선런칭] 더 트루 크림 - 아쿠아 밤 125ml 대용량 에디션 (+파우치 증정)",
+                "product_price": 76000,
+                "isLike": false,
+                "product_img_url": "https://sitem.ssgcdn.com/92/45/05/item/1000586054592_i1_500.jpg",
+                "product_order_count": 234320,
+                "discount_rate": 20
+            },
+            {
+                "product_id": 2,
+                "product_name": "[S딜] 더 트루 크림 - 아쿠아 밤 125ml 대용량 에디션 (+파우치 증정)",
+                "product_price": 76000,
+                "isLike": false,
+                "product_img_url": "https://sitem.ssgcdn.com/53/32/01/item/1000587013253_i1_750.jpg",
+                "product_order_count": 12343,
+                "discount_rate": 20
+            },
+            {
+                "product_id": 3,
+                "product_name": "[선런칭] 더 트루 크림 - 아쿠아 밤 125ml 대용량 에디션 (+파우치 증정)",
+                "product_price": 54000,
+                "isLike": false,
+                "product_img_url": "https://sitem.ssgcdn.com/92/45/05/item/1000586054592_i1_500.jpg",
+                "product_order_count": 10,
+                "discount_rate": 10
+            },
+            {
+                "product_id": 4,
+                "product_name": "멀티 비타민 선퀴드",
+                "product_price": 54000,
+                "isLike": false,
+                "product_img_url": "https://sitem.ssgcdn.com/87/53/55/item/1000585555387_i1_750.jpg",
+                "product_order_count": 4353,
+                "discount_rate": 30
+            },{
+                "product_id": 5,
+                "product_name": "아쿠아 밤 125ml 대용량 에디션 (+파우치 증정)",
+                "product_price": 65000,
+                "isLike": false,
+                "product_img_url": "https://sitem.ssgcdn.com/92/45/05/item/1000586054592_i1_500.jpg",
+                "product_order_count": 1345,
+                "discount_rate": 20
+            },
+            {
+                "product_id": 7,
+                "product_name": "[S딜] 더 트루 크림 - 아쿠아 밤 125ml 대용량 에디션 (+파우치 증정)",
+                "product_price": 76000,
+                "isLike": false,
+                "product_img_url": "https://sitem.ssgcdn.com/53/32/01/item/1000587013253_i1_750.jpg",
+                "product_order_count": 23,
+                "discount_rate": 10
+            }
+        ],
+        "product_reviews": [
+            {
+                "review_id": 1,
+                "review_star": 4.5,
+                "review_createat": "2024-03-26",
+                "reviewer": "qwert",
+                "product_id": 1,
+                "product_name": "모이스처라이징 밤 50ml 세트",
+                "review_img_list": [
+                    {
+                        "review_img_url": "https://sitem.ssgcdn.com/50/25/26/item/1000073262550_i1_750.jpg"
+                    },
+                    {
+                        "review_img_url": "https://sitem.ssgcdn.com/31/55/55/item/1000585555531_i1_750.jpg"
+                    },
+                    {
+                        "review_img_url": "https://sitem.ssgcdn.com/50/25/26/item/1000073262550_i1_750.jpg"
+                    },
+                    {
+                        "review_img_url": "https://sitem.ssgcdn.com/31/55/55/item/1000585555531_i1_750.jpg"
+                    },
+                    {
+                        "review_img_url": "https://sitem.ssgcdn.com/50/25/26/item/1000073262550_i1_750.jpg"
+                    },
+                    {
+                        "review_img_url": "https://sitem.ssgcdn.com/31/55/55/item/1000585555531_i1_750.jpg"
+                    }
+                ]
+            }
+        ],
+        "photo_reviews": [
+            {
+                "review_id": 1,
+                "review_img_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+            },
+            {
+                "review_id": 2,
+                "review_img_url": "https://sitem.ssgcdn.com/15/50/30/item/1000054305015_i1_750.jpg"
+            },
+            {
+                "review_id": 3,
+                "review_img_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+            },
+            {
+                "review_id": 4,
+                "review_img_url": "https://sitem.ssgcdn.com/15/50/30/item/1000054305015_i1_750.jpg"
+            },
+            {
+                "review_id": 5,
+                "review_img_url": "https://sitem.ssgcdn.com/08/64/68/item/1000577686408_i1_750.jpg"
+            },
+            {
+                "review_id": 6,
+                "review_img_url": "https://sitem.ssgcdn.com/15/50/30/item/1000054305015_i1_750.jpg"
+            }
+        ]
+    }
+]
