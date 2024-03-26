@@ -15,9 +15,9 @@ async function getProductRandomData() {
 export default async function PreviewPopularityProducts() {
 
   const data = await getProductRandomData()
-  console.log(data)
-  console.log(data.products[0].image_url)
-  console.log(data.products[0].product_name)
+  // console.log(data)
+  // console.log(data.products[0].image_url)
+  // console.log(data.products[0].product_name)
 
   return (
     <>

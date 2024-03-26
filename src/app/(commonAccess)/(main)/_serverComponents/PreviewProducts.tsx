@@ -14,8 +14,8 @@ async function getProductFasionData() {
 
 export default async function PreviewProducts() {
   const data = await getProductFasionData()
-  console.log(data.products[0].image_url)
-  console.log(data.products[0].product_name)
+  // console.log(data.products[0].image_url)
+  // console.log(data.products[0].product_name)
   // const imageUrls = data.products.map((product: { image_url: any; }) => product.image_url);
   // console.log(imageUrls);
   return (

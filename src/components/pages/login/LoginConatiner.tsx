@@ -5,6 +5,7 @@ import Image from 'next/image';
 import toggleFalse from '@/assets/image/button/toggleFalse.png'
 import toggleTrue from '@/assets/image/button/toggleTrue.png'
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 
 export default function LoginContainer() {
   const [isToggled, setIsToggled] = useState(false);
@@ -38,6 +39,7 @@ export default function LoginContainer() {
         <p style={{paddingLeft:'8px',borderRight:'1px solid grey'}}></p>
         <Link href={'/join'}><p style={{paddingLeft:'8px',fontSize:'12px'}}>회원가입</p></Link>
       </div>
+      <p onClick={()=>signOut()}>logout</p>
     </>
   );
 }

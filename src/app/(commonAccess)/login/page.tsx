@@ -3,10 +3,11 @@ import Image from "next/image";
 import BackBtn from "../search/_components/BackBtn";
 import nullImg from "@/assets/image/etc/nullImg.png"
 import Footer from "@/components/layout/Footer";
-import LoginContainer from "@/app/(commonAccess)/login/_components/LoginConatiner"
-import LoginAuthIcon from "@/app/(commonAccess)/login/_components/LoginAuthIcon";
+import LoginContainer from "@/components/pages/login/LoginConatiner";
+import LoginAuthIcon from "@/components/pages/login/LoginAuthIcon";
 import adv4 from '@/assets/image/mainadvertisement/adv4.png'
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 
 export default function Page() {
@@ -30,7 +31,6 @@ export default function Page() {
                     <span className="float-left pr-[5px] text-[#9b9b9b]">비회원 조회하기</span>
                 </Link>
             </div>
-
             <Footer />
         </>
     );
