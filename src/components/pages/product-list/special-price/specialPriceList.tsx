@@ -22,10 +22,7 @@ export default function SpecialPriceList(props: any) {
 
                             <div className="grid grid-cols-7 gap-2">
                                 <div className="col-span-3">
-                                    <Image src={list.product_img_url}
-                                        width={150}
-                                        height={150}
-                                        alt='' />
+                                    <Image src={list.product_img_url} width={150} height={150} alt='' />
                                 </div>
                                 <div className="col-span-4">
                                     <Link href="" className="pt-[6px] pr-[8px] text-[13px] tracking-[-0.07rem] text-[#222222]">

@@ -17,7 +17,7 @@ export default function SpecialPriceContent(props: any) {
                 return (
                     <div key={index} className="pt-[10px] pb-[20px]">
                         <div>
-                            <Link href="product-list/special-price/1">
+                            <Link href="/product-list/special-price/1">
                                 <div>
                                     <Image src={list.bundle_img_url}
                                         alt=""
