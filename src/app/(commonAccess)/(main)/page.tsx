@@ -18,11 +18,11 @@ export default async function Home() {
 
   return (
     <>
-      <SsgNotification isView={session ? true : false} 
+      {/* <SsgNotification isView={session ? true : false} 
       userData={{
         userName: session?.user?.name || '손님',
         userPhoto: session?.user?.image || '',
-      }}/>
+      }}/> */}
       <MainBanner/>
       <MainCategory/>
       <PreviewProducts/>
