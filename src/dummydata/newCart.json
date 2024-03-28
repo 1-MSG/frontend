@@ -1,0 +1,44 @@
+{
+    "cart_product_list": [
+        {
+            "id": 1,
+            "cart_id": 1,
+            "product_id": 1,
+            "brand_id": 1,
+            "cart_product_quantity": 3,
+            "product_option_id": 1,
+            "is_checked": true,
+            "is_pinned": true
+        },
+        {
+            "id": 2,
+            "cart_id": 3,
+            "product_id": 2,
+            "brand_id": 1,
+            "cart_product_quantity": 1,
+            "product_option_id": 2,
+            "is_checked": true,
+            "is_pinned": false
+        },
+        {
+            "id": 3,
+            "cart_id": 11,
+            "product_id": 13,
+            "brand_id": 4,
+            "cart_product_quantity": 1,
+            "product_option_id": 5,
+            "is_checked": true,
+            "is_pinned": true
+        },
+        {
+            "id": 4,
+            "cart_id": 13,
+            "product_id": 5,
+            "brand_id": 1,
+            "cart_product_quantity": 2,
+            "product_option_id": 10,
+            "is_checked": false,
+            "is_pinned": false
+        }
+    ]
+}

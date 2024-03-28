@@ -1,12 +1,20 @@
 import EmptyCartUser from "../../components/pages/cart/emptyCartUser";
 import NotLogin from "../../components/pages/cart/notLogin";
 import NotUser from "../../components/pages/cart/notUser";
-import dataList from "@/app/(commonAccess)/dummydata/cart.json"
-import OrderProductInfo from "@/components/pages/cart/orderProductInfo";
+// import dataList from "@/app/(commonAccess)/dummydata/cart.json"
+import cartData from "@/dummydata/newCart.json";
+import OrderProductInfo from "@/components/pages/cart/OrderProductInfo";
+import { CartDataType } from "@/types/cartDataType";
 
+async function fetchData(): Promise<CartDataType[]>{
+    // fetch data
+    const res = cartData;
+    return res.cart_product_list;
+}
 
-export default function Page() {
-    const data = dataList[0];
+export default async function Page() {
+
+    const data:CartDataType[] = await fetchData();
 
     return (
         <main>
