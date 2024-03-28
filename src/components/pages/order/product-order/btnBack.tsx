@@ -1,9 +1,8 @@
 "use client"
 
 import React from 'react'
-import backBtn from "@/images/png/btn_back.png"
-import Image from 'next/image'
 import { useRouter } from 'next/navigation';
+import BackBtn from '@/images/svgs/BackBtn';
 
 
 function BtnBack() {
@@ -15,7 +14,9 @@ function BtnBack() {
 
     return (
         <div className='flex items-center w-[56px] h-[50px]'>
-            <Image src={backBtn} alt="" onClick={goBack}></Image>
+            <div onClick={goBack} className='pl-[15px]'>
+                <BackBtn />
+            </div>
         </div>
     )
 }
