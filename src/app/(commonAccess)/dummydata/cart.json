@@ -4,46 +4,66 @@
         "user_name": "홍길동",
         "address_name": "우리집",
         "address": "[48060] 부산광역시 해운대구 APEC로17, 4층 스파로스 아카데미 (우동)",
-        "product_info": [
+        "brand_list": [
             {
-                "product_id": 1,
-                "product_name": "나이키 그레이 후드티",
-                "product_brand": "나이키",
-                "product_img_url": "https://sitem.ssgcdn.com/23/11/62/item/1000240621123_i1_750.jpg",
-                "product_price": 10000,
-                "cart_product_quantity": 3,
-                "product_rate": 10,
+                "brand_id": 1,
+                "brand_name": "나이키",
                 "min_delivery_fee": 100000,
-                "product_option_id": 1,
-                "product_option_detail": "095",
                 "product_delivery_fee": 3000,
-                "cart_is_checked": true
+                "product_list": [
+                    {
+                        "product_id": 1,
+                        "product_name": "나이키 화이트 운동화",
+                        "product_img_url": "https://sitem.ssgcdn.com/28/72/76/item/1000543767228_i1_750.jpg",
+                        "product_price": 10000,
+                        "cart_product_quantity": 3,
+                        "product_rate": 10,
+                        "product_option_id": 1,
+                        "product_option_detail": "270",
+                        "cart_is_checked": true
+                    },
+                    {
+                        "product_id": 6,
+                        "product_name": "나이키 블랙 운동화",
+                        "product_img_url": "https://sitem.ssgcdn.com/28/72/76/item/1000543767228_i1_750.jpg",
+                        "product_price": 12000,
+                        "cart_product_quantity": 2,
+                        "product_rate": 10,
+                        "product_option_id": 1,
+                        "product_option_detail": null,
+                        "cart_is_checked": true
+                    }
+                ]
             },
             {
-                "product_id": 2,
-                "product_name": "뉴발란스 그레이 후드티",
-                "product_brand": "뉴발란스",
-                "product_img_url": "https://sitem.ssgcdn.com/23/11/62/item/1000240621123_i1_750.jpg",
-                "product_price": 20000,
-                "product_rate": 10,
-                "cart_product_quantity": 1,
+                "brand_id": 2,
+                "brand_name": "뉴발란스",
                 "min_delivery_fee": 100000,
-                "product_option_id": "100",
                 "product_delivery_fee": 3000,
-                "cart_is_checked": true
-            },
-            {
-                "product_id": 3,
-                "product_name": "뉴발란스 운동화",
-                "product_brand": "뉴발란스",
-                "product_img_url": "https://sitem.ssgcdn.com/23/11/62/item/1000240621123_i1_750.jpg",
-                "product_price": 10000,
-                "product_rate": 0,
-                "cart_product_quantity": 23,
-                "min_delivery_fee": 100000,
-                "product_option_id": "280",
-                "product_delivery_fee": 3000,
-                "cart_is_checked": false
+                "product_list": [
+                    {
+                        "product_id": 3,
+                        "product_name": "뉴발란스 530",
+                        "product_img_url": "https://sitem.ssgcdn.com/23/11/62/item/1000240621123_i1_750.jpg",
+                        "product_price": 200000,
+                        "product_rate": 10,
+                        "cart_product_quantity": 1,
+                        "product_option_id": 4,
+                        "product_option_detail": "220",
+                        "cart_is_checked": true
+                    },
+                    {
+                        "product_id": 4,
+                        "product_name": "뉴발란스 550",
+                        "product_img_url": "https://sitem.ssgcdn.com/23/11/62/item/1000240621123_i1_750.jpg",
+                        "product_price": 250000,
+                        "product_rate": 0,
+                        "cart_product_quantity": 4,
+                        "product_option_id": 3,
+                        "product_option_detail": "280",
+                        "cart_is_checked": false
+                    }
+                ]
             }
         ]
     }
