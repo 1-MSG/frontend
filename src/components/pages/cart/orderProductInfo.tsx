@@ -5,7 +5,7 @@ import DeleteCart from "@/images/svgs/DeleteCart"
 import ProductCount from "./productCount"
 import Image from "next/image";
 import CartTotal from "./cartTotal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function OrderProductInfo(props: any) {
 
@@ -15,8 +15,13 @@ export default function OrderProductInfo(props: any) {
     let brandTotal: any = [];
     let discountTotal: any = [];
     let originalTotal: any = [];
-    let value = 0;
+    let maxValue = 0
 
+    const [value, setValue] = useState(maxValue);
+    const [delivery2, setDelivery] = useState<Array<number>>([]);
+    const [brandTotal2, setBrandTotal] = useState([]);
+    const [discountTotal2, setDiscountTotal] = useState([]);
+    const [originalTotal2, setOrginalTotal] = useState([]);
 
     // -------------------- 체크 박스 ----------------------
 
@@ -28,15 +33,13 @@ export default function OrderProductInfo(props: any) {
         if (checked) {
             // 단일 선택 시 체크된 아이템을 배열에 추가
             setCheckItems(prev => [...prev, id]);
-            console.log(checkItems)
+            //console.log(checkItems)
         } else {
             // 단일 선택 해제 시 체크된 아이템을 제외한 배열 (필터)
             setCheckItems(checkItems.filter((el) => el !== id));
-            console.log(checkItems)
+            //console.log(checkItems)
         }
     };
-
-    console.log("checkItems " + checkItems)
 
     // 체크박스 전체 선택
     const handleAllCheck = (checked: boolean) => {
@@ -44,22 +47,31 @@ export default function OrderProductInfo(props: any) {
             // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
             const idArray: any = [];
 
-            data.brand_list.map((arr1:any, i:number) => {
-                arr1.product_list.map((arr2:any, j:number) => {
+            data.brand_list.map((arr1: any, i: number) => {
+                arr1.product_list.map((arr2: any, j: number) => {
                     idArray.push(arr2.product_id)
                 })
             })
 
             //data.forEach((el: any) => idArray.push(el.id));
             setCheckItems(idArray);
-            console.log(checkItems)
+            //console.log(checkItems)
         }
         else {
             // 전체 선택 해제 시 checkItems 를 빈 배열로 상태 업데이트
             setCheckItems([]);
-            console.log(checkItems)
+            //console.log(checkItems)
         }
     }
+
+    useEffect(() => {
+        if (checkItems.length == 0) setValue(maxValue);
+        else setValue(checkItems.length)
+    }, [checkItems])
+
+    console.log("test" + value);
+    console.log("checkItems " + checkItems)
+    console.log("checkItemslength " + checkItems.length)
 
 
 
@@ -70,7 +82,7 @@ export default function OrderProductInfo(props: any) {
         let original = 0;
 
         arr1.product_list.map((arr2: any, j: number) => {
-            value++;
+            maxValue++;
             sum += arr2.cart_product_quantity * (arr2.product_price * ((100 - arr2.product_rate) / 100))
             discount += arr2.cart_product_quantity * (arr2.product_price * (arr2.product_rate) / 100)
             original += arr2.cart_product_quantity * arr2.product_price
@@ -82,6 +94,13 @@ export default function OrderProductInfo(props: any) {
         brandTotal.push(sum);
         discountTotal.push(discount);
         originalTotal.push(original);
+
+        // useEffect(() => {
+        //     if (sum >= arr1.min_delivery_fee) setDelivery([...delivery2, 0])
+        //     else setDelivery([...delivery2, arr1.product_delivery_fee])
+        // }, [])
+        // if(sum >= arr1.min_delivery_fee) setDelivery([...delivery2, 0])
+        // else setDelivery([...delivery2, arr1.product_delivery_fee])
     })
 
     let finalOriginal = 0;
@@ -92,9 +111,9 @@ export default function OrderProductInfo(props: any) {
 
     let finalDelivery = 0;
     delivery.map((e: number) => finalDelivery += e)
+    delivery2.map((e: number) => finalDelivery += e)
 
 
-    
     // ------------ 숫자 쉼표 -------------
     function priceToString(price: number) {
         return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -113,7 +132,7 @@ export default function OrderProductInfo(props: any) {
                             <input type='checkbox' name='select-all'
                                 onChange={(e) => handleAllCheck(e.target.checked)}
                                 // 데이터 개수와 체크된 아이템의 개수가 다를 경우 선택 해제 (하나라도 해제 시 선택 해제)
-                                checked={checkItems.length === value ? true : false} />
+                                checked={checkItems.length === maxValue ? true : false} />
                         </span>
                         <span className="pl-[3px] pr-[5px]">전체</span>
                         <span className="pr-[5px]">품절삭제</span>
@@ -181,6 +200,8 @@ export default function OrderProductInfo(props: any) {
             </div>
 
             <CartTotal data={data} finalOriginal={finalOriginal} finalDiscount={finalDiscount} finalDelivery={finalDelivery} value={value} />
+
+
         </div>
 
     )

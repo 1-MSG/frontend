@@ -5,7 +5,7 @@ import ProductInfo from '@/components/pages/product-detail/productInfo';
 import ProductDetailInfo from '@/components/pages/product-detail/productDetailInfo';
 import CustomerReview from '@/components/pages/product-detail/customerReview';
 import MarketingBanner from '@/components/pages/product-detail/marketingBanner';
-import OrderFooter from '@/components/pages/product-detail/orderFooter';
+import ProductDetailLead from '@/components/pages/product-detail/productDetailLead';
 
 
 export default function Page() {
@@ -37,7 +37,7 @@ export default function Page() {
             <MarketingBanner giveData={data} />
 
             {/* 하단 구매하기 버튼 */}
-            <OrderFooter giveData={giveData}/>
+            <ProductDetailLead giveData={data}/>
 
         </main>
     );
