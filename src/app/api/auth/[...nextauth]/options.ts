@@ -42,20 +42,26 @@ export const options: NextAuthOptions = {
   callbacks: {
     async signIn({ user, profile}) {
       if(profile) {
-        console.log('ssg profile',profile)
-        // const res = await fetch(`${process.env.API_BASE_URL}/users/2`)
-        // console.log(res)
-        // if (res.ok) {
-        //   const getUser = await res.json()
-        //   console.log('ssg user',getUser, profile.name)
-        //   if(user.name === getUser.name) {
-        //     return '/';
-        //   } 
-        //   console.log('not ssg user',user)
-        //   return '/easy-signup';
-        // } 
-
-        // this.session.user = user;
+        console.log('ssg profile',profile, user)
+        const res = await fetch(`http://10.10.10.139:8080/api/v1/oauth/signup/easy`,{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email : "beat1103@gmail.com",
+            oauth_id : user.id,
+            oauth_name : "kakao",
+          })
+        
+        })
+        console.log(res)
+        if (res.ok) {
+          const getData = await res.json()
+          console.log('ssg user',getData, profile.name)
+          return { ...user, name: profile.name, email: getData.email, id: getData.id, oauth_id: getData.oauth_id, oauth_name: getData.oauth_name, role: getData.role }
+        } 
+        return 'easy-signup'
         
       }
       return true;

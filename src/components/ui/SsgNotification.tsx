@@ -38,8 +38,8 @@ export default function SsgNotification({isView, userData}:{isView:boolean, user
                   <div className="flex-shrink-0 pt-0.5">
                     <Image
                       className="h-10 w-10 rounded-full"
-                      src={userData && userData.userPhoto || "nullImg"}
-                      alt={userData && userData.userName || "nullImg"}
+                      src={userData && userData.userPhoto || ""}
+                      alt={userData && userData.userName || ""}
                     width={40}
                     height={40}
                     priority
