@@ -1,9 +1,9 @@
-import categoryList from '@/app/(commonAccess)/dummydata/category.json'
+import categoryList from '@/dummydata/category.json'
 import CategoryTab from '@/components/pages/product-list/categoryTab'
 import RankingTab from '@/components/pages/product-list/special-price/rankingTab'
 import DepartmentIcon from '@/images/svgs/DepartmentIcon'
 import SsgDeliveryIcon from '@/images/svgs/SsgDeliveryIcon'
-import specialPriceList from '@/app/(commonAccess)/dummydata/specialPriceData.json'
+import specialPriceList from '@/dummydata/specialPriceData.json'
 import SpecialPriceContent from '@/components/pages/product-list/special-price/specialPriceContent'
 
 export default function Page() {

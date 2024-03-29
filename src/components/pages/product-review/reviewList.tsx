@@ -1,5 +1,5 @@
 import Link from "next/link";
-import data from '@/app/(commonAccess)/dummydata/review_create_data.json'
+import data from '@/dummydata/review_create_data.json'
 import SelectCustom from "@/images/svgs/selectCustom";
 
 export default function ReviewList() {

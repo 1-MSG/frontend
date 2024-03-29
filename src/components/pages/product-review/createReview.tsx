@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import data from '@/app/(commonAccess)/dummydata/review_create_data.json'
+import data from '@/dummydata/review_create_data.json'
 
 export default function CreateReview() {
 

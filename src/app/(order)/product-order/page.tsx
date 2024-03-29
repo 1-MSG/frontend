@@ -1,4 +1,4 @@
-import dummydata from '@/app/(commonAccess)/dummydata/order.json'
+import dummydata from '@/dummydata/order.json'
 import Crooked from '../../../components/pages/order/product-order/crooked';
 import OrderDeliveryInfo from '@/components/pages/order/product-order/orderDeliveryInfo';
 import OrderPaymentInfo from '@/components/pages/order/product-order/orderPaymentInfo';

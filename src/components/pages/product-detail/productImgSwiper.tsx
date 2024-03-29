@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useRef } from 'react';
-import data from '@/app/(commonAccess)/dummydata/product_detail_data.json'
+import data from '@/dummydata/product_detail_data.json'
 import Link from 'next/link'
 import Image from 'next/image';
 

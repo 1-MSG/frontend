@@ -1,6 +1,6 @@
 import CategoryCrooked from "@/images/svgs/CategoryCrooked";
 import BtnBack from "../product-review/BtnBack";
-import categoryList from "@/app/(commonAccess)/dummydata/categoryDetail.json"
+import categoryList from "@/dummydata/categoryDetail.json"
 import SelectCustom from "@/images/svgs/selectCustom";
 import Like from "@/images/svgs/Like";
 import Share from "@/images/svgs/Share";

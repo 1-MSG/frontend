@@ -1,0 +1,29 @@
+{
+    "like_list": [
+        {
+            "id": 1,
+            "like_id": 1,
+            "product_id": 1
+        },
+        {
+            "id": 2,
+            "like_id": 2,
+            "product_id": 2
+        },
+        {
+            "id": 3,
+            "like_id": 3,
+            "product_id": 3
+        },
+        {
+            "id": 4,
+            "like_id": 4,
+            "product_id": 4
+        },
+        {
+            "id": 5,
+            "like_id": 5,
+            "product_id": 5
+        }
+    ]
+}

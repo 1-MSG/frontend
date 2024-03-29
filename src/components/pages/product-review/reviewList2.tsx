@@ -1,4 +1,4 @@
-import data from '@/app/(commonAccess)/dummydata/review_create_data.json'
+import data from '@/dummydata/review_create_data.json'
 
 export default function ReviewList2() {
     return (

@@ -1,5 +1,5 @@
-import categoryList from '@/app/(commonAccess)/dummydata/category.json'
-import productList from '@/app/(commonAccess)/dummydata/productList.json'
+import categoryList from '@/dummydata/category.json'
+import productList from '@/dummydata/productList.json'
 import CategoryTab from '@/components/pages/product-list/categoryTab'
 import ProductConetent from '@/components/pages/product-list/productContent'
 import RankingTab from '@/components/pages/product-list/ranking/rankingTab'
