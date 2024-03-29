@@ -3,7 +3,7 @@ import NotLogin from "../../components/pages/cart/notLogin";
 import NotUser from "../../components/pages/cart/notUser";
 // import dataList from "@/app/(commonAccess)/dummydata/cart.json"
 import cartData from "@/dummydata/newCart.json";
-import OrderProductInfo from "@/components/pages/cart/OrderProductInfo";
+import OrderProductInfo from "@/components/pages/cart/orderProductInfo";
 import { CartDataType } from "@/types/cartDataType";
 
 async function fetchData(): Promise<CartDataType[]>{

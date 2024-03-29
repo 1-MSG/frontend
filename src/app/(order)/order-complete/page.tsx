@@ -1,6 +1,6 @@
 import OrderInfo from "../../../components/pages/order/order-complete/orderInfo";
 import Benefit from "../../../components/pages/order/order-complete/benefit";
-import data from "@/app/(commonAccess)/dummydata/orderInfomation.json"
+import data from "@/dummydata/orderInfomation.json"
 
 export default function Page() {
     const giveData = data[0];

@@ -1,4 +1,4 @@
-import bundleDetail from '@/app/(commonAccess)/dummydata/bundleDatail.json'
+import bundleDetail from '@/dummydata/bundleDatail.json'
 import Advertisement from '@/components/pages/product-list/special-price/advertisement'
 import SpecialRriceCustomerReview from '@/components/pages/product-list/special-price/specialPriceCustomerReview'
 import SpecialPriceInfo from '@/components/pages/product-list/special-price/specialPriceInfo'

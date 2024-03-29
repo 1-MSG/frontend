@@ -1,4 +1,4 @@
-import data from '@/app/(commonAccess)/dummydata/product_detail_data.json'
+import data from '@//dummydata/product_detail_data.json'
 import Share from '@/images/svgs/Share';
 import ProductImgSwiper from '@/components/pages/product-detail/productImgSwiper';
 import ProductInfo from '@/components/pages/product-detail/productInfo';
