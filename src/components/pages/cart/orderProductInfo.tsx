@@ -21,6 +21,8 @@ export default function OrderProductInfo({data}:{data:CartDataType[]}) {
         console.log(cartListByBrand);
         setCartListByBrand(cartListByBrand);
     }, [data]);
+
+
     // let delivery: any = [];
     // let brandTotal: any = [];
     // let discountTotal: any = [];
@@ -28,10 +30,6 @@ export default function OrderProductInfo({data}:{data:CartDataType[]}) {
     // let maxValue = 0
 
     // const [value, setValue] = useState(maxValue);
-    // const [delivery2, setDelivery] = useState<Array<number>>([]);
-    // const [brandTotal2, setBrandTotal] = useState([]);
-    // const [discountTotal2, setDiscountTotal] = useState([]);
-    // const [originalTotal2, setOrginalTotal] = useState([]);
 
     // // -------------------- 체크 박스 ----------------------
 
@@ -122,12 +120,6 @@ export default function OrderProductInfo({data}:{data:CartDataType[]}) {
     // let finalDelivery = 0;
     // delivery.map((e: number) => finalDelivery += e)
     // delivery2.map((e: number) => finalDelivery += e)
-
-
-    // // ------------ 숫자 쉼표 -------------
-    // function priceToString(price: number) {
-    //     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    // }
 
 
 

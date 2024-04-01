@@ -1,0 +1,39 @@
+{
+    "category_middle_list1": [
+        {
+            "id": 14,
+            "product_category_id": 14,
+            "product_category_name": "상품 전체보기"
+        },
+        {
+            "id": 15,
+            "product_category_id": 15,
+            "product_category_name": "여성브랜드패션"
+        },
+        {
+            "id": 16,
+            "product_category_id": 16,
+            "product_category_name": "여성트렌드패션"
+        },
+        {
+            "id": 17,
+            "product_category_id": 17,
+            "product_category_name": "남성패션"
+        },
+        {
+            "id": 18,
+            "product_category_id": 18,
+            "product_category_name": "캐주얼/유니섹스"
+        },
+        {
+            "id": 19,
+            "product_category_id": 19,
+            "product_category_name": "언더웨어"
+        },
+        {
+            "id": 20,
+            "product_category_id": 20,
+            "product_category_name": "디자이너샵"
+        }
+    ]
+}

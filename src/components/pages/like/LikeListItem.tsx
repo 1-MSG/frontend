@@ -20,9 +20,9 @@ export default function LikeListItem({ data }: { data: LikeDataType[] }) {
             </div>
 
             <div>
-                <ul className="mx-[12px]">
+                <ul className="flex flex-wrap mx-[12px]">
                     {data.map((item: LikeDataType) => (
-                        <li key={item.id} className="inline-block px-[4px] pt-[10px] pb-[20px]">
+                        <li key={item.id} className="w-1/2 px-[4px] pt-[10px] pb-[20px]">
                             <LikeItem
                                 list={item}
                             />

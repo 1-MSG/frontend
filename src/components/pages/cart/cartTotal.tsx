@@ -9,12 +9,6 @@ export default function CartTotal(props:any) {
     let finalDelivery = props.finalDelivery;
     let finalPrice = finalOriginal - finalDiscount + finalDelivery
 
-
-    // ------------ 숫자 쉼표 -------------
-    function priceToString(price: number) {
-        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-
     
     return (
         <div>
@@ -26,19 +20,19 @@ export default function CartTotal(props:any) {
                         <h3><strong className="text-[20px] font-bold">결제 예정금액</strong></h3>
                         <dl className="flex mt-[6px] text-[13px]">
                             <dt>주문금액</dt>
-                            <dd>+{priceToString(finalOriginal)}원</dd>
+                            <dd>+{finalOriginal.toLocaleString()}원</dd>
                         </dl>
                         <dl className="flex mt-[6px] text-[13px]">
                             <dt>상품할인</dt>
-                            <dd className="text-[#ff5452]">-{priceToString(finalDiscount)}원</dd>
+                            <dd className="text-[#ff5452]">-{finalDiscount.toLocaleString()}원</dd>
                         </dl>
                         <dl className="flex mt-[6px] text-[13px]">
                             <dt>배송비</dt>
-                            <dd>+{priceToString(finalDelivery)}원</dd>
+                            <dd>+{finalDelivery.toLocaleString()}원</dd>
                         </dl>
                         <dl className="flex mt-[10px] pt-[10px] ">
                             <dt>총 결제예정금액</dt>
-                            <dd>{priceToString(finalPrice)}원</dd>
+                            <dd>{finalPrice.toLocaleString()}원</dd>
                         </dl>
                     </div>
                 </div>
@@ -59,7 +53,7 @@ export default function CartTotal(props:any) {
 
             <div className="bottom-0 fixed w-full z-10 bg-white rounded-t-md shadow-[20px_10px_20px_15px_rgba(0,0,0,0.2)] tracking-[-0.07rem]">
                 <div className="p-[16px] text-[13px]">
-                    <p>전체상품 {value}개 {priceToString(finalOriginal - finalDiscount)}원 + 배송비 {priceToString(finalDelivery)}원 = {priceToString(finalPrice)}원</p>
+                    <p>전체상품 {value}개 {(finalOriginal - finalDiscount).toLocaleString()}원 + 배송비 {finalDelivery.toLocaleString()}원 = {finalPrice.toLocaleString()}원</p>
                     <p className="text-[#ff5452]">청구할인 혜택보기</p>
                 </div>
                 <div className="bg-[#ff5452] h-[52px] leading-[52px] text-center text-white text-[16px] ">주문하기</div>

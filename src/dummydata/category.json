@@ -1,54 +1,81 @@
-[
-    {
-        "category_id": 1,
-        "category_name": "패션의류"
-    },
-    {
-        "category_id": 2,
-        "category_name": "패션잡화"
-    },
-    {
-        "category_id": 3,
-        "category_name": "명품"
-    },
-    {
-        "category_id": 4,
-        "category_name": "뷰티"
-    },
-    {
-        "category_id": 5,
-        "category_name": "스포츠레저"
-    },
-    {
-        "category_id": 6,
-        "category_name": "생활/주방"
-    },
-    {
-        "category_id": 7,
-        "category_name": "가구/인테리어"
-    },
-    {
-        "category_id": 8,
-        "category_name": "유아동"
-    },
-    {
-        "category_id": 9,
-        "category_name": "디지털/렌탈"
-    },
-    {
-        "category_id": 10,
-        "category_name": "e쿠폰/문구/도서"
-    },
-    {
-        "category_id": 11,
-        "category_name": "신선식품"
-    },
-    {
-        "category_id": 12,
-        "category_name": "건강/가공식품"
-    },
-    {
-        "category_id": 13,
-        "category_name": "반려동물"
-    }
-]
+{
+    "cetegory_list": [
+        {
+            "id": 1,
+            "product_category_id": 1,
+            "product_category_name": "패션의류",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202205/2022052715323630486875175787_152.jpg&w=750&h=0"
+        },
+        {
+            "id": 2,
+            "product_category_id": 2,
+            "product_category_name": "패션잡화",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202007/2020072114393459688641690964_438.jpg&w=750&h=0"
+        },
+        {
+            "id": 3,
+            "product_category_id": 3,
+            "product_category_name": "명품",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202309/2023091316533605979685806078_770.jpg&w=750&h=0"
+        },
+        {
+            "id": 4,
+            "product_category_id": 4,
+            "product_category_name": "뷰티",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202007/2020072114395544822427384242_240.jpg&w=750&h=0"
+        },
+        {
+            "id": 5,
+            "product_category_id": 5,
+            "product_category_name": "스포츠레저",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202007/2020072114401652224140854414_993.jpg&w=750&h=0"
+        },
+        {
+            "id": 6,
+            "product_category_id": 6,
+            "product_category_name": "생활/주방",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202108/2021082715571416016294783629_536.jpg&w=750&h=0"
+        },
+        {   "id": 7,
+            "product_category_id": 7,
+            "product_category_name": "가구/인테리어",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202007/2020072114435685703321603332_446.jpg&w=750&h=0"
+        },
+        {
+            "id": 8,
+            "product_category_id": 8,
+            "product_category_name": "유아동",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202108/2021082715435395419791160789_721.jpg&w=750&h=0"
+        },
+        {
+            "id": 9,
+            "product_category_id": 9,
+            "product_category_name": "디지털/렌탈",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202108/2021082715441465403746388474_754.jpg&w=750&h=0"
+        },
+        {
+            "id": 10,
+            "product_category_id": 10,
+            "product_category_name": "e쿠폰/문구/도서",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202112/2021120208063004997226756822_375.jpg&w=750&h=0"
+        },
+        {
+            "id": 11,
+            "product_category_id": 11,
+            "product_category_name": "신선식품",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202112/2021120208064724360560114156_388.jpg&w=750&h=0"
+        },
+        {
+            "id": 12,
+            "product_category_id": 12,
+            "product_category_name": "건강/가공식품",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202112/2021120208065932731184991218_891.jpg&w=750&h=0"
+        },
+        {
+            "id": 13,
+            "product_category_id": 13,
+            "product_category_name": "반려동물",
+            "category_image": "https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202110/2021101209162383633316135331_967.jpg&w=750&h=0"
+        }
+    ]
+}

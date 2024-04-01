@@ -1,6 +1,6 @@
-import categoryList from "@/app/(commonAccess)/dummydata/categoryDetail.json"
+import categoryList from "@/dummydata/categoryDetail.json"
 import CategoryTab from "@/components/pages/catogory-list/categoryTab"
-import productList from "@/app/(commonAccess)/dummydata/productList.json"
+import productList from "@/dummydata/productList.json"
 import ProductConetent from "@/components/pages/product-list/productContent"
 
 export default function Page() {
