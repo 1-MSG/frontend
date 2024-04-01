@@ -19,12 +19,25 @@ import temaImg from '@/assets/image/etc/etc4.png'
 import etc5 from '@/assets/image/etc/etc5.png'
 import LeftNav from "@/components/layout/LeftNav";
 import RightNav from "@/components/layout/RightNav";
+import { CategoryDataType } from "@/types/categoryDataType";
+import categoryData from "@/dummydata/category.json"
+import CategoryTheme from "@/components/pages/category/CategoryTheme";
+import CategoryListItem from "@/components/pages/category/CategoryListItem";
 
-export default function Page() {
+async function fetchData(): Promise<CategoryDataType[]>{
+    // fetch data
+    const res = categoryData;
+    return res.cetegory_list; 
+}
+
+export default async function Page() {
+
+    const data:CategoryDataType[] = await fetchData();
+
     return (
-        <>
+        <main>
     
-            <div style={{ background: 'linear-gradient(to right, red, #B404AE, purple)', width: '100%', height:'1.5px'}}>
+            {/* <div style={{ background: 'linear-gradient(to right, red, #B404AE, purple)', width: '100%', height:'1.5px'}}>
 
             </div>
             <div style={{width: '100%', display:'flex', justifyContent:'space-evenly',paddingTop: '30px', paddingBottom: '20px'}}>
@@ -48,16 +61,16 @@ export default function Page() {
                 <Image src={nullImg} alt='' style={{width:'60px', height:'75px'}}></Image>
                 <Image src={nullImg} alt='' style={{width:'62px', height:'75px'}}></Image>
             </div>
+ 
+            */}
 
-            <div style={{padding : '18px'}}>
-                <h2 style={{fontSize:'13px', fontWeight:'bold'}}>테마추천</h2>
+            <div style={{ background: 'linear-gradient(to right, red, #B404AE, purple)', width: '100%', height:'1.5px'}}></div>
+
+            <div className="mt-[16px] mb-[50px] px-[10px]">
+                <CategoryListItem data={data}/>
             </div>
-            <div style={{ display: 'flex', width: '100%' }}>
-                <Image src={temaImg} alt='' style={{width:'100%', height:'auto'}}></Image>
-            </div>
-            <div style={{background:'#555555',marginTop:'50px',width: '100%', padding:'40px' , paddingBottom:'150px',display:'flex', justifyContent:'center'}}>
-                <Image src={etc5} alt='' style={{width:'200px', height:'auto'}}></Image>
-            </div>
-        </>
+
+            <CategoryTheme />
+        </main>
     );
 }

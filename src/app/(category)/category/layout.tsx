@@ -1,17 +1,15 @@
-import Header from "@/components/layout/Header";
 import LeftNav from "@/components/layout/LeftNav";
-import Nav from "@/components/layout/Nav";
 import RightNav from "@/components/layout/RightNav";
+import CategoryHeader from "@/components/pages/category/CategoryHeader";
 
 export default function Layout({children} : {children : React.ReactNode}) {
 
     return (
         <>
-            <Header/>
+            <CategoryHeader/>
             {children}
             <LeftNav/>
             <RightNav/>
-            <Nav/>
         </>
     );
 

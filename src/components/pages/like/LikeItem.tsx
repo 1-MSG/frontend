@@ -41,16 +41,15 @@ export default function LikeItem({ list }: { list: LikeDataType }) {
     return (
         <>
             <div className="inline-block tracking-[-0.07rem]">
-                <div>
-                    <Link href="" >
-                        <Image src={product_img_url} width={175} height={175} alt="" />
-                    </Link>
-                </div>
+                
+                <Link href="" className="w-full h-auto object-cover overflow-hidden">
+                    <Image src={product_img_url} width={500} height={500} alt="" />
+                </Link>
                 <div>
                     <div className="flex">
-                        <div className="w-[56px]"></div>
+                        <div className="w-[60%]"></div>
                         <div className="flex items-center">
-                            <span className=" w-[27px]"><LikeTrue /></span>
+                            <span className="w-[40%]"><LikeTrue /></span>
                             <span><CartIcon w={33} h={33} /></span>
                         </div>
                     </div>
