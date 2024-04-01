@@ -9,6 +9,12 @@ export default function OrderFooter(props:any) {
     const giveData = props.giveData;
     const [orderModal, setOrderModal] = useState(false);
 
+    const orderList = props.orderList;
+    const priceList = props.priceList;
+    const setTotal = props.setTotal;
+    const total = props.total;
+    const { onRemove } = props;
+
     const clickOrderModal = () => { setOrderModal(!orderModal) }
 
     return (
@@ -22,7 +28,7 @@ export default function OrderFooter(props:any) {
                 </li>
                 {
                     orderModal &&
-                    <OrderModal clickOrderModal={clickOrderModal} giveData={giveData} />
+                    <OrderModal clickOrderModal={clickOrderModal} giveData={giveData} onRemove={onRemove} orderList={orderList} priceList={priceList} total={total} setTotal={setTotal}/>
                 }
             </ul>
         </div>

@@ -5,16 +5,29 @@ import NotUser from "../../components/pages/cart/notUser";
 import cartData from "@/dummydata/newCart.json";
 import OrderProductInfo from "@/components/pages/cart/orderProductInfo";
 import { CartDataType } from "@/types/cartDataType";
+import { getServerSession } from "next-auth";
+import { options } from "../api/auth/[...nextauth]/options";
 
 async function fetchData(): Promise<CartDataType[]>{
     // fetch data
+     // if(session) {
+        // 세션확인후 유저의 장바구니 불러오기
+        // const data = await fetch(`${process.env.API_BASE_URL}/auth/login`,{
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     //  헤더 토큰 값 주입
+        //     }
+        //   })
+    // }
+
     const res = cartData;
     return res.cart_product_list;
 }
 
 export default async function Page() {
 
-    const data:CartDataType[] = await fetchData();
+    const session = await getServerSession(options)
+    const data = await fetchData()
 
     return (
         <main>

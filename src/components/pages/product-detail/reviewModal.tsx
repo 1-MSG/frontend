@@ -13,6 +13,7 @@ import BackBtn from '@/images/svgs/BackBtn';
 import Recommendation from "@/images/svgs/Recommendation";
 import ReviewPhotoImgSwiper from "./reviewPhotoImgSwiper";
 import ReviewEntireImgSwiper from "./reviewEntireImgSwiper";
+import StarRate from "./StarRate";
 
 
 const ReviewModal = (props: any) => {
@@ -40,9 +41,15 @@ const ReviewModal = (props: any) => {
                     <div className='flex items-center w-[56px] h-[50px]'></div>
                 </div>
 
-                <div className='px-[16px] pt-[25px] pb-[34px]'>
-                    별점
+                <div className='px-[16px] pt-[25px] pb-[34px] relative text-center'>
+                <span className='inline-block mt-[-3px] mr-[20px] font-bold text-[44px]'>{data.product_star}</span>
+                <div className='inline-block'>
+                    <StarRate product_star={data.product_star}/>
+                    <span className='mt-[6px] text-[14px] font-medium '>
+                        {data.product_review_count.toLocaleString()}건 리뷰
+                    </span>
                 </div>
+            </div>
 
                 <div className='flex mb-[16px] px-[16px] tracking-[-0.05rem]'>
                     <span className='text-[16px] font-bold'>포토&동영상 리뷰</span>
@@ -54,7 +61,7 @@ const ReviewModal = (props: any) => {
 
                 <div className='h-[62px] leading-[52px] mt-[60px] px-[20px] text-[13px] border-t-[10px] border-[#f5f5f5]'>
                     <div className='float-left'>
-                        <p className='float-left'>전체&#40;{data[0].product_reviews.length}&#41;</p>
+                        <p className='float-left'>전체&#40;{data.product_reviews.length}&#41;</p>
                         <div className='float-left pt-[22px] pl-[4px]'><SelectCustom /></div>
                     </div>
                     <div className='float-right'>
@@ -68,7 +75,7 @@ const ReviewModal = (props: any) => {
                 </div>
                 <div className='h-[1px] bg-[#f5f5f5]'></div>
                 <div className='pb-[20px] border-b-[40px] border-[#f5f5f5]'>
-                    {data[0].product_reviews.map((reviews: any, index: number) => {
+                    {data.product_reviews.map((reviews: any, index: number) => {
                         return (
                             <div key={index} className='p-[20px]'>
                                 <div className=''>

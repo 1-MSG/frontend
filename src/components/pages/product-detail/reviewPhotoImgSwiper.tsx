@@ -11,7 +11,7 @@ export default function ReviewPhotoImgSwiper(props: any) {
 
     const data = props.giveData
 
-    console.log(data.photo_reviews);
+    //console.log(data.photo_reviews);
 
 
     SwiperCore.use([Navigation]);
@@ -29,7 +29,7 @@ export default function ReviewPhotoImgSwiper(props: any) {
             autoplay={false}
             navigation={false}
         >
-            {data[0].photo_reviews.map((review: any, index: number) => {
+            {data.photo_reviews.map((review: any, index: number) => {
                 return (
                     <SwiperSlide key={index}>
                         <Image src={review.review_img_url}

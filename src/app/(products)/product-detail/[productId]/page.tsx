@@ -1,4 +1,4 @@
-import data from '@//dummydata/product_detail_data.json'
+import Data from '@//dummydata/product_detail_data.json'
 import Share from '@/images/svgs/Share';
 import ProductImgSwiper from '@/components/pages/product-detail/productImgSwiper';
 import ProductInfo from '@/components/pages/product-detail/productInfo';
@@ -10,7 +10,7 @@ import ProductDetailLead from '@/components/pages/product-detail/productDetailLe
 
 export default function Page() {
 
-    const giveData = data[0];
+    const data = Data[0];
 
     return (
         <main>

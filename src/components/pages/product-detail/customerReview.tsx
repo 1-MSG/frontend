@@ -10,6 +10,7 @@ import { useRef, useState } from 'react';
 import Star from '@/images/svgs/Star';
 import ReviewPhotoImgSwiper from './reviewPhotoImgSwiper';
 import ReviewModal from './reviewModal';
+import StarRate from './StarRate';
 
 export default function CustomerReview(props: any) {
     const data = props.giveData;
@@ -28,14 +29,21 @@ export default function CustomerReview(props: any) {
         return word.substring(0, i) + '*'.repeat(word.length - 3)
     }
 
+
     return (
         <div className='pb-[40px]' >
             <div className='pt-[40px] px-[16px] mb-[15px] text-[19px] font-bold tracking-[-0.05rem] border-b border-[#f5f5f5] last:border-b-0'>
                 <h3 className='inline-block border-b border-[#000]'>고객리뷰</h3>
             </div>
 
-            <div className='px-[16px] pt-[25px] pb-[34px] '>
-                리뷰 별점
+            <div className='px-[16px] pt-[25px] pb-[34px] relative text-center'>
+                <span className='inline-block mt-[-3px] mr-[20px] font-bold text-[44px]'>{data.product_star}</span>
+                <div className='inline-block'>
+                    <StarRate product_star={data.product_star}/>
+                    <span className='mt-[6px] text-[14px] font-medium'>
+                        {data.product_review_count.toLocaleString()}건 리뷰
+                    </span>
+                </div>
             </div>
 
             <div className='flex mb-[16px] px-[16px] tracking-[-0.05rem]'>
@@ -65,7 +73,7 @@ export default function CustomerReview(props: any) {
             </div>
 
             <div className=''>
-                {data[0].product_reviews.map((reviews: any) => {
+                {data.product_reviews.map((reviews: any) => {
                     return (
                         <div key={reviews.review_id} className='mx-[16px] first:pt-[15px] pt-[30px] pb-[20px] border-b border-[#f5f5f5] last:border-none' >
                             <div className='relative '>
@@ -106,7 +114,7 @@ export default function CustomerReview(props: any) {
             <div className='text-center'>
                 <button className='inline-block bottom-0 w-11/12 mb-5  font-bold pt-3 pb-3 rounded-lg border border-[#f5f5f5] text-[#848684] text-[13px]'
                     onClick={() => setModal(true)}>
-                    더보기 &#40;{data[0].product_reviews.length}&#41;
+                    더보기 &#40;{data.product_reviews.length}&#41;
                 </button>
             </div>
             {

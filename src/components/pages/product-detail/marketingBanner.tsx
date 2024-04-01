@@ -22,7 +22,7 @@ export default function MarketingBanner(props:any) {
                         카테고리
                     </dt>
                     <dd className='ml-[80px] font-bold'>
-                        {data[0].product_category_name} &gt; {data[0].product_category_name_mid}
+                        {data.product_category_name} &gt; {data.product_category_name_mid}
                     </dd>
                 </dl>
             </div>
