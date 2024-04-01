@@ -14,7 +14,7 @@ import SsgNotification from "@/components/ui/SsgNotification";
 export default async function Home() {
 
   const session = await getServerSession(options);
-  console.log('mainsession',session);
+  console.log('mainsession',session?.user);
 
   return (
     <>
