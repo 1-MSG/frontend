@@ -13,15 +13,16 @@ export default function OrderOptionModal(props: any) {
     const impossible: any = [];
 
     optionList.map((e: any) => {
-        if (e.stock == 0) impossible.push({ "product_option_id": e.product_option_id, "size": e.size, "color": e.color})
-        else possible.push({ "product_option_id": e.product_option_id, "size": e.size, "color": e.color})
+        if (e.stock == 0) impossible.push(e)
+        else possible.push(e)
     })
 
 
+    console.log(possible);
     
 
-    let optionRef = useRef([]);
-    console.log("디테일 " + JSON.stringify(optionRef));
+    // let optionRef = useRef([]);
+    // console.log("디테일 " + JSON.stringify(optionRef));
 
     return (
         <div className="w-full h-[497px] bg-white fixed z-20 bottom-0 justify-center items-center rounded-t-md overflow-scroll shadow-[20px_10px_20px_15px_rgba(0,0,0,0.2)]">
@@ -38,7 +39,7 @@ export default function OrderOptionModal(props: any) {
                             return (
                                 <li key={option.product_option_id}
                                     className="mt-[12px] first:mt-0 text-[12px] text-left h-[50px]"
-                                    onClick={() => {getOption(option.product_option_id, option.color, option.size); clickOptionModal()}}>
+                                    onClick={() => {getOption(option); clickOptionModal()}}>
                                     {option.color} {option.size}
                                 </li>
                             )
