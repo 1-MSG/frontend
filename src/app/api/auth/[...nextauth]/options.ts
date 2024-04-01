@@ -7,10 +7,11 @@ export const options: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        loginId: { label: "LoginId", type: "text", placeholder: "SSG" },
+        loginId: { label: "loginId", type: "text", placeholder: "SSG" },
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials, req) {
+        console.log('credentials',credentials)
         if ( !credentials?.loginId || !credentials?.password ) {
           return null;
         }
