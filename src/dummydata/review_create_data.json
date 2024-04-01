@@ -1,24 +1,35 @@
-[
-    {
-        "order_id": 1,
-        "product_name": "이클립스 피치",
-        "order_created_at": "2024.03.13",
-        "product_id" : 1,
-        "review_id": 1,
-        "review_star" : 4,
-        "review_create_at": "2024.03.14",
-        "review_content" : "맛있어요",
-        "product_img_url" : "https://sitem.ssgcdn.com/30/75/43/item/1000029437530_i1_750.jpg"
-    },
-    {
-        "order_id": 2,
-        "product_name": "이클립스 페퍼민트",
-        "order_created_at": "2024.03.13",
-        "product_id" : 2,
-        "review_id": 2,
-        "review_star" : 5,
-        "review_create_at": "2024.03.14",
-        "review_content" : "맛있어요2",
-        "product_img_url" : "https://sitem.ssgcdn.com/00/76/43/item/1000029437600_i1_750.jpg"
-    }
-]
+{
+    "creat_review": [
+        {
+            "id": 1,
+            "order_id": 1,
+            "product_id": 1,
+            "product_name": "이클립스 피치",
+            "product_img_url": "https://sitem.ssgcdn.com/30/75/43/item/1000029437530_i1_750.jpg"
+        }
+    ],
+    "read_review": [
+        {
+            "order_id": 1,
+            "product_name": "이클립스 피치",
+            "order_created_at": "2024.03.13",
+            "product_id": 1,
+            "review_id": 1,
+            "review_star": 4,
+            "review_create_at": "2024.03.14",
+            "review_content": "맛있어요",
+            "product_img_url": "https://sitem.ssgcdn.com/30/75/43/item/1000029437530_i1_750.jpg"
+        },
+        {
+            "order_id": 2,
+            "product_name": "이클립스 페퍼민트",
+            "order_created_at": "2024.03.13",
+            "product_id": 2,
+            "review_id": 2,
+            "review_star": 5,
+            "review_create_at": "2024.03.14",
+            "review_content": "맛있어요2",
+            "product_img_url": "https://sitem.ssgcdn.com/00/76/43/item/1000029437600_i1_750.jpg"
+        }
+    ]
+}
