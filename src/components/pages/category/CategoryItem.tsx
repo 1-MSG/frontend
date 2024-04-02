@@ -1,16 +1,40 @@
 
-import { QueryClientProvider, QueryClient, useQuery } from '@tanstack/react-query';
-import categoryMiddle from '@/dummydata/categoryMiddle.json'
-import { CategoryDataType } from "@/types/categoryDataType";
-import Link from 'next/link';
-import fetchMiddleCategory from '@/app/(category)/category/page';
+'use client'
 
+import { CategoryDataType } from "@/types/categoryDataType";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function CategoryItem({categoryId}: {categoryId: number}) {
+    console.log("categoryId", categoryId);
+
+    const router = useRouter();
+    const [middleCategory, setMiddleCategory] = useState<CategoryDataType[]>();
+
+    const handleClick = (id: number) => {
+        router.push(`/category-product?categoryLid=${categoryId}&categoryMid=${id.toString()}`);
+    }
+
+    useEffect(() => {
+        const getData = async () => {
+            const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`)
+            if (res.ok) {
+                const data = await res.json();
+                console.log(data);
+                setMiddleCategory(data.data);
+            }
+        }
+        getData();
+    }, [categoryId])
+    
     
     return(
         <div>
-
+            {middleCategory?.map((item: CategoryDataType) => (
+                <div key={item.categoryId} onClick={()=>handleClick(item.categoryId)}>
+                    {item.categoryName}
+                </div>
+            ))}
         </div>
     )
 }

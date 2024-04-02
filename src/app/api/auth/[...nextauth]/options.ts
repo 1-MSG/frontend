@@ -1,4 +1,5 @@
 import { NextAuthOptions } from "next-auth";
+import NextAuth, { Session } from 'next-auth'
 import CredentialsProvider from "next-auth/providers/credentials";
 import KakaoProvider from "next-auth/providers/kakao";
 
@@ -85,4 +86,7 @@ export const options: NextAuthOptions = {
     signIn: "/login",
     error: "/auth_error",
   },
+  secret: process.env.AUTH_SECRET,
 }
+
+export default NextAuth(options)
