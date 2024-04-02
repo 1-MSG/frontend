@@ -5,7 +5,9 @@ import SelectCustom from "@/images/svgs/selectCustom";
 import Like from "@/images/svgs/Like";
 import Share from "@/images/svgs/Share";
 
+
 export default function CategoryListHeader() {
+
     return (
         <div className="h-[50px] px-[16px] sticky bg-white top-0 z-10 overflow-x-scroll overflow-y-hidden justify-between flex text-[14px] leading-[50px]">
             <div className='pt-[18px]'><BtnBack /></div>

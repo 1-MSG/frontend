@@ -24,19 +24,27 @@ import categoryData from "@/dummydata/category.json"
 import CategoryTheme from "@/components/pages/category/CategoryTheme";
 import CategoryListItem from "@/components/pages/category/CategoryListItem";
 
-async function fetchData(): Promise<CategoryDataType[]>{
+async function fetchData(): Promise<CategoryDataType[]> {
     // fetch data
-    const res = categoryData;
-    return res.cetegory_list; 
-}
+    const data = await fetch(`${process.env.API_BASE_URL}/category`, {
+        cache: 'no-cache',
+    });
+
+    console.log(data);
+    
+    return data.json();
+
+    //const res = categoryData;
+    //return res.cetegory_list; 
+};
 
 export default async function Page() {
 
-    const data:CategoryDataType[] = await fetchData();
+    const data: CategoryDataType[] = await fetchData();
 
     return (
         <main>
-    
+
             {/* <div style={{ background: 'linear-gradient(to right, red, #B404AE, purple)', width: '100%', height:'1.5px'}}>
 
             </div>
@@ -64,11 +72,11 @@ export default async function Page() {
  
             */}
 
-            <div style={{ background: 'linear-gradient(to right, red, #B404AE, purple)', width: '100%', height:'1.5px'}}></div>
+            {/*<div style={{ background: 'linear-gradient(to right, red, #B404AE, purple)', width: '100%', height: '1.5px' }}></div>
 
             <div className="mt-[16px] mb-[50px] px-[10px]">
-                <CategoryListItem data={data}/>
-            </div>
+                <CategoryListItem data={data} />
+            </div>*/}
 
             <CategoryTheme />
         </main>
