@@ -1,0 +1,26 @@
+{
+    "optionListName" : [
+        "option1", "size", "color"
+    ]
+    
+},
+
+{
+    "optionList" : [
+        {
+            "option1" : 1,
+            "name" : "smail",
+            "stokk" : 0
+        },
+        {
+            "option1" : 2,
+            "name" : "medium",
+            "stokk" : 6
+        },
+        {
+            "option1" : 3,
+            "name" : "large",
+            "stokk" : 6
+        }
+    ]
+}

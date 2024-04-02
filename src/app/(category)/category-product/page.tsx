@@ -18,17 +18,18 @@ export default async function Page({
 }) {
 
     console.log(searchParams);
-    const categoryId = searchParams.categoryId ? Number(searchParams.categoryId) : 0;
-    const categoryListData = await getCategoryList(categoryId);
+    const categoryLId = searchParams.categoryLid ? Number(searchParams.categoryLid) : 0;
+    const categoryMid = searchParams.categoryMid ? Number(searchParams.categoryMid) : 0;
+    const categoryListData = await getCategoryList(categoryMid);
     console.log(categoryListData.data)
 
     return (
         <>
             <CategoryListHeader />
-            <main>
+            {/* <main>
                 <CategoryTab categoryList={categoryListData.data}/>
-                <ProductConetent categoryId={categoryId}/>
-            </main>
+                <ProductConetent categoryId={categoryMid}/>
+            </main> */}
         </>
   )
 }

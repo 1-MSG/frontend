@@ -1,11 +1,11 @@
 'use client'
 
 import { CategoryDataType } from "@/types/categoryDataType";
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CategoryItem from "./CategoryItem";
 import Image from "next/image";
 
-export default function ({ categoryList }: { categoryList: CategoryDataType[] }) {
+export default function CategoryListItem({ categoryList }: { categoryList: CategoryDataType[] }) {
 
     const [isOpen, setIsOpen] = React.useState<Boolean[]>(
         Array(categoryList.length).fill(false)
@@ -48,13 +48,13 @@ export default function ({ categoryList }: { categoryList: CategoryDataType[] })
                     }
                     acc[groupIndex].push(item);
                     return acc;
-                }, []).map((group, groupIndex) => (
+                }, []).map((group, idx) => (
                     <GroupNav
-                        key={groupIndex}
+                        key={categoryList[idx].categoryId}
                         group={group}
-                        gx={groupIndex}
+                        gx={idx}
                         handleOpen={handleOpen}
-                        isOpen={isOpen[groupIndex]}
+                        isOpen={isOpen[idx]}
                         handleClick={handleClick}
                         pushId={pushId}
                     />
@@ -77,20 +77,23 @@ export const GroupNav = ({
 }) => {
 
     return (
+        <>
         <ul
-            className={isOpen ? "mb-[15px] grid grid-cols-5 relative" : "mb-[15px] grid grid-cols-5 relative"}
+            className={ "w-full mb-[15px] grid grid-cols-5 relative"}
         >
             {group.map((item) => (
-                <NavItem key={item.id} item={item} handleOpen={handleOpen} gx={gx} handleClick={handleClick}/>
+                <NavItem key={item.categoryId} item={item} handleOpen={handleOpen} gx={gx} handleClick={handleClick}/>
             ))}
-            {
-                isOpen && (
-                    <div className='w-screen mt-[12px] py-[16px] px-[25px] left-0 top-[50px] bg-[#f7f7f7]'>
-                        <CategoryItem categoryId={pushId}/>
-                    </div>
-                )
-            }
+            
         </ul>
+        {
+            isOpen && (
+                <div className='w-full relative mt-[12px] py-[16px] px-[25px] left-0 top-0 bg-[#f7f7f7]'>
+                    <CategoryItem categoryId={pushId}/>
+                </div>
+            )
+        }
+        </>
     )
 }
 
