@@ -5,8 +5,24 @@ import ProductConetent from '@/components/pages/product-list/productContent'
 import RankingTab from '@/components/pages/product-list/ranking/rankingTab'
 import DepartmentIcon from '@/images/svgs/DepartmentIcon'
 import SsgDeliveryIcon from '@/images/svgs/SsgDeliveryIcon'
+import { CommonDataResType } from '@/types/commonResType';
+import { CategoryDataType } from "@/types/categoryDataType";
 
-export default function Page() {
+async function fetchData(){
+    const res = await fetch(`${process.env.API_BASE_URL}/category?level=0`, {
+        next: { revalidate: 3600*24 }
+    });
+
+    return res.json();
+};
+
+export default async function Page() {
+
+    const result: CommonDataResType = await fetchData();
+    console.log(result.data)
+
+    const categoryList: CategoryDataType[] = result.data;
+    
 
     return (
         <main>
@@ -25,7 +41,7 @@ export default function Page() {
                 </div>
             </div>
 
-            <ProductConetent productList={productList}/>
+            {/* <ProductConetent productList={productList}/> */}
         </main>
     )
 }
