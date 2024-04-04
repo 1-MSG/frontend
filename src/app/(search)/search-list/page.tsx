@@ -1,23 +1,20 @@
-import SearchForm from "@/app/(commonAccess)/search/_components/SearchForm";
+import SearchForm from "@/components/pages/search/SearchForm";
 import CartIcon from "@/images/svgs/CartIcon";
 import Image from "next/image";
-import BackBtn from '@/app/(commonAccess)/search/_components/BackBtn';
-
-import RecommendSearch from "@/app/(commonAccess)/search/_serverComponents/RecommendSearch";
-import Event from "@/app/(commonAccess)/search/_serverComponents/Event";
-import RecentSearch from "./_components/RecentSearch";
+import BackBtn from '@/components/pages/search/BackBtn';
+import RecommendSearch from "@/components/pages/search/RecommendSearch";
+import Event from "@/components/pages/search/Event";
+import RecentSearch from "../../../components/pages/search/RecentSearch";
 
 
 export default function Page() {
-
-
     return (
         <>
             <div className="w-full flex justify-between items-center py-[8px] pl-[16px] pr-[10px] gap-3">
                 <BackBtn/>
                 <SearchForm/>
                 <div className="flex items-center justify-end">
-                <CartIcon />
+                <CartIcon w={45} h={45}/>
                 </div>
             </div>
 

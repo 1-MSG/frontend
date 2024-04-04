@@ -4,8 +4,14 @@ import productList from "@/dummydata/productList.json"
 import ProductConetent from "@/components/pages/product-list/productContent"
 import CategoryListHeader from "@/components/pages/catogory-list/categoryListHeader"
 
-async function getCategoryList(categoryId: number) {
-    const res = await fetch(`${process.env.API_BASE_URL}/category-product?categoryId=${categoryId}`, {
+async function getCategoryLid(categoryId: number) {
+    const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`)
+    
+    return res.json();
+}
+
+async function getCategoryList(categoryLid: number) {
+    const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryLid}`, {
         next: { revalidate: 3600*24 }
     })
     return res.json();
@@ -18,18 +24,32 @@ export default async function Page({
 }) {
 
     console.log(searchParams);
-    const categoryLId = searchParams.categoryLid ? Number(searchParams.categoryLid) : 0;
-    const categoryMid = searchParams.categoryMid ? Number(searchParams.categoryMid) : 0;
-    const categoryListData = await getCategoryList(categoryMid);
-    console.log(categoryListData.data)
+    //const categoryLId = searchParams.categoryLid ? Number(searchParams.categoryLid) : 0;
+    //const categoryMid = searchParams.categoryMid ? Number(searchParams.categoryMid) : 0;
+    const categoryId = searchParams.categoryId ? Number(searchParams.categoryId) : 0;
+    const categoryLid = await getCategoryLid(categoryId);
+    //console.log("categoryLid.data.parentId", categoryLid.data.parentId);
+    const categoryListData = await getCategoryList(categoryLid.data.parentId);
+    //console.log("categoryListData.data", categoryListData.data)
+    const categoryList = categoryListData.data.subCategories;
+    categoryList.shift();
+    //console.log(categoryList);
+    let categoryName
+    for(let i=0; i<categoryList.length; i++){
+        if(categoryList[i].categoryId === categoryId){
+            categoryName = categoryList[i].categoryName;
+            break;
+        }
+    }
+    
 
     return (
         <>
-            <CategoryListHeader />
-            {/* <main>
-                <CategoryTab categoryList={categoryListData.data}/>
-                <ProductConetent categoryId={categoryMid}/>
-            </main> */}
+            <CategoryListHeader categoryLid={categoryLid.data} categoryId={categoryId} categoryName={categoryName}/>
+            <main>
+                <CategoryTab categoryList={categoryList}/>
+                {/* <ProductConetent categoryId={categoryId}/> */}
+            </main>
         </>
   )
 }

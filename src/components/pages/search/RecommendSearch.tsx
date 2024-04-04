@@ -20,7 +20,7 @@ const keywordStyle = {
 export default async function RecommendSearch() {
     return (
         <>
-            <div style={{ padding: '12px' }}>
+            <div className="mt-[20px]" style={{ padding: '12px' }}>
                 <h2 style={{ fontSize: '13px', fontWeight: 'bold' }}>추천 검색어</h2>
             </div>
             <div style={{ display: 'flex', width: '100%' }}>

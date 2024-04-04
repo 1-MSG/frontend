@@ -12,7 +12,7 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
     const [middleCategory, setMiddleCategory] = useState<CategoryDataType[]>();
 
     const handleClick = (id: number) => {
-        router.push(`/category-product?categoryLid=${categoryId}&categoryMid=${id.toString()}`);
+        router.push(`/category-product?categoryId=${id.toString()}`);
     }
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
             if (res.ok) {
                 const data = await res.json();
                 console.log(data);
-                setMiddleCategory(data.data);
+                setMiddleCategory(data.data.subCategories);
             }
         }
         getData();
@@ -29,9 +29,9 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
     
     
     return(
-        <div>
+        <div className='flex flex-wrap'>
             {middleCategory?.map((item: CategoryDataType) => (
-                <div key={item.categoryId} onClick={()=>handleClick(item.categoryId)}>
+                <div key={item.categoryId} className="w-1/2 h-[38px] text-[#222222] text-[14px] tracking-[-0.07rem] content-center" onClick={()=>handleClick(item.categoryId)}>
                     {item.categoryName}
                 </div>
             ))}

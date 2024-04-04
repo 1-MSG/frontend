@@ -1,4 +1,4 @@
-import BackBtn from "@/app/(commonAccess)/search/_components/BackBtn";
+import BackBtn from "@/components/pages/search/BackBtn";
 import PopUp from "@/components/pages/auth/users/PopUp";
 import Image from "next/image";
 import nullImg from "@/assets/image/etc/nullImg.png"
