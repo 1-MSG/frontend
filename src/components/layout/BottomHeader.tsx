@@ -12,7 +12,7 @@ function BottomHeader() {
     const pathname = usePathname()
 
     return (
-        <nav className='flex flex-col justify-center h-[46px] border-b border-b-[#f5f5f5] leading-[35px] bg-white'>
+        <nav className='flex flex-col justify-center h-[46px] border-b border-b-[#f5f5f5] leading-[35px] bg-white sticky top-0 z-[100]'>
             <ul className="flex text-[15px] font-medium">
                 <li className="px-4 py-2 whitespace-nowrap font-bold text-800" style={{ color: "#0B3B17" }}>패션명품쓱세일</li>
                 <li className="px-4 pt-[8px] whitespace-nowrap">

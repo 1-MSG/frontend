@@ -1,7 +1,7 @@
 import CircleArrow from '@/images/svgs/CircleArrow'
 import SsgLogo from '@/images/svgs/SsgLogo'
 import React from 'react'
-import SearchForm from '../form/SearchForm'
+import SearchFormUi from '../form/HeaderSearchFormUi'
 import AlarmIcon from '@/images/svgs/AlarmIcon'
 import CartIcon from '@/images/svgs/CartIcon'
 import Link from 'next/link'
@@ -14,7 +14,7 @@ function TopHeader() {
                 <div className='ml-[2px]'><CircleArrow /></div>
                 {/* <h1 className="text-[0px]">SSG.com</h1> */}
             </div>
-            <SearchForm />
+            <SearchFormUi />
             <div className="flex items-center">
                 <div className='w-[32px] h-[32px]'><AlarmIcon /></div>
                 <Link href="/cart" className='w-[32px] h-[32px] mr-[10px]' ><CartIcon w={32} h={32} /></Link>
