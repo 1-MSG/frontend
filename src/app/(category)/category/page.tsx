@@ -46,6 +46,8 @@ export default async function Page() {
 
     const categoryList: CategoryDataType[] = result.data;
 
+    
+
     return (
         <main>
 
