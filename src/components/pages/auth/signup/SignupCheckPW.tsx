@@ -1,8 +1,11 @@
 'use client'
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignupCheckPW() {
+
+    const router = useRouter();
 
     const [password, setPassword] = useState('');
     const [confirm, setConfirm] = useState('');
@@ -14,7 +17,10 @@ export default function SignupCheckPW() {
         const { name, value } = e.target;
         if (name === 'password') {
             setPassword(value);
-            passwordCheckHandler(value, confirm);
+            if(passwordCheckHandler(value, confirm)){
+                router.push(`&password=${value}`);
+            }
+        
         } else {
             setConfirm(value);
             passwordCheckHandler(password, value);

@@ -40,7 +40,7 @@ export default function Post() {
                 </div>
             </div>
             <div className='flex'>
-                <input type="text" name='address2' className='basis-5/6 border py-[10px] px-[10px] truncate ml-auto' placeholder='상세주소'/>
+                <input type="text" name='addressDetail' className='basis-5/6 border py-[10px] px-[10px] truncate ml-auto' placeholder='상세주소'/>
             </div>
         </>
     )

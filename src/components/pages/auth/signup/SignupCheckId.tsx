@@ -1,8 +1,11 @@
 'use client'
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignupCheckId() {
+
+    const router = useRouter();
 
     const [id, setId] = useState('');
     const [idError, setIdError] = useState('');
@@ -11,6 +14,7 @@ export default function SignupCheckId() {
 
     const onChangeIdHandler = (e: any) => {
         const idValue = e.target.value;
+        // router.push(`?loginId=${idValue}`);
         setId(idValue);
         idCheckHandler(idValue);
     }
