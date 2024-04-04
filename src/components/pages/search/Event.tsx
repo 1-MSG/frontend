@@ -14,7 +14,7 @@ export default async function Event() {
 
     return (
         <>  
-            <div style={{padding : '12px'}}>
+            <div className="mt-[20px]" style={{padding : '12px'}}>
                 <h2 style={{fontSize:'13px', fontWeight:'bold'}}>이벤트</h2>
             </div>
             <div style={{display:'flex', width : '100%', overflowX: 'auto', whiteSpace: 'nowrap'}}>

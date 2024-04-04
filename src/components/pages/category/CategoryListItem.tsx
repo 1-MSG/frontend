@@ -38,7 +38,7 @@ export default function CategoryListItem({ categoryList }: { categoryList: Categ
 
     return (
         <div>
-            <p className="text-[14px] font-bold text-[#222222] tracking-[-0.05rem]">전체 카테고리</p>
+            <p className="px-[10px] text-[14px] font-bold text-[#222222] tracking-[-0.05rem]">전체 카테고리</p>
 
             <div className=" mt-[10px]">
                 {categoryList.reduce((acc: CategoryDataType[][], item, index) => {
@@ -79,7 +79,7 @@ export const GroupNav = ({
     return (
         <>
         <ul
-            className={ "w-full mb-[15px] grid grid-cols-5 relative"}
+            className={ "w-full px-[10px] mb-[15px] grid grid-cols-5 relative"}
         >
             {group.map((item) => (
                 <NavItem key={item.categoryId} item={item} handleOpen={handleOpen} gx={gx} handleClick={handleClick}/>

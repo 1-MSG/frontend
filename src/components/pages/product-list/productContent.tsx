@@ -10,7 +10,7 @@ async function getProductList(categoryId: number) {
 export default async function ProductConetent({ categoryId }: { categoryId: number }) {
 
     if (categoryId === 0) {
-        alert('카테고리 정보가 없습니다.');
+        console.log('카테고리 정보가 없습니다.');
     }
 
     const getProductListData: CommonDataResType = await getProductList(categoryId);

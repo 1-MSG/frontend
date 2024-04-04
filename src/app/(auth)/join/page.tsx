@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import BackBtn from "../../(commonAccess)/search/_components/BackBtn";
+import BackBtn from "@/components/pages/search/BackBtn";
 import nullImg from "@/assets/image/etc/nullImg.png";
 import Etc1 from "@/assets/image/etc/etc1.png"
 import Etc2 from "@/assets/image/etc/etc2.png"
