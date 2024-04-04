@@ -5,8 +5,26 @@ import DepartmentIcon from '@/images/svgs/DepartmentIcon'
 import SsgDeliveryIcon from '@/images/svgs/SsgDeliveryIcon'
 import specialPriceList from '@/dummydata/specialPriceData.json'
 import SpecialPriceContent from '@/components/pages/product-list/special-price/specialPriceContent'
+import { CommonDataResType } from '@/types/commonResType';
+import { CategoryDataType } from "@/types/categoryDataType";
 
-export default function Page() {
+
+async function fetchData(){
+    const res = await fetch(`${process.env.API_BASE_URL}/category?level=0`, {
+        next: { revalidate: 3600*24 }
+    });
+
+    return res.json();
+};
+
+
+export default async function Page() {
+
+    const result: CommonDataResType = await fetchData();
+    console.log(result.data)
+
+    const categoryList: CategoryDataType[] = result.data;
+    
 
     return (
         <main>

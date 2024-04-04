@@ -6,7 +6,7 @@ export default function CategoryTab(props:any) {
                 <div className='mr-[6px] h-[34px] px-[10px] bg-black text-white'>전체</div>
                 {categoryList.map((list:any) => {
                     return (
-                        <div key={list.product_category_id} className='mr-[6px] px-[10px] border border-[#e9e9e9]'>{list.product_category_name}</div>
+                        <div key={list.categoryId} className='mr-[6px] px-[10px] border border-[#e9e9e9]'>{list.categoryName}</div>
                     )
                 })}
             </div>

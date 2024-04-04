@@ -15,6 +15,12 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
         router.push(`/category-product?categoryId=${id.toString()}`);
     }
 
+    const redCate = ["디자이너샵", "남성화장품", "뷰티선물세트", "오가닉", "국민템", "친환경/유기농", "손질/소포장", "몰리스 Only"];
+    function checkCategoryName(categoryName:string) {
+        const value = redCate.find((e) => e === categoryName)
+        return value;
+    }
+
     useEffect(() => {
         const getData = async () => {
             const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`)
@@ -31,7 +37,7 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
     return(
         <div className='flex flex-wrap'>
             {middleCategory?.map((item: CategoryDataType) => (
-                <div key={item.categoryId} className="w-1/2 h-[38px] text-[#222222] text-[14px] tracking-[-0.07rem] content-center" onClick={()=>handleClick(item.categoryId)}>
+                <div key={item.categoryId} className={"w-1/2 h-[38px] text-[14px] tracking-[-0.07rem] content-center" + (checkCategoryName(item.categoryName) != undefined ? " text-[#ff5452]" : " text-[#222222]") } onClick={()=>handleClick(item.categoryId)}>
                     {item.categoryName}
                 </div>
             ))}
