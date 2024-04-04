@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import BackBtn from "../../../../components/pages/search/BackBtn";
+import BackBtn from "@/components/pages/search/BackBtn";
 import nullImg from "@/assets/image/etc/nullImg.png";
 import Etc1 from "@/assets/image/etc/etc1.png"
 import Etc2 from "@/assets/image/etc/etc2.png"
@@ -9,8 +9,8 @@ import Footer from "@/components/layout/Footer";
 // import LoginAuthIcon from "@/app/(commonAccess)/login/_components/loginAuthIcon";
 // import adv4 from '@/assets/image/mainadvertisement/adv4.png'
 import Link from "next/link";
-import JoinBtn from "../../../../components/pages/join/JoinBtn";
-import JoinAuthIcon from "../../../../components/pages/join/JoinAuthIcon";
+import JoinBtn from "../../../components/pages/join/JoinBtn";
+import JoinAuthIcon from "../../../components/pages/join/JoinAuthIcon";
 
 export default function Page() {
 

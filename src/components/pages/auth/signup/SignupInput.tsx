@@ -1,44 +1,49 @@
-'use client'
-
 import Post from "@/components/pages/auth/signup/Post";
 import MarketingAgreement from "@/components/pages/auth/signup/marketingAgreement"
-import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
 import SignupCheckPW from "./SignupCheckPW";
 import SignupCheckId from "./SignupCheckId";
+import { redirect } from "next/navigation";
 
 
-export default function SignupInput({ handleSubmit }: { handleSubmit: (loginId: string, password: string, username: string, phoneNumber: string, email: string, address: string) => void }) {
 
+export default function SignupInput() {
+    
+    async function createUser(formData: FormData) {
+        'use server'
+        const userFormData = {
+            loginId: formData.get('loginId'),
+            password: formData.get('password'),
+            username: formData.get('username'),
+            phoneNumber: formData.get('phoneNumber'),
+            email: formData.get('email'),
+            address: `${formData.get('address')} ${formData.get('addressDetail')}`,
+            // addressDetail: formData.get('addressDetail'),
+        }
 
-    function handleSubmitClick(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        const target = e.target as typeof e.target & {
-            loginId: { value: string };
-            password: { value: string };
-            username: { value: string };
-            phoneNumber: { value: string };
-            email: { value: string };
-            address: { value: string };
-            address2: { value: string };
-        };
-        const loginId = target.loginId.value;
-        const password = target.password.value;
-        const username = target.username.value;
-        const phoneNumber = target.phoneNumber.value;
-        const email = target.email.value;
-        const address = target.address.value + target.address2.value;
+        console.log(userFormData)
+        const res = await fetch(`${process.env.API_BASE_URL}/auth/signup`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userFormData),
+        })
+        if (res.ok) {
+            console.log("회원가입 성공");
+            console.log(res.status);
+            // 
+            redirect('/login')
+        }
 
-        //console.log(loginId, password, username, phoneNumber, email, address);
-        handleSubmit(loginId, password, username, phoneNumber, email, address);
+        console.log(res);
     }
 
 
 
     return (
-        <form onSubmit={handleSubmitClick}>
+        <form action={createUser}>
             <div className='px-[20px] text-[12px] tracking-[-0.05rem]'>
-
+                
 
                 <SignupCheckId />
                 {/* 비밀번호 */}
@@ -65,7 +70,7 @@ export default function SignupInput({ handleSubmit }: { handleSubmit: (loginId: 
 
             <MarketingAgreement />
             <button type="submit" className='my-[15px] py-[10px] mx-[20px] w-11/12 bg-[#ff5452] text-white font-extrabold items-center content-center'>
-                가입하기
+            가입하기
             </button>
         </form>
     )

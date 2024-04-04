@@ -21,8 +21,8 @@ export default function Page() {
                     <Image src={nullImg} alt=''></Image>
                 </div>
             </div>
-            <LoginContainer />
-            <LoginAuthIcon />
+            <LoginContainer/>
+            <LoginAuthIcon/>
             <Image src={adv4} alt='' style={{ padding: '20px', marginTop: '60px', marginBottom: '34px' }}></Image>
 
             {/* 비회원 조회하기 링크 버튼 생성 필요 */}
