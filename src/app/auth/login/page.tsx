@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import BackBtn from "../search/_components/BackBtn";
 import nullImg from "@/assets/image/etc/nullImg.png"
 import Footer from "@/components/layout/Footer";
 import LoginContainer from "@/components/pages/login/LoginConatiner";
@@ -8,6 +7,7 @@ import LoginAuthIcon from "@/components/pages/login/LoginAuthIcon";
 import adv4 from '@/assets/image/mainadvertisement/adv4.png'
 import Link from "next/link";
 import { signOut } from "next-auth/react";
+import BtnBack from "@/components/pages/product-review/BtnBack";
 
 
 export default function Page() {
@@ -15,7 +15,7 @@ export default function Page() {
     return (
         <>
             <div className="w-full flex justify-between items-center py-[8px] pl-[16px] pr-[10px] gap-3" style={{ borderBottom: '1px solid #d3d3d3' }}>
-                <BackBtn />
+                <BtnBack />
                 <h2 style={{ fontWeight: 'bold' }}>로그인</h2>
                 <div className="flex items-center justify-end">
                     <Image src={nullImg} alt=''></Image>

@@ -1,5 +1,5 @@
 import Footer from "@/components/layout/Footer";
-import UnionHeader from "@/components/pages/signup/union/unionHeader";
+import UnionHeader from "@/components/pages/auth/signup/unionHeader";
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -12,4 +12,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </>
     );
 
-}
+} 

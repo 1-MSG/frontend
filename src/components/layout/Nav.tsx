@@ -37,7 +37,7 @@ function Nav() {
                     </Link>
                 </div>
                 <div className='m-auto text-center '>
-                    <Link href={'/mypage'}>
+                    <Link href={'/auth/users'}>
                         <div className='pt-[3px]'>
                             <My />
                         </div>
