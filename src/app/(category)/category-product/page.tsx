@@ -4,6 +4,8 @@ import productList from "@/dummydata/productList.json"
 import ProductConetent from "@/components/pages/product-list/productContent"
 import CategoryListHeader from "@/components/pages/catogory-list/categoryListHeader"
 import CategorySmallTab from "@/components/pages/catogory-list/CategorySmallTab"
+import Footer from "@/components/layout/Footer"
+import Nav from "@/components/layout/Nav"
 
 async function getCategoryLid(categoryId: number) {
     const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`)
@@ -56,8 +58,10 @@ export default async function Page({
             <main>
                 <CategoryTab categoryList={categoryList}/>
                 <CategorySmallTab subCategories={categorySmallTabList}/>
-                {/* <ProductConetent categoryId={categoryId}/> */}
+                <ProductConetent categoryId={categoryId}/>
             </main>
+            <Nav/>
+            <Footer/>
         </>
   )
 }

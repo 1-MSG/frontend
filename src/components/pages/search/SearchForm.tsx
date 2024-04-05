@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 function SearchForm({
     getSearchData,
@@ -9,6 +10,7 @@ function SearchForm({
     searchText: string
 }) {
 
+    const [searchHistory, setSearchHistory] = useState<string[]>([]);
     const router = useRouter();
 
     const goSearch = (e: React.ChangeEvent<any>) => {
@@ -16,6 +18,16 @@ function SearchForm({
         router.push(`/search-list?keyword=${e.currentTarget.value}`);
     }
 
+    const handleSaveToLocalStorage = () => {
+        // 현재 검색어를 검색 기록에 추가
+        const newSearchHistory = [searchText, ...searchHistory]; // 배열의 앞쪽에 저장
+        setSearchHistory(newSearchHistory);
+
+        // 로컬 스토리지에 검색 기록 저장
+        localStorage.setItem('searchHistory', JSON.stringify(newSearchHistory));
+
+        console.log('검색어가 로컬 스토리지에 저장되었습니다:', searchText);
+    };
    
     return (
         <>
@@ -30,6 +42,7 @@ function SearchForm({
                 />
                 <p 
                     onClick={()=>{
+                        handleSaveToLocalStorage();
                         router.push(`/product-list?keyword=${searchText}`);
                     
                     }}

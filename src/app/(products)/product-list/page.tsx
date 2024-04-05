@@ -1,7 +1,12 @@
-export default function Page(){
+export default function Page() {
     return (
-        <p>
-            정상적인 접근 경로가 아닙니다.
-        </p>
+        <div>
+            {/* <div className='grid grid-cols-2 gap-2 mx-[16px]'>
+
+                {productList.map((item: ProductIdListByCategoryType, index: number) => (
+                    <ProductCardTypeItem productId={item.productId} key={index} />
+                ))}
+            </div> */}
+        </div>
     );
 }

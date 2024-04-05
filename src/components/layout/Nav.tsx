@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -6,9 +7,14 @@ import Gift from '@/images/svgs/nav/Gift'
 import HomeIcon from '@/images/svgs/HomeIcon'
 import My from '@/images/svgs/nav/My'
 import Recent from '@/images/svgs/nav/Recent'
+import { useSession } from 'next-auth/react'
 
 
 function Nav() {
+
+    const session = useSession();
+    console.log(session);
+    
 
     //style={{ position: 'fixed', bottom: 0, background: 'white', padding: '5px', width: '100%', height: '50px', display: 'flex', justifyContent: 'space-evenly' }}
     return (

@@ -1,8 +1,11 @@
+
 import Link from "next/link"
 import Image from "next/image"
 import Like from "@/images/svgs/Like";
 import CartIcon from "@/images/svgs/CartIcon";
 import GrayStar from "@/images/svgs/GrayStar";
+import { CommonDataResType } from "@/types/commonResType";
+import { useRouter } from 'next/navigation';
 
 async function getProductData(productId: number) {
     const res = await fetch(`${process.env.API_BASE_URL}/product/${productId}`)
@@ -12,20 +15,34 @@ async function getProductData(productId: number) {
     return res.json();
 }
 
+async function getProductImage(productId: number) {
+    const res = await fetch(`${process.env.API_BASE_URL}/product/${productId}/image`)
+    
+    if (!res.ok) {
+        throw new Error('서버 오류');
+    }
+    return res.json();
+}
+
 
 export default async function ProductCardTypeItem({productId}: {productId: number}) {
 
-    const productData = await getProductData(productId);
-    console.log(productData);
+    const productData:CommonDataResType = await getProductData(productId);
+    const product = productData.data;
+    //console.log(productData.data);
 
-    function Rate(price:number, rate:number) {
-        let n = (100 - rate) / 100;
+    const productImage:CommonDataResType = await getProductImage(productId);
+    const image = productImage.data;
+    //console.log(productImage);
+
+    function Rate(price:number, rate:number, salePrice:number) {
+        //let n = (100 - rate) / 100;
         return (
             <div>
-                <p className='line-through text-[#969696] text-[12px]'>{price.toLocaleString()}원</p>
+                <p className='line-through text-[#969696] text-[12px]'>{Number(price).toLocaleString()}원</p>
                 <div className='inline-block items-center mt-[2px] text-[15px] font-bold'>
                     <p className='mr-[4px] float-left text-[#ff5452]'>{rate}%</p>
-                    <p className='float-left'>{(price * n).toLocaleString()}원</p>
+                    <p className='float-left'>{Number(salePrice).toLocaleString()}원</p>
                 </div>
             </div>
         )
@@ -34,7 +51,7 @@ export default async function ProductCardTypeItem({productId}: {productId: numbe
     function NotRate(price:number) {
         return (
             <div className='inline-block items-center'>
-                <p className='float-left text-[16px] font-bold'>{price.toLocaleString()}원</p>
+                <p className='float-left text-[16px] font-bold'>{Number(price).toLocaleString()}원</p>
             </div>
         )
     }
@@ -42,9 +59,9 @@ export default async function ProductCardTypeItem({productId}: {productId: numbe
 
     return (
         <div className='pt-[10px] pb-[20px]'>
-            <Link href='/product-detail/1'>
-                <Image src={productData.product_img}
-                    alt=''
+            <Link href={`/product-detail/${productId}`}>
+                <Image src={image.productImageUrl}
+                    alt={image.productImageDescription}
                     width={175}
                     height={175}
                     className='' />
@@ -58,18 +75,18 @@ export default async function ProductCardTypeItem({productId}: {productId: numbe
                 </div>
             </div>
 
-            <Link href='/product-productData/1' className='mt-[10px] pr-[20px] leading-[16px]'>
+            <Link href={`/product-detail/productId?productId=${productId}`} className='mt-[10px] pr-[20px] leading-[16px]'>
                 <p className='text-[13px]'>
-                    <span className='font-bold'>{productData.product_brand} </span>
-                    {productData.product_name}</p>
+                    <span className='font-bold'>{product.productBrand} </span>
+                    {product.productName}</p>
                 <div className='mt-[4px]'>
-                    {productData.product_rate == 0 ? NotRate(productData.product_price) : Rate(productData.product_price, productData.product_rate)}
+                    {product.discountRate == 0 ? NotRate(product.productPrice) : Rate(product.productPrice, product.discountRate, product.discountPrice)}
                 </div>
                 <div className=' text-[#777777] text-[12px] items-center mt-[4px]'>
                     <div className='float-left pt-[3px]'><GrayStar /></div>
-                    <p className='float-left ml-[4px]'>{productData.product_star}</p>
+                    <p className='float-left ml-[4px]'>{product.productStar}</p>
                     <p className='float-left ml-[4px] text-[#ededed] text-[10px]' >|</p>
-                    <p className='float-left ml-[4px]'>{productData.product_review_count.toLocaleString()}건</p>
+                    <p className='float-left ml-[4px]'>{Number(product.reviewCount).toLocaleString()}건</p>
                 </div>
             </Link>
         </div>

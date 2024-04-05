@@ -26,7 +26,7 @@ export default function ReviewList() {
             </div>
 
             <div className="pt-[5px] pb-[5px]">
-                {data.map((review, index) => {
+                {data.read_review.map((review, index) => {
                     return (
                         <div key={index} className="border-b border-[#ededed] last:border-0">
                             <div className="pb-[15px]">

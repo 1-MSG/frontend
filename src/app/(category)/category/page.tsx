@@ -22,7 +22,7 @@ async function fetchData(){
 export default async function Page() {
 
     const result: CommonDataResType = await fetchData();
-    console.log(result.data)
+    //console.log(result.data)
 
     const categoryList: CategoryDataType[] = result.data;
 

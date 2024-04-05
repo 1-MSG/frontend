@@ -1,13 +1,36 @@
-import { useRef } from "react";
 import ModalBackBtn from "@/images/svgs/ModalBackBtn";
+import { CommonDataResType } from '@/types/commonResType';
+import { useEffect, useState } from "react";
 
 
-export default function OrderOptionModal(props: any) {
-    const { clickOptionModal } = props;
-    const {getOption} = props;
-    const data = props.giveData;
+export default function OrderOptionModal({clickOptionModal, getOption, giveData, productId}: {clickOptionModal: any, getOption: any, giveData: any, productId: number}) {
 
-    const optionList = data.product_options;
+    const [option, setOption] = useState([] as any);
+    
+    useEffect(() => { 
+        const getData = async () => {
+            const res = await fetch(`${process.env.API_BASE_URL}/option/first/${productId}`)
+            if (res.ok) {
+                const data:CommonDataResType = await res.json();
+                setOption(data.data);
+                console.log(option); 
+            }
+        }
+        getData();
+    }, [])
+
+    
+    console.log("option " ,option);
+    
+
+    // const { clickOptionModal } = props;
+    // const {getOption} = props;
+    // const data = props.giveData;
+
+    const optionList = option;
+
+    console.log("optionList " ,optionList);
+    
 
     const possible: any = [];
     const impossible: any = [];

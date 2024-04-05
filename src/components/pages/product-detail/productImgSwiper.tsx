@@ -11,7 +11,7 @@ import data from '@/dummydata/product_detail_data.json'
 import Link from 'next/link'
 import Image from 'next/image';
 
-export default function ProductImgSwiper() {
+export default function ProductImgSwiper({Images}: {Images: any}) {
 
     SwiperCore.use([Navigation]);
     const swiperRef = useRef<SwiperCore>();
@@ -29,15 +29,15 @@ export default function ProductImgSwiper() {
                 autoplay={false}
                 navigation={false}
             >
-                {data[0].product_img_url.map((imgs, i) => {
+                {Images.map((imgs:any, i:number) => {
                     return (
-                        <div className='relative'>
-                            <SwiperSlide key={imgs.product_img_id}>
+                        <div key={i} className='relative'>
+                            <SwiperSlide>
                                 <div className='h-auto pt-[3px]'>
-                                    <Image src={imgs.product_img_url_list} 
-                                            alt="" 
-                                            width={390}
-                                            height={390}
+                                    <Image src={imgs.productImageUrl} 
+                                            alt={imgs.productImageDescription} 
+                                            width={500}
+                                            height={500}
                                             sizes="(max-width:550px)"/>
                                 </div>
                             </SwiperSlide>
