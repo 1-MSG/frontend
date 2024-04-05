@@ -7,7 +7,7 @@ export default function ProductDetailLead({giveData, productId} : {giveData: any
 
     //const giveData = props.giveData;
     const [orderList, setOrderList] = useState([]); 
-    const priceList:any = [];
+    const priceList:any[] = [];
     const [total, setTotal] = useState(0);
 
     const onRemove = useCallback(
@@ -18,7 +18,7 @@ export default function ProductDetailLead({giveData, productId} : {giveData: any
 
             const newList2 = [...priceList]
             newList2.splice(id, 1);
-        }, [orderList]
+        }, [orderList, priceList]
     )
 
     return (

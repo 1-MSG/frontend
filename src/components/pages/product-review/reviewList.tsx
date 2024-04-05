@@ -1,6 +1,7 @@
 import Link from "next/link";
 import data from '@/dummydata/review_create_data.json'
 import SelectCustom from "@/images/svgs/selectCustom";
+import Image from "next/image";
 
 export default function ReviewList() {
     return (
@@ -32,7 +33,7 @@ export default function ReviewList() {
                             <div className="pb-[15px]">
                                 <em className="not-italic text-[12px] text-[#a0a1a0]">{review.order_created_at} &#40;{review.order_id}&#41;</em>
                                 <div className="w-full grid grid-cols-4">
-                                    <img src={review.product_img_url} alt="" className="h-[87px] w-[87px] rounded-lg inline-block" />
+                                    <Image src={review.product_img_url} alt="" width={87} height={87} className="rounded-lg inline-block" />
                                     <p className="col-start-2 col-end-5 text-[13px] pl-[13px]">{review.product_name}</p>
                                 </div>
                             </div>

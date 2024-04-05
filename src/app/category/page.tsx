@@ -1,6 +1,5 @@
 
 import { CategoryDataType } from "@/types/categoryDataType";
-import categoryData from "@/dummydata/category.json"
 import CategoryTheme from "@/components/pages/category/CategoryTheme";
 import CategoryListItem from "@/components/pages/category/CategoryListItem";
 import { CommonDataResType } from '@/types/commonResType';

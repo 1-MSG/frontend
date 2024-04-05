@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from "react";
 
 function StarRate({product_star}:{product_star:number}) {
@@ -19,7 +20,7 @@ function StarRate({product_star}:{product_star:number}) {
     };
     useEffect(() => {
         setRatesResArr(calcStarRates)
-    }, [])
+    }, [calcStarRates])
 
 
 

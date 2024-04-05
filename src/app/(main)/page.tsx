@@ -1,14 +1,14 @@
 import MainCategory from "@/components/MainCategory/MainCategory";
 import MainBanner from "@/components/banner/MainBanner";
 
-import PreviewProducts from "@/app/(commonAccess)/(main)/_serverComponents/PreviewProducts";
-import PreviewCards from "@/app/(commonAccess)/(main)/_serverComponents/PreviewCards";
-import PreviewPopularityProducts from "@/app/(commonAccess)/(main)/_serverComponents/PreviewPopularityProducts";
 import Footer from "@/components/layout/Footer";
 import Nav from "@/components/layout/Nav";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import SsgNotification from "@/components/ui/SsgNotification";
+import PreviewProducts from "@/components/pages/man/PreviewProducts";
+import PreviewCards from "@/components/pages/man/PreviewCards";
+import PreviewPopularityProducts from "@/components/pages/man/PreviewPopularityProducts";
 
 
 export default async function Home() {

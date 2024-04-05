@@ -31,7 +31,7 @@ export default async function PreviewPopularityProducts() {
         {data.products.map((product:any, index : number) => (
           <>
             <div className="mobile-only" style={{width: '100%', height: 'auto', padding:'12px'}}>
-              <img src={product.image_url} alt='' style={{width:'100%'}}/>
+              <Image src={product.image_url} alt='' width={500} height={500}/>
               <div style={{display:'flex', justifyContent:'space-between'}}>
                 <div style={{width:'70%', fontWeight:'bold'}}>{product.product_name}</div>
                 <div style={{width:'20%', display:'flex'}}>
@@ -43,7 +43,7 @@ export default async function PreviewPopularityProducts() {
             </div>
 
             <div className="web-only" style={{width: '50%', height: 'auto', padding:'12px'}}>
-              <img src={product.image_url} alt='' style={{width:'100%'}}/>
+              <Image src={product.image_url} alt='' width={500} height={500}/>
               <div style={{display:'flex', justifyContent:'space-between'}}>
                 <div style={{width:'80%', fontWeight:'bold'}}>{data.products[1].product_name}</div>
                 <div style={{width:'20%', display:'flex'}}>

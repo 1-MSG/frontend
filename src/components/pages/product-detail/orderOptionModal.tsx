@@ -1,3 +1,4 @@
+'use client'
 import ModalBackBtn from "@/images/svgs/ModalBackBtn";
 import { CommonDataResType } from '@/types/commonResType';
 import { useEffect, useState } from "react";
@@ -17,7 +18,7 @@ export default function OrderOptionModal({clickOptionModal, getOption, giveData,
             }
         }
         getData();
-    }, [])
+    }, [productId, option])
 
     
     console.log("option " ,option);
