@@ -11,6 +11,7 @@ import Star from '@/images/svgs/Star';
 import ReviewPhotoImgSwiper from './reviewPhotoImgSwiper';
 import ReviewModal from './reviewModal';
 import StarRate from './StarRate';
+import Image from 'next/image';
 
 export default function CustomerReview(props: any) {
     const data = props.giveData;
@@ -95,7 +96,7 @@ export default function CustomerReview(props: any) {
                                     return (
                                         <SwiperSlide key={imgs.review_img_id}>
 
-                                            <img src={imgs.review_img_detail_url} alt="" className="h-auto w-full max-w-28 max-h-32 mt-[12px] mb-[8px] rounded-lg" />
+                                            <Image src={imgs.review_img_detail_url} alt="" width={100} height={100} className=" max-w-28 max-h-32 mt-[12px] mb-[8px] rounded-lg" />
 
                                         </SwiperSlide>
                                     )

@@ -31,7 +31,7 @@ export default function ReviewEntireImgSwiper(props: any) {
                 {reviews.review_img_url.map((imgs: any) => {
                     return (
                         <SwiperSlide key={imgs.review_img_id}>
-                            <img src={imgs.review_img_detail_url} alt="" className="h-[348px] w-auto mt-[15px] rounded-lg" />
+                            <Image src={imgs.review_img_detail_url} alt="" width={400} height={400} className=" mt-[15px] rounded-lg" />
                         </SwiperSlide>
                     )
                 })}

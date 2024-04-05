@@ -42,7 +42,7 @@ export const options: NextAuthOptions = {
     ),
   ],
   callbacks: {
-    async signIn({ user, profile}) {
+    async signIn({ user, profile}):Promise<any> {
       if(profile) {
         console.log('ssg profile',profile, user)
         const res = await fetch(`http://10.10.10.139:8080/api/v1/oauth/signup/easy`,{

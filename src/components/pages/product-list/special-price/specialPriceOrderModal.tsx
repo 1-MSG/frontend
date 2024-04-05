@@ -1,3 +1,4 @@
+'use client'
 import { forwardRef, useCallback, useEffect, useState } from "react";
 import ModalBackBtn from "@/images/svgs/ModalBackBtn";
 import Link from "next/link";
@@ -36,7 +37,7 @@ export default function SpecialPriceOrderModal(props: any) {
     }
 
 
-    function getPrice2(index: number, e: number) {
+    function GetPrice2(index: number, e: number) {
         priceList[index] = e;
         sum = 0;
         priceList.map((e: number) => sum += e)
@@ -62,7 +63,7 @@ export default function SpecialPriceOrderModal(props: any) {
                 </div>
                 {
                     modal &&
-                    <SpecialPriceOptionModal clickOptionModal={clickOptionModal} getOption={getOption} getPrice2={getPrice2} bundle={bundle} />
+                    <SpecialPriceOptionModal clickOptionModal={clickOptionModal} getOption={getOption} getPrice2={GetPrice2} bundle={bundle} />
                 }
 
 
@@ -77,7 +78,7 @@ export default function SpecialPriceOrderModal(props: any) {
                                             <div className="text-left text-[13px] text-[#222222] leading-[13px]">
                                                 <p>{list.product_name}</p>
 
-                                                <SpecialPriceCount product_price={list.product_price} discount_rate={list.discount_rate} getPrice2={getPrice2} index={index} />
+                                                <SpecialPriceCount product_price={list.product_price} discount_rate={list.discount_rate} getPrice2={GetPrice2} index={index} />
                                                 <div onClick={() => onRemove(index)} className="absolute top-0 right-0 pt-[5px] pr-[5px]">
                                                     <XIcon />
                                                 </div>

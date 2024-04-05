@@ -1,3 +1,4 @@
+'use client'
 import { forwardRef, useEffect, useState } from "react";
 import ModalBackBtn from "@/images/svgs/ModalBackBtn";
 import OrderOptionModal from "./orderOptionModal";
@@ -49,7 +50,7 @@ export default function OrderModal({
         priceList.push(giveData.product_price * ((100 - giveData.product_rate) / 100)) 
     }
 
-    function getPrice2(index: number, e: number) {
+    function GetPrice2(index: number, e: number) {
         priceList[index] = e;
         sum = 0;
         priceList.map((e: number) => sum += e)
@@ -84,7 +85,7 @@ export default function OrderModal({
                                             <div className="text-left text-[13px] text-[#222222] leading-[13px]">
                                                 <p>{list.color} {list.size}</p>
 
-                                                <ProductDetailCount product_price={giveData.product_price} product_rate={giveData.product_rate} getPrice2={getPrice2} index={index} />
+                                                <ProductDetailCount product_price={giveData.product_price} product_rate={giveData.product_rate} getPrice2={GetPrice2} index={index} />
                                                 <div onClick={() => onRemove(index)} className="absolute top-0 right-0 pt-[5px] pr-[5px]">
                                                     <XIcon />
                                                 </div>

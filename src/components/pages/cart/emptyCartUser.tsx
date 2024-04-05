@@ -38,7 +38,7 @@ export default function EmptyCartUser() {
                     <h3 className="text-[16px]"><strong>장바구니 상품안내</strong></h3>
                     <ul className="mt-[10px] text-[13px]">
                         <li className="">- 장바구니에 담은 상품은 최대 150개까지 보관됩니다.</li>
-                        <li className="mt-[5px]">- 상품 우측 상단의 핀셋 아이콘으로 '계속 담아두기'를 설정해 두시면 시간이 지나도 상품이 삭제되지 않습니다.</li>
+                        <li className="mt-[5px]">- 상품 우측 상단의 핀셋 아이콘으로 &#39;계속 담아두기&#39;를 설정해 두시면 시간이 지나도 상품이 삭제되지 않습니다.</li>
                     </ul>
                 </div>
         </div>

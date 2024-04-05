@@ -8,7 +8,7 @@ export default function SpecialPriceLead(props: any) {
 
     const bundle = props.bundle;
     const [orderList, setOrderList] = useState([]);
-    const priceList:any = [];
+    const priceList:any[] = [];
     const [total, setTotal] = useState(0);
 
 
