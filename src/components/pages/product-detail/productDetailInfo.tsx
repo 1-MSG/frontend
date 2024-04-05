@@ -1,10 +1,11 @@
-export default function ProductDetailInfo(props: any) {
+export default function ProductDetailInfo({productDetail}: {productDetail: any}) {
 
-    const data = props.giveData;
+    //const data = props.giveData;
 
     return(
         <div >
-            <div className='pb-[20px] pl-[16px] pr-[16px] border-t-[14px] border-[#f5f5f5]' >
+            {productDetail}
+            {/* <div className='pb-[20px] pl-[16px] pr-[16px]' >
                 <div className='pt-[40px] mb-[15px] text-[19px] font-bold tracking-[-0.05rem] border-b border-[#f5f5f5]'>
                     <h3 className='inline-block border-b border-[#000]'>상세정보</h3>
                 </div>
@@ -21,7 +22,7 @@ export default function ProductDetailInfo(props: any) {
                         </div>
                     )
                 })}
-            </div>
+            </div> */}
         </div>
     )
 }

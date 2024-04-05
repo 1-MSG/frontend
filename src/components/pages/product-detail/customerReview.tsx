@@ -31,15 +31,12 @@ export default function CustomerReview(props: any) {
 
 
     return (
-        <div className='pb-[40px]' >
-            <div className='pt-[40px] px-[16px] mb-[15px] text-[19px] font-bold tracking-[-0.05rem] border-b border-[#f5f5f5] last:border-b-0'>
-                <h3 className='inline-block border-b border-[#000]'>고객리뷰</h3>
-            </div>
+        <div  >
 
             <div className='px-[16px] pt-[25px] pb-[34px] relative text-center'>
                 <span className='inline-block mt-[-3px] mr-[20px] font-bold text-[44px]'>{data.product_star}</span>
                 <div className='inline-block'>
-                    <StarRate product_star={data.product_star}/>
+                    <StarRate product_star={data.product_star} />
                     <span className='mt-[6px] text-[14px] font-medium'>
                         {data.product_review_count.toLocaleString()}건 리뷰
                     </span>

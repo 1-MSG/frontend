@@ -8,15 +8,33 @@ import ProductDetailCount from "./ProductDetailCount";
 import XIcon from "@/images/svgs/xIcon";
 
 
-export default function OrderModal(props: any, optionRef: any) {
-    const { clickOrderModal } = props;
-    const data = props.giveData;
+export default function OrderModal({
+    clickOrderModal, giveData, onRemove, orderList, priceList, setTotal, total, productId
+}: {
+    clickOrderModal: any, giveData: any, onRemove: any, orderList: any, priceList: any, setTotal: any, total: any, productId: number
+}) {
 
-    const orderList = props.orderList;
-    const priceList = props.priceList;
-    const setTotal = props.setTotal;
-    const total = props.total;
-    const { onRemove } = props;
+
+    // useEffect(() => { 
+    //     console.log("sfsdf");
+        
+    //     const getData = async () => {
+    //         const res = await fetch(`${process.env.API_BASE_URL}/option/type/${productId}`)
+    //         if (res.ok) {
+    //             const data = await res.json();
+    //             console.log(data);
+    //         }
+    //     }
+    //     getData();
+    // }, [])
+    // const { clickOrderModal } = props;
+    // const data = props.giveData;
+
+    // const orderList = props.orderList;
+    // const priceList = props.priceList;
+    // const setTotal = props.setTotal;
+    // const total = props.total;
+    // const { onRemove } = props;
     let sum = 0;
 
 
@@ -28,7 +46,7 @@ export default function OrderModal(props: any, optionRef: any) {
     // ------------ 옵션 체크 모달에서 가져온 값 리스트에 추가 --------------
     function getOption(e: any) {
         orderList.push(e);
-        priceList.push(data.product_price * ((100 - data.product_rate) / 100)) 
+        priceList.push(giveData.product_price * ((100 - giveData.product_rate) / 100)) 
     }
 
     function getPrice2(index: number, e: number) {
@@ -52,10 +70,10 @@ export default function OrderModal(props: any, optionRef: any) {
                     onClick={() => setModal(true)}>
                     선택하세요. &#40;사이즈&#41;
                 </div>
-                {
+                {/* {
                     modal &&
-                    <OrderOptionModal clickOptionModal={clickOptionModal} getOption={getOption} giveData={data} getPrice2={getPrice2} />
-                }
+                    <OrderOptionModal clickOptionModal={clickOptionModal} getOption={getOption} giveData={giveData} productId={productId} />
+                } */}
                 <div>
                     <div className="px-[15px] pt-[12px] max-h-[300px] overflow-y-scroll">
                         {orderList.length == 0 ? <div></div> :
@@ -66,7 +84,7 @@ export default function OrderModal(props: any, optionRef: any) {
                                             <div className="text-left text-[13px] text-[#222222] leading-[13px]">
                                                 <p>{list.color} {list.size}</p>
 
-                                                <ProductDetailCount product_price={data.product_price} product_rate={data.product_rate} getPrice2={getPrice2} index={index} />
+                                                <ProductDetailCount product_price={giveData.product_price} product_rate={giveData.product_rate} getPrice2={getPrice2} index={index} />
                                                 <div onClick={() => onRemove(index)} className="absolute top-0 right-0 pt-[5px] pr-[5px]">
                                                     <XIcon />
                                                 </div>

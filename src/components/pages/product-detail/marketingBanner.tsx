@@ -1,5 +1,18 @@
-export default function MarketingBanner(props:any) {
-    const data = props.giveData
+import { CommonDataResType } from '@/types/commonResType';
+
+async function getProductCategory(productId: number) {
+    const res = await fetch(`${process.env.API_BASE_URL}/product/${productId}/category`)
+    if (!res.ok) {
+        throw new Error('서버 오류');
+    }
+    return res.json();
+}
+
+export default async function MarketingBanner({productId}: {productId: number}) {
+    
+    const productCategory:CommonDataResType = await getProductCategory(productId);
+    //console.log(productCategory.data);
+    
     
     return(
         <div>
@@ -22,7 +35,7 @@ export default function MarketingBanner(props:any) {
                         카테고리
                     </dt>
                     <dd className='ml-[80px] font-bold'>
-                        {data.product_category_name} &gt; {data.product_category_name_mid}
+                        {productCategory.data.categoryLarge} &gt; {productCategory.data.categoryMid}
                     </dd>
                 </dl>
             </div>

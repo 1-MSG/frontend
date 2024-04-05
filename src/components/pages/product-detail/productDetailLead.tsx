@@ -3,9 +3,9 @@
 import OrderFooter from '@/components/pages/product-detail/orderFooter';
 import { useCallback, useState } from 'react';
 
-export default function ProductDetailLead(props: any) {
+export default function ProductDetailLead({giveData, productId} : {giveData: any, productId: number}) {
 
-    const giveData = props.giveData;
+    //const giveData = props.giveData;
     const [orderList, setOrderList] = useState([]); 
     const priceList:any = [];
     const [total, setTotal] = useState(0);
@@ -24,7 +24,7 @@ export default function ProductDetailLead(props: any) {
     return (
         <div>
             {/* 하단 구매하기 버튼 */}
-            <OrderFooter giveData={giveData} onRemove={onRemove} orderList={orderList} priceList={priceList} setTotal={setTotal} total={total}/>
+            <OrderFooter giveData={giveData} onRemove={onRemove} orderList={orderList} priceList={priceList} setTotal={setTotal} total={total} productId={productId}/>
         </div>
     )
 }
