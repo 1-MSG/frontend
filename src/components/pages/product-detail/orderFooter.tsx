@@ -1,18 +1,12 @@
 'use client'
 
-import { useState } from "react";
-import OrderModal from "./orderModal";
 import Like from '@/images/svgs/Like';
 
 export default function OrderFooter({
-    Info, onRemove, orderList, priceList, setTotal, total, productId
+    productId, setOrderModal
 } : {
-    Info: any, onRemove: any, orderList: any, priceList: any, setTotal: any, total: any, productId: number
+    productId: number, setOrderModal: React.Dispatch<React.SetStateAction<boolean>>
 }) {
-
-    const [orderModal, setOrderModal] = useState(false);
-
-    const clickOrderModal = () => { setOrderModal(!orderModal) }
 
     return (
         <div>
@@ -23,19 +17,7 @@ export default function OrderFooter({
                 <li className='basis-5/6 bg-[#ff5452] text-[17px] font-bold text-white' onClick={() => setOrderModal(true)}>
                     구매하기
                 </li>
-                {
-                    orderModal &&
-                    <OrderModal 
-                        clickOrderModal={clickOrderModal} 
-                        Info={Info} 
-                        onRemove={onRemove} 
-                        orderList={orderList} 
-                        priceList={priceList} 
-                        total={total} 
-                        setTotal={setTotal} 
-                        productId={productId}
-                    />
-                }
+               
             </ul>
         </div>
     )
