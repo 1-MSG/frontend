@@ -5,10 +5,30 @@ import SpecialPriceInfo from '@/components/pages/product-list/special-price/spec
 import SpecialPriceLead from '@/components/pages/product-list/special-price/specialPriceLead'
 import SpecialPriceList from '@/components/pages/product-list/special-price/specialPriceList'
 import SpecialPriceOrderFooter from '@/components/pages/product-list/special-price/specialPriceOrderFooter'
+import { CommonDataResType } from '@/types/commonResType';
+
+async function getSpecialPriceDetail(bundleId:number) {
+    const res = await fetch(`${process.env.API_BASE_URL}/bundles/${bundleId}`)
+    if (!res.ok) {
+        throw new Error('서버 오류');
+    }
+    return res.json();
+
+}
 
 
-export default function Page() {
+export default async function Page({
+    searchParams
+} : {
+    searchParams: { [key: string]: string | string[] | undefined } 
+}) {
+    const bundleId = searchParams.bundleId ? Number(searchParams.bundleId) : 0;
     const bundle = bundleDetail[0]
+
+    const BundleInfo:CommonDataResType = await getSpecialPriceDetail(bundleId);
+
+    console.log(BundleInfo.data);
+    
 
     return (
         <main>

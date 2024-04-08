@@ -1,4 +1,4 @@
-'use client'
+
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,14 +7,14 @@ import Gift from '@/images/svgs/nav/Gift'
 import HomeIcon from '@/images/svgs/HomeIcon'
 import My from '@/images/svgs/nav/My'
 import Recent from '@/images/svgs/nav/Recent'
-import { useSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth';
+import {options} from '@/app/api/auth/[...nextauth]/options';
 
 
-function Nav() {
+async function Nav() {
 
-    const session = useSession();
-    console.log(session);
-    
+    const session = await getServerSession(options)
+    const userId = session?.user.data.userId
 
     //style={{ position: 'fixed', bottom: 0, background: 'white', padding: '5px', width: '100%', height: '50px', display: 'flex', justifyContent: 'space-evenly' }}
     return (
@@ -43,7 +43,7 @@ function Nav() {
                     </Link>
                 </div>
                 <div className='m-auto text-center '>
-                    <Link href={'/auth/users'}>
+                    <Link href={userId == undefined ? '/login' : '/users'}>
                         <div className='pt-[3px]'>
                             <My />
                         </div>

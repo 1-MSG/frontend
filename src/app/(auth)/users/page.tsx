@@ -12,7 +12,6 @@ import RightNav from "@/components/layout/RightNav";
 import UserFooter from "@/components/layout/UserFooter";
 import UsersHeader from "@/components/pages/auth/users/UsersHeader";
 import UsersCategory from "@/components/pages/auth/users/UsersCategory";
-// ssg 렌더링 방식 적용 필요
 
 
 export default function Page() {

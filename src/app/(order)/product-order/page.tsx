@@ -1,94 +1,121 @@
-import dummydata from '@/dummydata/order.json'
 import Crooked from '../../../components/pages/order/product-order/crooked';
 import OrderDeliveryInfo from '@/components/pages/order/product-order/orderDeliveryInfo';
 import OrderPaymentInfo from '@/components/pages/order/product-order/orderPaymentInfo';
-import Image from 'next/image';
 import OrderCustomerInfo from '@/components/pages/order/product-order/orderCustomerInfo';
 import OrderProductInfo from '@/components/pages/order/product-order/orderProductInfo';
+import { getServerSession } from 'next-auth';
+import {options} from '@/app/api/auth/[...nextauth]/options';
+import { redirect } from "next/navigation";
+import { CommonDataResType } from '@/types/commonResType';
 
 
-export default function Page() {
-    const data = dummydata[0];
+export default async function Page(
+    { searchParams } : { searchParams: { [key: string]: string | string[] | undefined } }
+) {
 
-    let delivery: any = [];
-    let brandTotal: any = [];
-    let discountTotal: any = [];
-    let originalTotal: any = [];
-    let value = 0;
+    const session = await getServerSession(options)
+    const userId = session?.user.data.userId
+
+    const orderList = searchParams.orderList ? JSON.parse(searchParams.orderList as string) : [];
+    const priceList = searchParams.priceList ? JSON.parse(searchParams.priceList as string) : [];
+
+    console.log(orderList);
+    console.log(priceList);
 
 
-    data.brand_list.map((arr1: any, i: number) => {
-        let sum = 0;
-        let discount = 0;
-        let original = 0;
+    let SaleTotal = 0;
+    priceList.map((e: any) => { SaleTotal += e.salePrice })
 
-        arr1.product_list.map((arr2: any, j: number) => {
-            value++;
-            sum += arr2.cart_product_quantity * (arr2.product_price * ((100 - arr2.product_rate) / 100))
-            discount += arr2.cart_product_quantity * (arr2.product_price * (arr2.product_rate) / 100)
-            original += arr2.cart_product_quantity * arr2.product_price
+    let originalTotal = 0;
+    priceList.map((e: any) => { originalTotal += (e.productPrice * e.count)})
+
+    let discountTotal = 0;
+    priceList.map((e: any) => { discountTotal += e.discountPrice * e.count})
+
+    let salePrice = originalTotal - discountTotal;
+
+
+    let orderProductDetails:any[] = [];
+    priceList.map((e:any, index:number) => (
+        orderProductDetails.push({
+            productId: e.productId,
+            productOptionId: orderList[index].optionId,
+            orderQuantity: e.count,
+            orderDeliveryFee: 0,
+            discountRate: e.discountRate,
+            salePrice: e.discountPrice,
+            originPrice: e.productPrice,
         })
+    ))
 
-        if (sum >= arr1.min_delivery_fee) delivery.push(0)
-        else delivery.push(arr1.product_delivery_fee)
-
-        brandTotal.push(sum);
-        discountTotal.push(discount);
-        originalTotal.push(original);
-    })
-
-    let finalOriginal = 0;
-    originalTotal.map((e: number) => finalOriginal += e)
-
-    let finalDiscount = 0;
-    discountTotal.map((e: number) => finalDiscount += e)
-
-    let finalDelivery = 0;
-    delivery.map((e: number) => finalDelivery += e)
-
-    let finalPrice = finalOriginal - finalDiscount + finalDelivery
+    console.log("orderProductDetails ", orderProductDetails);
+    
 
 
-    function priceToString(price: number) {
-        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    async function createOrder() {
+        'use server'
+        const orderFormData = {
+            buyerId: userId,
+            buyerName: "name",
+            buyerPhoneNumber: "01012345678",
+            address: "주소주소주소",
+            orderProductDetails: orderProductDetails,
+        }
+
+        console.log(orderFormData)
+        const res = await fetch(`${process.env.API_BASE_URL}/orders`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderFormData),
+        })
+        if (res.ok) {
+            console.log("주문 성공");
+            const data = res.json()
+            console.log(data);
+            
+            // redirect(`/order-complete?orderId=${orderId}`)
+        }
+
+        console.log(res);
     }
-
+    
 
     return (
         <div className='w-full h-auto'>
 
-            {/*  */}
             <div className="bg-[#f5f5f5] pt-[20px]">
-                <form>
+                <form action={createOrder}>
                     <div className="px-[14px] pb-[60px]">
 
-                        <OrderDeliveryInfo data={data} />
-                        <OrderPaymentInfo data={data} finalPrice={finalPrice}/>
+                        <OrderDeliveryInfo userId={userId} />
+                        <OrderPaymentInfo SaleTotal={SaleTotal}/>
 
                         <div className="mt-[20px] pt-[20px] px-[16px] pb-[20px] bg-white rounded-xl">
                             <h2 className="flex pb-[10px] text-[18px] font-extrabold tracking-[-0.1rem] border-b border-[#f5f5f5]">
                                 <span>결제예정금액</span>
-                                <span>{priceToString(finalPrice)}원</span>
+                                <span>{SaleTotal.toLocaleString()}원</span>
                             </h2>
                             <div className="pt-[16px] text-[14px] tracking-[-0.1rem]">
                                 <p className="flex">
                                     <span>주문금액</span>
-                                    <span>{priceToString(finalOriginal)}원</span>
+                                    <span>{originalTotal.toLocaleString()}원</span>
                                 </p>
                                 <p className="flex mt-[5px]">
                                     <span>배송비</span>
-                                    <span>+ {priceToString(finalDelivery)}원</span>
+                                    <span>+ 원</span>
                                 </p>
                                 <p className="flex mt-[5px]">
                                     <span>할인금액</span>
-                                    <span className="text-[#ff5452]">- {priceToString(finalDiscount)}원</span>
+                                    <span className="text-[#ff5452]">- {discountTotal.toLocaleString()}원</span>
                                 </p>
                                 <p className="flex mt-[5px]">
                                     <span>
                                         <span className="float-left pt-[6px] pr-[3px] pl-[2px]"><Crooked /></span>
                                         <em className="not-italic text-[#888888]">상품할인</em>
                                     </span>
-                                    <span className="text-[#888888]">- {priceToString(finalDiscount)}원</span>
+                                    <span className="text-[#888888]">- {salePrice.toLocaleString()}원</span>
                                 </p>
                             </div>
                         </div>
@@ -107,15 +134,15 @@ export default function Page() {
                             </button>
                         </div>
                         
-                        <OrderCustomerInfo data={data}/>
+                        {/* <OrderCustomerInfo userId={userId}/> */}
 
-                        <OrderProductInfo data={data}/>
+                        <OrderProductInfo orderList={orderList} priceList={priceList}/>
                     </div>
 
 
                     <div>
-                        <button className="w-full h-[52px] fixed bottom-0 bg-[#ff5452] text-[17px] text-white ">
-                            <span className="font-extrabold">{priceToString(finalPrice)}원</span>
+                        <button type='submit' className="w-full h-[52px] fixed bottom-0 bg-[#ff5452] text-[17px] text-white ">
+                            <span className="font-extrabold">{SaleTotal.toLocaleString()}원</span>
                             <span className="font-semibold"> 결제하기</span>
                         </button>
                     </div>

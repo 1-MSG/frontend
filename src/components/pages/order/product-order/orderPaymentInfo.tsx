@@ -3,14 +3,7 @@ import Ssgpay from '@/components/pages/order/product-order/ssgpay';
 import Kakaopay from '@/components/pages/order/product-order/kakaopay';
 import Payco from '@/components/pages/order/product-order/payco';
 
-export default function OrderPaymentInfo(props: any) {
-
-    const data = props.data
-    const finalPrice = props.finalPrice
-
-    function priceToString(price: number) {
-        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
+export default function OrderPaymentInfo({SaleTotal}: {SaleTotal: number}) {
 
     return (
 
@@ -38,7 +31,7 @@ export default function OrderPaymentInfo(props: any) {
                 <div className="mt-[5px] border border-[#d8d8d8] h-[40px] pl-[15px] text-[13px] leading-[40px]">일시불<span></span></div>
                 <div className="flex mt-[5px] p-[15px] bg-[#fafafa] rounded-lg text-[13px] font-bold">
                     <p>결제금액</p>
-                    <p><span className='font-medium'>{priceToString(finalPrice)}</span>원</p>
+                    <p><span className='font-medium'>{SaleTotal.toLocaleString()}</span>원</p>
                 </div>
             </div>
         </div>

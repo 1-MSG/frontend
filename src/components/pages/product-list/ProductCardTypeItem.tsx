@@ -33,7 +33,7 @@ export default async function ProductCardTypeItem({productId}: {productId: numbe
 
     const productImage:CommonDataResType = await getProductImage(productId);
     const image = productImage.data;
-    //console.log(productImage);
+    console.log(image);
 
     function Rate(price:number, rate:number, salePrice:number) {
         //let n = (100 - rate) / 100;
@@ -59,7 +59,7 @@ export default async function ProductCardTypeItem({productId}: {productId: numbe
 
     return (
         <div className='pt-[10px] pb-[20px]'>
-            <Link href={`/product-detail/${productId}`}>
+            <Link href={`/product-detail/productId?productId=${productId}`}>
                 <Image src={image.productImageUrl}
                     alt={image.productImageDescription}
                     width={175}

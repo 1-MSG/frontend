@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import toggleFalse from '@/assets/image/button/toggleFalse.png'
 import toggleTrue from '@/assets/image/button/toggleTrue.png'
 import Link from 'next/link';
-import { signIn, signOut } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { LoginFormType } from '@/types/formType';
 
 export default function LoginContainer() {
     const [isToggled, setIsToggled] = useState(false);
@@ -14,8 +15,14 @@ export default function LoginContainer() {
         setIsToggled(!isToggled);
     };
 
+    const { data: session } = useSession();
+
+    useEffect(() => {
+        console.log(session)
+    }, [session])
+
     // 입력값을 상태관리 하여 로그인 기능 구현 필요
-    const [payLoad, setPayLoad] = useState({
+    const [payLoad, setPayLoad] = useState<LoginFormType>({
         loginId: '',
         password: ''
     });
@@ -46,32 +53,32 @@ export default function LoginContainer() {
                 <div style={{ width: '100%', paddingTop: '35px', paddingLeft: '20px', paddingRight: '20px' }}>
                     {/* <h2 style={{fontWeight:'bold'}}>로그인</h2> */}
                     <div style={{ width: '100%', height: 'fit-content' }}>
-                        <input 
-                            type='text' 
+                        <input
+                            type='text'
                             name='loginId'
                             onChange={onChangeHandler}
-                            placeholder="아이디" 
-                            style={{ fontSize: '14px', width: '100%', height: '45px', paddingLeft: '10px', border: '1px solid #d3d3d3', outlineColor: '#ff5452' }}/>
-                        <input 
-                            type='password' 
-                            name='password' 
+                            placeholder="아이디"
+                            style={{ fontSize: '14px', width: '100%', height: '45px', paddingLeft: '10px', border: '1px solid #d3d3d3', outlineColor: '#ff5452' }} />
+                        <input
+                            type='password'
+                            name='password'
                             onChange={onChangeHandler}
-                            placeholder="비밀번호" 
-                            style={{ fontSize: '14px', width: '100%', height: '45px', paddingLeft: '10px', border: '1px solid #d3d3d3', outlineColor: '#ff5452' }}/>
+                            placeholder="비밀번호"
+                            style={{ fontSize: '14px', width: '100%', height: '45px', paddingLeft: '10px', border: '1px solid #d3d3d3', outlineColor: '#ff5452' }} />
                     </div>
                     <div style={{ width: '100%', height: 'fit-content', padding: '8px' }}>
                         <div onClick={toggleHandler} style={{ display: 'flex' }}>
-                            {!isToggled && 
+                            {!isToggled &&
                                 <>
-                                    <Image src={toggleFalse} 
-                                            alt='' 
-                                            style={{ width: '18px', marginLeft: '1px' }}/>
+                                    <Image src={toggleFalse}
+                                        alt=''
+                                        style={{ width: '18px', marginLeft: '1px' }} />
                                     <p style={{ marginLeft: '7px', fontSize: '12px' }}>아이디 저장</p>
                                 </>
                             }
-                            {isToggled && 
+                            {isToggled &&
                                 <>
-                                    <Image src={toggleTrue} alt='' style={{ width: '20px' }}/>
+                                    <Image src={toggleTrue} alt='' style={{ width: '20px' }} />
                                     <p style={{ marginLeft: '6px', fontSize: '12px' }}>아이디 저장</p>
                                 </>
                             }
