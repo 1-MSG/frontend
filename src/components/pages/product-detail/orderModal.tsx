@@ -7,59 +7,66 @@ import Plus from "@/images/svgs/Plus"
 import Link from "next/link";
 import ProductDetailCount from "./ProductDetailCount";
 import XIcon from "@/images/svgs/xIcon";
+import { CommonDataResType } from "@/types/commonResType";
+import OrderChildOptionModal from "./OrderChildOptionModal";
+import OrderOneOption from "./OrderOneOption";
+import OrderTwoOption from "./OrderTwoOption";
+import OrderThreeOption from "./OrderThreeOption";
+import OrderModalBtn from "./OrderMoalBtn";
 
 
 export default function OrderModal({
-    clickOrderModal, giveData, onRemove, orderList, priceList, setTotal, total, productId
+    clickOrderModal, Info, onRemove, orderList, priceList, setTotal, total, productId
 }: {
-    clickOrderModal: any, giveData: any, onRemove: any, orderList: any, priceList: any, setTotal: any, total: any, productId: number
+    clickOrderModal: any, Info : any, onRemove: any, orderList: any, priceList: any, setTotal: any, total: any, productId: number
 }) {
 
+    const [kind, setKind] = useState([] as any);
 
-    // useEffect(() => { 
-    //     console.log("sfsdf");
-        
-    //     const getData = async () => {
-    //         const res = await fetch(`${process.env.API_BASE_URL}/option/type/${productId}`)
-    //         if (res.ok) {
-    //             const data = await res.json();
-    //             console.log(data);
-    //         }
-    //     }
-    //     getData();
-    // }, [])
-    // const { clickOrderModal } = props;
-    // const data = props.giveData;
+    useEffect(() => {
+        const getData = async () => {
+            const res = await fetch(`${process.env.API_BASE_URL}/option/type/${productId}`)
+            if (res.ok) {
+                const data: CommonDataResType = await res.json();
+                setKind(data.data.reverse());
+                //console.log(data.data);
+            }
+        }
+        getData();
+    }, [])
+
+    //console.log("kind ", kind);
+
+
+    //const { clickOrderModal } = props;
+    //const data = props.giveData;
 
     // const orderList = props.orderList;
     // const priceList = props.priceList;
     // const setTotal = props.setTotal;
     // const total = props.total;
     // const { onRemove } = props;
-    let sum = 0;
+    // let sum = 0;
+
+    // // ------------ 부모 옵션 id --------------
+    // const [parentId, setParentId] = useState(0);
+
+    // const getOptionId = (optionId: number) => {
+    //     setParentId(optionId);
+    // }
 
 
-    // ------------ 옵션 체크 모달 --------------
-    const [modal, setModal] = useState(false);
-    const clickOptionModal = () => { setModal(!modal) }
+    // // ------------ 옵션 체크 모달 --------------
+    // const [modal, setModal] = useState(false);
+    // const clickOptionModal = () => { setModal(!modal) }
 
+    // const [childModal, setChildModal] = useState(false);
+    // const clickChildOptionModal = () => { setModal(!childModal) }
 
-    // ------------ 옵션 체크 모달에서 가져온 값 리스트에 추가 --------------
-    function getOption(e: any) {
-        orderList.push(e);
-        priceList.push(giveData.product_price * ((100 - giveData.product_rate) / 100)) 
-    }
-
-    function GetPrice2(index: number, e: number) {
-        priceList[index] = e;
-        sum = 0;
-        priceList.map((e: number) => sum += e)
-        useEffect(() => {
-            setTotal(sum)
-        })
-    }
-
-
+    // console.log("orderList", orderList);
+    // console.log("priceList", priceList);
+    
+    
 
     return (
         <div className="w-full bg-white fixed z-10 bottom-0 rounded-t-md shadow-[20px_10px_20px_15px_rgba(0,0,0,0.2)]">
@@ -67,16 +74,51 @@ export default function OrderModal({
                 <div className="w-[25px] h-[25px] m-auto pt-[5px]" onClick={clickOrderModal}><ModalBackBtn /></div>
             </div>
             <div>
-                <div className="mt-[8px] mx-[15px] h-[42px] mb-[13px] pl-[15px] tracking-[-0.07rem] text-[13px] text-left leading-[42px] border border-[#ff5452] rounded-md"
+                {kind.length == 1 && 
+                    <OrderOneOption 
+                        kind={kind} 
+                        productId={productId} 
+                        orderList={orderList} 
+                        priceList={priceList} 
+                        setTotal={setTotal} 
+                        Info={Info}
+                        onRemove={onRemove} />}
+
+                {kind.length == 2 && 
+                    <OrderTwoOption
+                        kind={kind} 
+                        productId={productId} 
+                        orderList={orderList} 
+                        priceList={priceList} 
+                        setTotal={setTotal} 
+                        Info={Info}
+                        onRemove={onRemove}
+                        />}
+
+                {kind.length == 3 && <OrderThreeOption/>}
+
+                {/* {kind.map((e: any, index: number) => (
+                    <>
+                        <div key={index} className="mt-[8px] mx-[15px] h-[42px] mb-[13px] pl-[15px] tracking-[-0.07rem] text-[13px] text-left leading-[42px] border border-[#ff5452] rounded-md"
+                            onClick={() => setModal(true)}>
+                            선택하세요. &#40;{e.optionType}&#41;
+                        </div>
+                        {
+                            modal &&
+                            <OrderOptionModal clickOptionModal={clickOptionModal} getOptionId={getOptionId} productId={productId} />
+                        }
+                        {
+                            childModal && parentId != 0 &&
+                            <OrderChildOptionModal clickChildOptionModal={clickChildOptionModal} optionId={parentId} />
+                        }
+                    </>
+                ))} */}
+                {/* <div className="mt-[8px] mx-[15px] h-[42px] mb-[13px] pl-[15px] tracking-[-0.07rem] text-[13px] text-left leading-[42px] border border-[#ff5452] rounded-md"
                     onClick={() => setModal(true)}>
                     선택하세요. &#40;사이즈&#41;
-                </div>
-                {/* {
-                    modal &&
-                    <OrderOptionModal clickOptionModal={clickOptionModal} getOption={getOption} giveData={giveData} productId={productId} />
-                } */}
+                </div> */}
                 <div>
-                    <div className="px-[15px] pt-[12px] max-h-[300px] overflow-y-scroll">
+                    {/* <div className="px-[15px] pt-[12px] max-h-[300px] overflow-y-scroll">
                         {orderList.length == 0 ? <div></div> :
                             <div>
                                 {orderList.map((list: any, index: number) => {
@@ -95,26 +137,17 @@ export default function OrderModal({
                                 })}
                             </div>
                         }
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="pt-[6px] pr-[20px] pb-[15px] float-right">
                 <strong className="text-[16px]">총 합계 </strong>
                 <strong className="text-[25px] text-[#ff5452]">
                     <em className="not-italic">{total.toLocaleString()}</em>
-                    <span className="">원</span>
+                    <span>원</span>
                 </strong>
             </div>
-            <div>
-                <ul className='flex w-full bottom-0 h-[52px] text-center leading-[52px] text-[16px] font-medium'>
-                    <li className='bg-black text-white w-1/2'>
-                        장바구니
-                    </li>
-                    <li className='bg-[#ff5452] text-white w-1/2'>
-                        <Link href="/order">바로구매</Link>
-                    </li>
-                </ul>
-            </div>
+            <OrderModalBtn productId={productId} orderList={orderList} priceList={priceList}/>
         </div>
     )
 }

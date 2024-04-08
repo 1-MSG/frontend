@@ -19,32 +19,16 @@ async function getProductInfo(productId: number) {
 
 }
 
-// 상품 상세 정보 가져오기
-async function getProductDetail(productId: number) {
-    const res = await fetch(`${process.env.API_BASE_URL}/product/${productId}/detail`)
-    if (!res.ok) {
-        throw new Error('서버 오류');
-    }
-    return res.json();
-}
-
 // 상품 이미지 가져오기
 async function getProductImages(productId: number) {
-    const res = await fetch(`${process.env.API_BASE_URL}/product/${productId}/images`)
+    const res = await fetch(`${process.env.API_BASE_URL}/product/${productId}/images`, {
+        cache: 'no-cache',
+    })
     if (!res.ok) {
         throw new Error('서버 오류');
     }
     return res.json();
 }
-
-// 상품 옵션 가져오기
-// async function getProductOption(productId: number) {
-//     const res = await fetch(`${process.env.API_BASE_URL}/option/type/${productId}`)
-//     if (!res.ok) {
-//         throw new Error('서버 오류');
-//     }
-//     return res.json();
-// }
 
 
 export default async function Page({
@@ -53,21 +37,13 @@ export default async function Page({
     searchParams: { [key: string]: string | string[] | undefined } 
 }) {
 
-    const data = Data[0];
-
     const productId = searchParams.productId ? Number(searchParams.productId) : 0;
-    //console.log(productId);
-    
 
     const productInfo:CommonDataResType = await getProductInfo(productId);
-    const productDetail:CommonDataResType = await getProductDetail(productId);
-    const productImages:CommonDataResType = await getProductImages(2);
-    //const productOption:CommonDataResType = await getProductOption(productId);
+    const productImages:CommonDataResType = await getProductImages(productId);
 
     //console.log(productInfo.data);
-    //console.log(productDetail.data);
-    //console.log(productImages.data);
-    //console.log(productOption.data);
+    console.log(productImages.data);
 
     const Info = productInfo.data;
     const Images = productImages.data;
@@ -88,19 +64,21 @@ export default async function Page({
             {/* 상품 정보 */}
             <ProductInfo Info={Info}/>
 
+            <div className='border-t-[14px] border-[#f5f5f5]'></div>
+
             {/* 상품 상세 정보 */}
-            <ProductDetailInfo productDetail={productDetail.data} />
+            <ProductDetailInfo productId={productId}/>
 
             <div className='border-t-[14px] border-[#f5f5f5]'></div>
 
-            {/* 고객 리뷰 */}
+            {/* 고객 리뷰*/}
             <CustomerReviewLead productId={productId}/>
 
             {/* 상품 고시 정보 + 마케팅 배너 */}
             <MarketingBanner productId={productId} />
 
             {/* 하단 구매하기 버튼 */}
-            <ProductDetailLead giveData={data} productId={productId}/>
+            <ProductDetailLead productId={productId} Info={Info}/> 
 
         </main>
     );

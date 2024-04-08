@@ -2,12 +2,16 @@ import Minus from "@/images/svgs/Minus"
 import Plus from "@/images/svgs/Plus"
 import { useState } from "react";
 
-export default function ProductDetailCount(props: any) {
+export default function ProductDetailCount({
+    getPrice2, index, discountPrice, productPrice
+} : {
+    getPrice2: any, index: number, discountPrice: number, productPrice: number
+}) {
 
-    const product_price = props.product_price;
-    const product_rate = props.product_rate;
-    const { getPrice2 } = props
-    const index = props.index
+    // const product_price = props.product_price;
+    // const product_rate = props.product_rate;
+    // const { getPrice2 } = props
+    // const index = props.index
 
     const [count, setCount] = useState(1);
 
@@ -20,8 +24,8 @@ export default function ProductDetailCount(props: any) {
         setCount(count + 1);
     }
 
-    const price = count * (product_price * ((100 - product_rate) / 100));
-    getPrice2(index, price);
+    const salePrice = count * discountPrice;
+    getPrice2(index, salePrice, count);
 
     return (
         <div className="flex">
@@ -35,7 +39,7 @@ export default function ProductDetailCount(props: any) {
             <div className="mt-[10px]">
                 <span className="text-[18px] font-bold">
                     <em className="not-italic"></em>
-                    <span>{price.toLocaleString()}원</span>
+                    <span>{salePrice.toLocaleString()}원</span>
                 </span>
             </div>
         </div>

@@ -1,6 +1,19 @@
-export default function OrderCustomerInfo(props:any) {
+import { CommonDataResType } from "@/types/commonResType";
 
-    const data = props.data
+// 배송지 정보 가져오기
+async function getAddressInfo(userId: number) {
+    const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`)
+    if (!res.ok) {
+        throw new Error('서버 오류');
+    }
+    return res.json();
+}
+
+export default async function OrderCustomerInfo({userId}: {userId: number}) {
+
+    const addressInfo: CommonDataResType = await getAddressInfo(userId);
+
+    const data = addressInfo.data[0];
 
     return (
         <div className="mt-[20px] pt-[20px] px-[16px] pb-[20px] bg-white rounded-xl">

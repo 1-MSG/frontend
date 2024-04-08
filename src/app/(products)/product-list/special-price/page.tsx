@@ -7,6 +7,7 @@ import specialPriceList from '@/dummydata/specialPriceData.json'
 import SpecialPriceContent from '@/components/pages/product-list/special-price/specialPriceContent'
 import { CommonDataResType } from '@/types/commonResType';
 import { CategoryDataType } from "@/types/categoryDataType";
+import { BundleDataType } from '@/types/bundleDataType'
 
 
 async function fetchData(){
@@ -17,14 +18,25 @@ async function fetchData(){
     return res.json();
 };
 
+async function getSpecialPriceList() {
+    const res = await fetch(`${process.env.API_BASE_URL}/bundles?page=0&size=10`)
+    if (!res.ok) {
+        throw new Error('서버 오류');
+    }
+    return res.json();
+
+}
+
 
 export default async function Page() {
 
     const result: CommonDataResType = await fetchData();
-    console.log(result.data)
-
-    const categoryList: CategoryDataType[] = result.data;
+    const specialPriceListData: CommonDataResType = await getSpecialPriceList();
+    //console.log(result.data)
+    //console.log(specialPriceListData.data);
     
+    const categoryList: CategoryDataType[] = result.data;
+    const specialPriceList: BundleDataType[] = specialPriceListData.data;
 
     return (
         <main>
