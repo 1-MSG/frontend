@@ -42,10 +42,10 @@ export default function OrderOneOption({
                         onClick={() => setModal(true)}>
                         선택하세요. &#40;{e.optionType}&#41;
                     </div>
-                    {
+                    {/* {
                         modal &&
                         <OrderOptionModal clickOptionModal={clickOptionModal} productId={productId} getOption={getOption} />
-                    }
+                    } */}
                 </>
             ))}
 
