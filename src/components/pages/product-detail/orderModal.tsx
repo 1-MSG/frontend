@@ -15,7 +15,7 @@ import OrderModalBtn from "./OrderMoalBtn";
 import { OptionListType } from "@/types/optionDataType";
 import OrderOption from "./OrderOption";
 
-import OrderOptionModal from "./OrderOptionModal";
+// import OrderOptionModal from "./OrderOptionModal";
 
 
 
@@ -85,7 +85,7 @@ export default function OrderModal({
 
     return (
         <>
-        {
+        {/* {
             isOpenModal && 
             <OrderOptionModal 
                 setIsOpenModal={setIsOpenModal}
@@ -93,7 +93,7 @@ export default function OrderModal({
                 openedOptionName={openedOptionName}
 
             />
-        }
+        } */}
         
         <div className="w-full bg-white fixed z-10 bottom-0 rounded-t-md shadow-[20px_10px_20px_15px_rgba(0,0,0,0.2)]">
             <div className="w-full ">
