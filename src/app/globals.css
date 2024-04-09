@@ -111,3 +111,12 @@ body {
     transform: translateY(0);
   }
 }
+
+/* product detail innerhtml image */
+.mndtl_tmpl_detail img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 auto;
+  vertical-align: top;
+}

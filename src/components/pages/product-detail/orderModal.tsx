@@ -1,7 +1,6 @@
 'use client'
 import { forwardRef, useEffect, useState } from "react";
 import ModalBackBtn from "@/images/svgs/ModalBackBtn";
-import OrderOptionModal from "./orderOptionModal";
 import Minus from "@/images/svgs/Minus"
 import Plus from "@/images/svgs/Plus"
 import Link from "next/link";
@@ -13,15 +12,25 @@ import OrderOneOption from "./OrderOneOption";
 import OrderTwoOption from "./OrderTwoOption";
 import OrderThreeOption from "./OrderThreeOption";
 import OrderModalBtn from "./OrderMoalBtn";
+import { OptionListType } from "@/types/optionDataType";
+import OrderOption from "./OrderOption";
+
+// import OrderOptionModal from "./OrderOptionModal";
+
+
 
 
 export default function OrderModal({
-    clickOrderModal, Info, onRemove, orderList, priceList, setTotal, total, productId
+    setOrderModal, Info, onRemove, orderList, priceList, setTotal, total, productId
 }: {
-    clickOrderModal: any, Info : any, onRemove: any, orderList: any, priceList: any, setTotal: any, total: any, productId: number
+    setOrderModal: React.Dispatch<React.SetStateAction<boolean>>, Info : any, onRemove: any, orderList: any, priceList: any, setTotal: any, total: any, productId: number
 }) {
 
-    const [kind, setKind] = useState([] as any);
+    const [kind, setKind] = useState<OptionListType[]>([] as OptionListType[]);
+    const [openedOptionName, setOpenedOptionName] = useState('');
+    const [lastLevel, setLastLevel] = useState<number>(0);
+    const [selectedList, setSelectedList] = useState([] as boolean[]);
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     useEffect(() => {
         const getData = async () => {
@@ -29,11 +38,17 @@ export default function OrderModal({
             if (res.ok) {
                 const data: CommonDataResType = await res.json();
                 setKind(data.data.reverse());
-                //console.log(data.data);
-            }
+                setLastLevel(data.data.length);
+                console.log("kind ", data);
+                setSelectedList(new Array(data.data.length).fill(false));
+                setSelectedList((prev) => {
+                    prev[0] = true;
+                    return prev;
+                })
+            } 
         }
         getData();
-    }, [])
+    }, [productId])
 
     //console.log("kind ", kind);
 
@@ -69,12 +84,36 @@ export default function OrderModal({
     
 
     return (
+        <>
+        {/* {
+            isOpenModal && 
+            <OrderOptionModal 
+                setIsOpenModal={setIsOpenModal}
+                productId={productId}
+                openedOptionName={openedOptionName}
+
+            />
+        } */}
+        
         <div className="w-full bg-white fixed z-10 bottom-0 rounded-t-md shadow-[20px_10px_20px_15px_rgba(0,0,0,0.2)]">
             <div className="w-full ">
-                <div className="w-[25px] h-[25px] m-auto pt-[5px]" onClick={clickOrderModal}><ModalBackBtn /></div>
+                <div className="w-[25px] h-[25px] m-auto pt-[5px]" onClick={()=>setOrderModal(false)}><ModalBackBtn /></div>
             </div>
             <div>
-                {kind.length == 1 && 
+                {
+                    kind.length > 0 && kind.map(( item: OptionListType, index: number) => (
+                        <OrderOption 
+                            item={item} 
+                            key={index}
+                            setOpenedOptionName={setOpenedOptionName}
+                            setIsOpenModal={setIsOpenModal}
+                            selected={selectedList[index]}
+                            index={index}
+                            setSelectedList={setSelectedList}
+                        />
+                    ))
+                }
+                {/* {kind.length == 1 && 
                     <OrderOneOption 
                         kind={kind} 
                         productId={productId} 
@@ -95,7 +134,7 @@ export default function OrderModal({
                         onRemove={onRemove}
                         />}
 
-                {kind.length == 3 && <OrderThreeOption/>}
+                {kind.length == 3 && <OrderThreeOption/>} */}
 
                 {/* {kind.map((e: any, index: number) => (
                     <>
@@ -149,6 +188,7 @@ export default function OrderModal({
             </div>
             <OrderModalBtn productId={productId} orderList={orderList} priceList={priceList}/>
         </div>
+    </>
     )
 }
 

@@ -1,6 +1,5 @@
 'use client'
 
-import OrderOptionModal from "./orderOptionModal";
 import { useEffect, useState } from "react";
 import ProductDetailCount from "./ProductDetailCount";
 import XIcon from "@/images/svgs/xIcon";

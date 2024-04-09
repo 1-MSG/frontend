@@ -1,6 +1,5 @@
 'use client'
 
-import OrderOptionModal from "./orderOptionModal";
 import { useEffect, useState } from "react";
 import ProductDetailCount from "./ProductDetailCount";
 import XIcon from "@/images/svgs/xIcon";
@@ -42,10 +41,10 @@ export default function OrderOneOption({
                         onClick={() => setModal(true)}>
                         선택하세요. &#40;{e.optionType}&#41;
                     </div>
-                    {
+                    {/* {
                         modal &&
                         <OrderOptionModal clickOptionModal={clickOptionModal} productId={productId} getOption={getOption} />
-                    }
+                    } */}
                 </>
             ))}
 
