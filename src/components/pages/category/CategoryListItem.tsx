@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function CategoryListItem({ categoryList }: { categoryList: CategoryDataType[] }) {
 
     const [isOpen, setIsOpen] = React.useState<Boolean[]>(
-        Array(categoryList.length).fill(false)
+        categoryList && Array(categoryList.length).fill(false)
     );
 
     const [pushId, setPushId] = useState<number>(0);
