@@ -47,7 +47,7 @@ export default function CategoryListItem({ categoryList }: { categoryList: Categ
                         acc[groupIndex] = [];
                     }
                     acc[groupIndex].push(item);
-                    return acc;
+                    return (acc);
                 }, []).map((group, idx) => (
                     <GroupNav
                         key={categoryList[idx].categoryId}
