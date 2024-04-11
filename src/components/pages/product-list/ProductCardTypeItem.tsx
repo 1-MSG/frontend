@@ -1,41 +1,52 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import Like from "@/images/svgs/Like";
 import CartIcon from "@/images/svgs/CartIcon";
 import GrayStar from "@/images/svgs/GrayStar";
 import { CommonDataResType } from "@/types/commonResType";
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import LikeEvent from "./LikeEvent";
+
+
 
 async function getProductData(productId: number) {
     const res = await fetch(`${process.env.API_BASE_URL}/product/${productId}`)
-    if (!res.ok) {
-        throw new Error('서버 오류');
-    }
+    // if (!res.ok) {
+    //     throw new Error('서버 오류');
+    // }
     return res.json();
 }
 
 async function getProductImage(productId: number) {
     const res = await fetch(`${process.env.API_BASE_URL}/product/${productId}/image`)
-    
-    if (!res.ok) {
-        throw new Error('서버 오류');
-    }
+
+    // if (!res.ok) {
+    //     throw new Error('서버 오류');
+    // }
     return res.json();
 }
 
 
-export default async function ProductCardTypeItem({productId}: {productId: number}) {
 
-    const productData:CommonDataResType = await getProductData(productId);
+
+
+export default async function ProductCardTypeItem({ productId }: { productId: number }) {
+
+    const session = await getServerSession(options)
+    const accessToken = session?.user.data.accessToken
+    // console.log("accessToken ", accessToken);
+
+    const productData: CommonDataResType = await getProductData(productId);
     const product = productData.data;
     //console.log(productData.data);
 
-    const productImage:CommonDataResType = await getProductImage(productId);
+    const productImage: CommonDataResType = await getProductImage(productId);
     const image = productImage.data;
-    console.log(image);
+    //console.log(image);
 
-    function Rate(price:number, rate:number, salePrice:number) {
+    function Rate(price: number, rate: number, salePrice: number) {
         //let n = (100 - rate) / 100;
         return (
             <div>
@@ -48,7 +59,7 @@ export default async function ProductCardTypeItem({productId}: {productId: numbe
         )
     }
 
-    function NotRate(price:number) {
+    function NotRate(price: number) {
         return (
             <div className='inline-block items-center'>
                 <p className='float-left text-[16px] font-bold'>{Number(price).toLocaleString()}원</p>
@@ -59,7 +70,7 @@ export default async function ProductCardTypeItem({productId}: {productId: numbe
 
     return (
         <div className='pt-[10px] pb-[20px]'>
-            <Link href={`/product-detail/productId?productId=${productId}`}>
+            <Link href={`/product-detail?productId=${productId}`}>
                 <Image src={image.productImageUrl}
                     alt={image.productImageDescription}
                     width={175}
@@ -70,12 +81,12 @@ export default async function ProductCardTypeItem({productId}: {productId: numbe
             <div className='flex mt-[3px] py-[2px]'>
                 <div></div>
                 <div className='flex'>
-                    <button className='w-[20px] mr-[5px]'><Like w={20} h={20} /></button>
+                    <LikeEvent productId={productId} accessToken={accessToken}/>
                     <button className='mr-[3px]'><CartIcon w={26} h={26} /></button>
                 </div>
             </div>
 
-            <Link href={`/product-detail/productId?productId=${productId}`} className='mt-[10px] pr-[20px] leading-[16px]'>
+            <Link href={`/product-detail?productId=${productId}`} className='mt-[10px] pr-[20px] leading-[16px]'>
                 <p className='text-[13px]'>
                     <span className='font-bold'>{product.productBrand} </span>
                     {product.productName}</p>

@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function CategoryListItem({ categoryList }: { categoryList: CategoryDataType[] }) {
 
     const [isOpen, setIsOpen] = React.useState<Boolean[]>(
-        Array(categoryList.length).fill(false)
+        categoryList && Array(categoryList.length).fill(false)
     );
 
     const [pushId, setPushId] = useState<number>(0);
@@ -41,13 +41,13 @@ export default function CategoryListItem({ categoryList }: { categoryList: Categ
             <p className="px-[10px] text-[14px] font-bold text-[#222222] tracking-[-0.05rem]">전체 카테고리</p>
 
             <div className=" mt-[10px]">
-                {categoryList.reduce((acc: CategoryDataType[][], item, index) => {
+                {categoryList && categoryList.reduce((acc: CategoryDataType[][], item, index) => {
                     const groupIndex = Math.floor(index / 5);
                     if (!acc[groupIndex]) {
                         acc[groupIndex] = [];
                     }
                     acc[groupIndex].push(item);
-                    return acc;
+                    return (acc);
                 }, []).map((group, idx) => (
                     <GroupNav
                         key={categoryList[idx].categoryId}

@@ -30,14 +30,14 @@ export default async function OrderProductItem({price, orderList}: {price: any, 
     const productImages:CommonDataResType = await getProductImages(price.productId);
 
     const product = productInfo.data;
-    //const Images = productImages.data;
+    const Images = productImages.data;
 
     //console.log(product);
 
     return (
         <div  className='grid grid-cols-7 py-[20px] border-b border-[#f0f0f0]'>
             <div className="col-span-2 align-top">
-                {/* <Image src={product.productImageUrl} alt={product.productImageDescription} width={100} height={100} className="" /> */}
+                <Image src={product.productImageUrl} alt={product.productImageDescription} width={100} height={100} className="" />
             </div>
             <div className="col-span-5 ml-[10px]">
                 <p className="text-[14px]">

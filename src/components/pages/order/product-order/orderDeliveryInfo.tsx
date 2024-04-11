@@ -1,20 +1,36 @@
 import { CommonDataResType } from "@/types/commonResType";
+import { redirect } from "next/navigation";
+
+
 
 // 배송지 정보 가져오기
 async function getAddressInfo(userId: number) {
-    const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`)
+    const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {cache: "no-cache"})
     if (!res.ok) {
         throw new Error('서버 오류');
     }
-    return res.json();
+    const data: CommonDataResType = await res.json();
+    //console.log("address ", data);
+    
+    if(data.data.length === 0) {
+        redirect("/address?callbackUrl=/product-order");
+    }
+    else {
+        return data;    
+    }
+    
 }
 
 export default async function OrderDeliveryInfo({userId}: {userId: number}) {
 
+    console.log(userId);
+    
+
     const addressInfo: CommonDataResType = await getAddressInfo(userId);
-
-
     const data = addressInfo.data[0];
+
+    //console.log(data);
+    
 
     return (
         <>

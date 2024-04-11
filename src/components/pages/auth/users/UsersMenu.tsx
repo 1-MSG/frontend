@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function UsersMenu() {
     const text1 = '결제수단\n관리'
@@ -13,10 +14,10 @@ export default function UsersMenu() {
             </div>
 
             <div className="mt-[18px] grid grid-cols-5 gap-[10px] leading-[20px]">
-                <div className="text-center">
+                <Link href="/like" className="text-center">
                     <Image src="https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_like@3x.png?q=d3458fca6f15a9912c6863de7efe58f9bb7bbe72" width={182} height={182} alt=""/>
                     <span className="mt-[4px] text-[12px] text-[#666666]">좋아요</span>
-                </div>
+                </Link>
                 <div className="text-center">
                     <Image src="https://sui.ssgcdn.com/ui/mssgmall-ssg/images/myssg/img_freq@3x.png?q=d3458fca6f15a9912c6863de7efe58f9bb7bbe72" width={182} height={182} alt=""/>
                     <span className="mt-[4px] text-[12px] text-[#666666]">자주구매</span>

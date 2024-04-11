@@ -24,7 +24,8 @@ export const options: NextAuthOptions = {
           body: JSON.stringify({
             loginId: credentials.loginId,
             password: credentials.password
-          })
+          }),
+          cache: 'no-cache',
         })
         if (res.ok) {
           const user = await res.json()

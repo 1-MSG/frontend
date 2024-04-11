@@ -52,13 +52,13 @@ export default async function Page(
     
 
 
-    async function createOrder() {
+    async function createOrder(formData: FormData) {
         'use server'
         const orderFormData = {
             buyerId: userId,
-            buyerName: "name",
-            buyerPhoneNumber: "01012345678",
-            address: "주소주소주소",
+            buyerName: formData.get('userName'),
+            buyerPhoneNumber: formData.get('phoneNumber'),
+            address: formData.get('email'),
             orderProductDetails: orderProductDetails,
         }
 
@@ -77,7 +77,6 @@ export default async function Page(
             
             // redirect(`/order-complete?orderId=${orderId}`)
         }
-
         console.log(res);
     }
     
@@ -134,7 +133,7 @@ export default async function Page(
                             </button>
                         </div>
                         
-                        {/* <OrderCustomerInfo userId={userId}/> */}
+                        <OrderCustomerInfo/>
 
                         <OrderProductInfo orderList={orderList} priceList={priceList}/>
                     </div>
