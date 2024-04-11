@@ -46,7 +46,7 @@ export default function CategoryListItem({ categoryList }: { categoryList: Categ
                     if (!acc[groupIndex]) {
                         acc[groupIndex] = [];
                     }
-                    acc[groupIndex].push(item);
+                    acc && acc[groupIndex].push(item);
                     return (acc);
                 }, []).map((group, idx) => (
                     <GroupNav
