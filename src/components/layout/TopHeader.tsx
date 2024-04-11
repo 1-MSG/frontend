@@ -10,7 +10,7 @@ function TopHeader() {
     return (
         <div className="w-full flex justify-between items-center py-[8px] pl-[16px] pr-[10px] gap-3">
             <div className='flex items-center w-[113px] h-[14px] mr-[5px]'>
-                <SsgLogo />
+                <Link href="/"><SsgLogo /></Link>
                 <div className='ml-[2px]'><CircleArrow /></div>
                 {/* <h1 className="text-[0px]">SSG.com</h1> */}
             </div>

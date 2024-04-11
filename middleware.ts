@@ -11,5 +11,5 @@ export async function middleware() {
 }
 
 export const config = {
-    matcher: ['/join/easy:path*', '/join/integrated:path*', '/mypage:path*'],
+    matcher: ['/join/easy:path*', '/join/integrated:path*', '/mypage:path*', '/cart', '/users'],
 };

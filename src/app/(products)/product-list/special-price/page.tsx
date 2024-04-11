@@ -10,21 +10,20 @@ import { CategoryDataType } from "@/types/categoryDataType";
 import { BundleDataType } from '@/types/bundleDataType'
 
 
-async function fetchData(){
+async function fetchData() {
     const res = await fetch(`${process.env.API_BASE_URL}/category?level=0`, {
-        next: { revalidate: 3600*24 }
+        next: { revalidate: 3600 * 24 }
     });
 
     return res.json();
 };
 
 async function getSpecialPriceList() {
-    const res = await fetch(`${process.env.API_BASE_URL}/bundles?page=0&size=10`)
+    const res = await fetch(`${process.env.API_BASE_URL}/bundles?page=0&size=12`)
     if (!res.ok) {
         throw new Error('서버 오류');
     }
     return res.json();
-
 }
 
 
@@ -34,9 +33,13 @@ export default async function Page() {
     const specialPriceListData: CommonDataResType = await getSpecialPriceList();
     //console.log(result.data)
     //console.log(specialPriceListData.data);
-    
+
     const categoryList: CategoryDataType[] = result.data;
-    const specialPriceList: BundleDataType[] = specialPriceListData.data;
+    const specialPriceList = specialPriceListData.data;
+    const specialPrice: BundleDataType[] = specialPriceList.bundles;
+
+    //console.log(specialPrice);
+    
 
     return (
         <main>
@@ -44,18 +47,23 @@ export default async function Page() {
             <RankingTab />
 
             {/* 카테고리 탭 */}
-            <CategoryTab categoryList={categoryList}/>
+            <CategoryTab categoryList={categoryList} />
 
             <div>
                 <div className='my-[10px] pr-[16px] flex'>
                     <div className='flex pl-[16px]'>
-                        <div><SsgDeliveryIcon/></div>
-                        <div className='ml-[6px]'><DepartmentIcon/></div>                       
+                        <div><SsgDeliveryIcon /></div>
+                        <div className='ml-[6px]'><DepartmentIcon /></div>
                     </div>
                 </div>
             </div>
 
-            <SpecialPriceContent specialPriceList={specialPriceList}/>
+            <div className="px-[16px]">
+                {specialPrice.map((list: any, index: number) => (
+                    <SpecialPriceContent list={list} key={index}/>
+                ))}
+            </div>
+
         </main>
     )
 }

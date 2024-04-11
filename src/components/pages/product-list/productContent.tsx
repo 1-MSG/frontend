@@ -3,6 +3,7 @@ import ProductCardTypeItem from './ProductCardTypeItem';
 import { ProductCardDataType, ProductIdListByCategoryType } from '@/types/productDataType';
 import SsgDeliveryIcon from '@/images/svgs/SsgDeliveryIcon';
 import DepartmentIcon from '@/images/svgs/DepartmentIcon';
+import { Suspense } from 'react';
 
 async function getProductList(categoryId: number) {
     const res = await fetch(`${process.env.API_BASE_URL}/category-product?categoryId=${categoryId}`)
@@ -32,10 +33,11 @@ export default async function ProductConetent({ categoryId }: { categoryId: numb
             </div>
 
             <div className='grid grid-cols-2 gap-2 mx-[16px]'>
-
+                <Suspense fallback={<div>Loading...</div>}>
                 {productList.map((item: ProductIdListByCategoryType, index: number) => (
                     <ProductCardTypeItem productId={item.productId} key={index} />
                 ))}
+                </Suspense>
             </div>
         </>
     )

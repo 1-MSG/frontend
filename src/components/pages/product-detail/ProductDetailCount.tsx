@@ -3,9 +3,9 @@ import Plus from "@/images/svgs/Plus"
 import { useState } from "react";
 
 export default function ProductDetailCount({
-    getPrice2, index, discountPrice, productPrice
+    getPrice2, index, discountPrice
 } : {
-    getPrice2: any, index: number, discountPrice: number, productPrice: number
+    getPrice2: any, index: number, discountPrice: number
 }) {
 
     // const product_price = props.product_price;

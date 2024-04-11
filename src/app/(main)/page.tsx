@@ -6,9 +6,10 @@ import Nav from "@/components/layout/Nav";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import SsgNotification from "@/components/ui/SsgNotification";
-import PreviewProducts from "@/components/pages/man/PreviewProducts";
-import PreviewCards from "@/components/pages/man/PreviewCards";
-import PreviewPopularityProducts from "@/components/pages/man/PreviewPopularityProducts";
+import PreviewProducts from "@/components/pages/main/PreviewProducts";
+import PreviewCards from "@/components/pages/main/PreviewCards";
+import PreviewPopularityProducts from "@/components/pages/main/PreviewPopularityProducts";
+import RightNav from "@/components/layout/RightNav";
 
 
 export default async function Home() {
@@ -24,13 +25,20 @@ export default async function Home() {
         userPhoto: session?.user?.image || '',
       }}/> */}
       <MainBanner/>
+
       <MainCategory/>
+
       <PreviewProducts/>
+
       <PreviewCards/>
+
       <PreviewPopularityProducts/>
+
       {/* 클라이언트 컴포넌트 호출(무한 스크롤) */}
+      
       <Footer/>
       <Nav/>
+      <RightNav/>
     </>
   );
 }

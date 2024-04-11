@@ -2,31 +2,55 @@
 import ModalBackBtn from "@/images/svgs/ModalBackBtn";
 import { CommonDataResType } from '@/types/commonResType';
 import { OptionDataType } from "@/types/optionDataType";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 
 export default function OrderOptionModal({ 
-    setIsOpenModal, productId, openedOptionName 
+    setIsOpenModal, productId, openedOptionName, optionData, childOption, selectedLevel, setSelectedList, handleGetOptionListData
 }: { 
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>, 
     productId: number,
-    openedOptionName: string
+    openedOptionName: string,
+    optionData: OptionDataType[],
+    childOption: OptionDataType[],
+    selectedLevel: number,
+    setSelectedList: React.Dispatch<React.SetStateAction<boolean[]>>,
+    handleGetOptionListData: Function
 }) {
 
-    const [option, setOption] = useState<OptionDataType[]>([] as OptionDataType[]);
+    console.log("optionData ", optionData);
+    console.log("childOption ", childOption);
 
+    const router = useRouter()
+    const params = useSearchParams();
+    const option1name = params.get('option1');
+    const option2name = params.get('option2');
+    const option3name = params.get('option3');
 
-    useEffect(() => {
-        const getData = async () => {
-            const res = await fetch(`${process.env.API_BASE_URL}/option/first/${productId}`)
-            if (res.ok) {
-                const data: CommonDataResType = await res.json();
-                setOption(data.data);
-                console.log(option);
-            }
+    const handleSelectOption = (optionName:string, optionId:number) => {
+        console.log("optionName ", optionName);
+        console.log("selectedLevel ", selectedLevel);
+        setIsOpenModal(false);
+        handleGetOptionListData(optionId, optionName);
+        
+        if ( selectedLevel == 1 ) {
+            setSelectedList((prev) => {
+                prev[selectedLevel] = true;
+                return prev;
+            })
+            router.push(`/product-detail?productId=${productId}&option1=${optionName}`)
+        } else if ( selectedLevel == 2 ) {
+            setSelectedList((prev) => {
+                prev[selectedLevel] = true;
+                return prev;
+            })
+            router.push(`/product-detail?productId=${productId}&option1=${option1name}&option2=${optionName}`)
+        } else if ( selectedLevel == 3 ) {
+            router.push(`/product-detail?productId=${productId}&option1=${option1name}&option2=${option2name}&option3=${optionName}`)
         }
-        getData();
-    }, [productId])
+    }
+
     //
 
     // console.log("option ", option);
@@ -57,23 +81,46 @@ export default function OrderOptionModal({
                 <div className="w-[25px] h-[25px] m-auto pt-[5px]" onClick={()=>setIsOpenModal(false)}><ModalBackBtn /></div>
             </div>
             <div>
-                <div className="mt-[8px] mx-[15px] h-[42px] mb-[13px] pl-[15px] tracking-[-0.07rem] text-[13px] text-left leading-[42px] border border-[#ededed] rounded-md">
+                <div className="mt-[8px] mx-[15px] h-[42px] mb-[1.8rem] pl-[15px] tracking-[-0.07rem] text-[13px] text-left leading-[42px] border border-[#ededed] rounded-md">
                     선택하세요. &#40;{openedOptionName}&#41;
                 </div>
                 <div className="mx-[15px] pl-[10px] pr-[15px] pb-[24px]">
                     <ul>
-                        {/* {optionList.length == 1 &&
-                            <>
-                                {possible.map((option: any) => {
-                                    return (
+                        {
+                            childOption.length > 0 ? childOption.map((option: any) => {
+                                return (
+                                    option.stock > 0  &&
                                         <li key={option.optionId}
                                             className="mt-[12px] first:mt-0 text-[12px] text-left h-[50px]"
-                                            onClick={() => {getOption(option); clickOptionModal() }}>
+                                            onClick={() => handleSelectOption(option.optionName, option.optionId)}
+                                        >
+                                             <div className="flex">
+                                                <span>{option.optionName} 
+                                                {
+                                                    option.stock == 0 ? <span>&#40;품절&#41;</span> : null
+                                                } </span>
+                                                {/* <span><a className="py-[8px] px-[20px] border border-[#222222] text-[#222222] text-right tracking-[-0.05rem]">입고알림</a></span> */}
+                                            </div>
+                                        </li>
+                                )
+                            })
+                            :
+                            optionData.length > 0 ? optionData.map((option: any) => {
+                                return (
+                                    option.stock > 0 || option.stock === null  &&
+                                        <li key={option.optionId}
+                                            className="mt-[12px] first:mt-0 text-[12px] text-left h-[50px]"
+                                            onClick={() => handleSelectOption(option.optionName, option.optionId)}
+                                        >
                                             {option.optionName}
                                         </li>
-                                    )
-                                })}
-                                {impossible.map((option: any) => {
+                                )
+                            }) 
+                            :
+                            <div>  데이터없음 </div>
+                       
+                        }
+                                {/* {impossible.map((option: any) => {
                                     return (
                                         <li key={option.optionId}
                                             className="mt-[12px] w-full first:mt-0 text-[12px] text-left h-[50px] text-[#96969d]">
@@ -83,9 +130,8 @@ export default function OrderOptionModal({
                                             </div>
                                         </li>
                                     )
-                                })}
-                            </>
-                        } */}
+                                })} */}
+                        
                         {/* {optionList.length =! 1 &&
                             <li key={option.optionId}
                                 className="mt-[12px] first:mt-0 text-[12px] text-left h-[50px]"
