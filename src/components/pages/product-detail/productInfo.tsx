@@ -9,7 +9,7 @@ import { CommonDataResType } from '@/types/commonResType';
 
 const fetcher = (args: any) => fetch(args).then(res => res.json())
 
-function getDelivery(productId: number) {
+function useDelivery(productId: number) {
     const { data, error } = useSWR(`${process.env.API_BASE_URL}/product/${productId}/deliveryinfo`, fetcher)
 
     return {
@@ -23,7 +23,7 @@ export default function ProductInfo({ Info, productId }: { Info: any, productId:
     const [modal, setModal] = useState(false);
     const clickReviewModal = () => { setModal(!modal) }
 
-    const { data, isError } = getDelivery(productId)
+    const { data, isError } = useDelivery(productId)
 
     if (isError) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
