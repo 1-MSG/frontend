@@ -41,12 +41,12 @@ export default function CategoryListItem({ categoryList }: { categoryList: Categ
             <p className="px-[10px] text-[14px] font-bold text-[#222222] tracking-[-0.05rem]">전체 카테고리</p>
 
             <div className=" mt-[10px]">
-                {categoryList.reduce((acc: CategoryDataType[][], item, index) => {
+                {categoryList && categoryList.reduce((acc: CategoryDataType[][], item, index) => {
                     const groupIndex = Math.floor(index / 5);
                     if (!acc[groupIndex]) {
                         acc[groupIndex] = [];
                     }
-                    acc && acc[groupIndex].push(item);
+                    acc[groupIndex].push(item);
                     return (acc);
                 }, []).map((group, idx) => (
                     <GroupNav
