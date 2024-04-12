@@ -63,8 +63,8 @@ export default function RankingProductList({ maxPage }: { maxPage: number }) {
             {data && data.pages?.map((page, i) => {
                 return (
                     <div key={i}>
-                        {page.productList.map((product: any) => (
-                            <ProductCardTypeItem2 productId={Number(product.productId)} />
+                        {page.productList.map((product: any, index:number) => (
+                            <ProductCardTypeItem2 key={index} productId={Number(product.productId)} />
                         ))}
                     </div>
                 )
