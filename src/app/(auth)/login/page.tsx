@@ -14,8 +14,6 @@ import { redirect } from 'next/dist/server/api-utils';
 
 export default async function Page() {
     const session = await getServerSession(options);
-    console.log('mainsession', session?.user);
-
     return (
         <>
             <div
