@@ -62,7 +62,7 @@ export default async function Page(
             orderProductDetails: orderProductDetails,
         }
 
-        console.log(orderFormData)
+        console.log("orderForm", orderFormData)
         const res = await fetch(`${process.env.API_BASE_URL}/orders`, {
             method: "POST",
             headers: {
@@ -70,16 +70,11 @@ export default async function Page(
             },
             body: JSON.stringify(orderFormData),
         })
-        if (res.ok) {
-            console.log("주문 성공");
-            const data = res.json()
-            console.log(data);
-            
-            // redirect(`/order-complete?orderId=${orderId}`)
-        }
-        console.log(res);
+        const data = await res.json();
+        console.log("data", data.data);
+        redirect(`/order-complete?orderId=${data.data}`)
     }
-    
+
 
     return (
         <div className='w-full h-auto'>

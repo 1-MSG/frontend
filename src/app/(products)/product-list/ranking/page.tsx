@@ -1,12 +1,10 @@
-import categoryList from '@/dummydata/category.json'
-import productList from '@/dummydata/productList.json'
 import CategoryTab from '@/components/pages/product-list/categoryTab'
-import ProductConetent from '@/components/pages/product-list/productContent'
 import RankingTab from '@/components/pages/product-list/ranking/rankingTab'
 import DepartmentIcon from '@/images/svgs/DepartmentIcon'
 import SsgDeliveryIcon from '@/images/svgs/SsgDeliveryIcon'
 import { CommonDataResType } from '@/types/commonResType';
 import { CategoryDataType } from "@/types/categoryDataType";
+import RankingProductList from '@/components/pages/product-list/ranking/RankingProductList';
 
 async function fetchData(){
     const res = await fetch(`${process.env.API_BASE_URL}/category?level=0`, {
@@ -22,7 +20,7 @@ export default async function Page() {
     console.log(result.data)
 
     const categoryList: CategoryDataType[] = result.data;
-    
+    const maxPage = 5;
 
     return (
         <main>
@@ -41,7 +39,7 @@ export default async function Page() {
                 </div>
             </div>
 
-            {/* <ProductConetent productList={productList}/> */}
+            <RankingProductList maxPage={maxPage}/>
         </main>
     )
 }

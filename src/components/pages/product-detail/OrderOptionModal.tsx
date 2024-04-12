@@ -19,8 +19,8 @@ export default function OrderOptionModal({
     handleGetOptionListData: Function
 }) {
 
-    console.log("optionData ", optionData);
-    console.log("childOption ", childOption);
+    //console.log("optionData ", optionData);
+    //console.log("childOption ", childOption);
 
     const router = useRouter()
     const params = useSearchParams();

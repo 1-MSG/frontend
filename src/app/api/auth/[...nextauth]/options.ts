@@ -27,12 +27,12 @@ export const options: NextAuthOptions = {
           }),
           cache: 'no-cache',
         })
-        if (res.ok) {
-          const user = await res.json()
-          console.log(user)
-          return user;
-        }
-        return null;
+          const data = await res.json()
+          if(data.isSuccess === true) {
+            console.log('ssg data',data)
+            return data
+          }
+          return null;
       }
     }),
     KakaoProvider(
