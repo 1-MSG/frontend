@@ -23,7 +23,7 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
             try {
                 const productRes = await fetch(`${process.env.API_BASE_URL}/product/${productId}`);
                 const productData = await productRes.json();
-                console.log(productData);
+                console.log("productData", productData);
                 
                 //setProductData(productData);
 
