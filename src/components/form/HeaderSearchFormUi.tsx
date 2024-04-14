@@ -4,7 +4,7 @@ import React from 'react'
 function HeaderSearchFormUi() {
 
     return (
-        <div className='relative'>
+        <form className='relative'>
             <Link href={'/search-list'}>
                 <input type="text"
                     className='h-[40px] w-full rounded-full bg-[#F5F5F5]'
@@ -16,7 +16,7 @@ function HeaderSearchFormUi() {
                     </svg>
                 </div>
             </Link>
-        </div>
+        </form>
     )
 }
 
