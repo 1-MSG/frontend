@@ -20,8 +20,7 @@ export default async function Page() {
     console.log(result.data)
 
     const categoryList: CategoryDataType[] = result.data;
-    const maxPage = 5;
-
+    
     return (
         <main>
             {/* 랭킹 탭 */}
@@ -39,7 +38,7 @@ export default async function Page() {
                 </div>
             </div>
 
-            <RankingProductList maxPage={maxPage}/>
+            <RankingProductList/>
         </main>
     )
 }
