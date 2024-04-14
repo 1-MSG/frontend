@@ -7,6 +7,8 @@ import { redirect } from "next/navigation";
 
 
 export default function SignupInput() {
+
+    let num = "휴대폰\n번호"
     
     async function createUser(formData: FormData) {
         'use server'
@@ -58,7 +60,7 @@ export default function SignupInput() {
                 <Post />
 
                 <div className='flex py-[15px] border-b border-b-[#f8f8f8]'>
-                    <p className='basis-1/6 leading-[41px] text-[#787878] font-semibold before:content-["*"] before:text-[#ff0000]'>휴대폰 번호</p>
+                    <p className='whitespace-pre-line basis-1/6 leading-[-10px] text-[#787878] center font-semibold before:content-["*"] before:text-[#ff0000]'>{num}</p>
                     <input type="number" name="phoneNumber" className='basis-5/6 border py-[10px] px-[10px]' placeholder='- 제외' />
                 </div>
                 <div className='flex py-[15px]'>
