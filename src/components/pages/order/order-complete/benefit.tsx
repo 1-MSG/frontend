@@ -28,7 +28,7 @@ export default function Benefit(props:any) {
 
             <p className="mt-[30px] text-[17px] font-extrabold">더 많은 혜택을 누리시려면</p>
             <div className="mt-[12px]">
-                <Image src="https://simg.ssgcdn.com/trans.ssg?src=/ui/m_ssg/img/order/mnodr_universe_type_banner01.png&w=1125" alt="" width={100} height={100}></Image>
+                <Image src="https://simg.ssgcdn.com/trans.ssg?src=/ui/m_ssg/img/order/mnodr_universe_type_banner01.png&w=1125" alt="" width={300} height={300}></Image>
             </div>
 
             <div className="mt-[30px] pb-[30px]">

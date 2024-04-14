@@ -4,7 +4,7 @@ import { getServerSession } from 'next-auth';
 import { options } from '@/app/api/auth/[...nextauth]/options';
 import LikeEdit from '@/images/svgs/LikeEdit';
 import Question from '@/images/svgs/Question';
-import ProductCardTypeItem from '@/components/pages/product-list/ProductCardTypeItem';
+import ProductCardTypeItem2 from '@/components/pages/product-list/ProductCardTypeItem2';
 
 async function getLikeList(accessToken: string) {
     const res = await fetch(`${process.env.API_BASE_URL}/like`, {
@@ -54,7 +54,7 @@ export default async function Page() {
 
             <div className="grid grid-cols-2 gap-2 mx-[16px]">
                 {LikeData.map((item: number, index: number) => (
-                    <ProductCardTypeItem productId={item} key={index} />
+                    <ProductCardTypeItem2 productId={item} key={index} />
                 ))}
             </div>
         </main>

@@ -1,13 +1,37 @@
 import UniverseBg from "@/components/pages/cart/universeBg";
 import CardEvent from "@/components/pages/cart/cardEvent";
+import { useRouter } from "next/navigation";
 
-export default function CartTotal(props:any) {
+export default function CartTotal({ReduceOrder, ReducePrice, value}: {ReduceOrder: any, ReducePrice:any, value: number}) {
 
-    let value = props.value;
-    let finalOriginal = props.finalOriginal;
-    let finalDiscount = props.finalDiscount;
-    let finalDelivery = props.finalDelivery;
-    let finalPrice = finalOriginal - finalDiscount + finalDelivery
+    const router = useRouter();
+    let originalTotal: any = [];
+    let discountTotal: any = [];
+    let brandTotal: any = [];
+
+    //-------------- 최종 금액 계산 --------------
+    ReducePrice.map((price: any) => {
+        let sum = price.salePrice;
+        let discount = (price.productPrice - price.discountPrice) * price.count
+        let original = (price.productPrice * price.count)
+
+        brandTotal.push(sum);
+        discountTotal.push(discount);
+        originalTotal.push(original);
+    })
+
+    let finalOriginal = 0;
+    originalTotal.map((e: number) => finalOriginal += e)
+
+    let finalDiscount = 0;
+    discountTotal.map((e: number) => finalDiscount += e)
+
+    let finalPrice = finalOriginal - finalDiscount;
+
+    async function createOrder() {
+        router.push( `/product-order?orderList=${JSON.stringify(ReduceOrder)}&priceList=${JSON.stringify(ReducePrice)}`)
+        
+    }
 
     
     return (
@@ -28,7 +52,7 @@ export default function CartTotal(props:any) {
                         </dl>
                         <dl className="flex mt-[6px] text-[13px]">
                             <dt>배송비</dt>
-                            <dd>+{finalDelivery.toLocaleString()}원</dd>
+                            <dd>+0원</dd>
                         </dl>
                         <dl className="flex mt-[10px] pt-[10px] ">
                             <dt>총 결제예정금액</dt>
@@ -53,10 +77,12 @@ export default function CartTotal(props:any) {
 
             <div className="bottom-0 fixed w-full z-10 bg-white rounded-t-md shadow-[20px_10px_20px_15px_rgba(0,0,0,0.2)] tracking-[-0.07rem]">
                 <div className="p-[16px] text-[13px]">
-                    <p>전체상품 {value}개 {(finalOriginal - finalDiscount).toLocaleString()}원 + 배송비 {finalDelivery.toLocaleString()}원 = {finalPrice.toLocaleString()}원</p>
+                    <p>전체상품 {value}개 {(finalOriginal - finalDiscount).toLocaleString()}원 + 배송비 0원 = {finalPrice.toLocaleString()}원</p>
                     <p className="text-[#ff5452]">청구할인 혜택보기</p>
                 </div>
-                <div className="bg-[#ff5452] h-[52px] leading-[52px] text-center text-white text-[16px] ">주문하기</div>
+                <div onClick={createOrder} className="bg-[#ff5452] h-[52px] leading-[52px] text-center text-white text-[16px] ">
+                    주문하기
+                </div>
             </div>
         </div>
     )

@@ -99,7 +99,7 @@ export default function OrderModal({
             const res = await fetch(`${process.env.API_BASE_URL}/option/child/${optionId}`)
             if (res.ok) {
                 const data: CommonDataResType = await res.json();
-                //console.log("option child", data);
+                console.log("option child", data);
                 setChildOption(data.data);
             }
         }

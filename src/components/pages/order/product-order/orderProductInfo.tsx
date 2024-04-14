@@ -13,7 +13,7 @@ export default  function OrderProductInfo({orderList, priceList} : {orderList: a
                 {priceList.map((list: any, index: number) => (
                     <>
                         <div></div>
-                        <OrderProductItem price={list} orderList={orderList[index]}/>
+                        <OrderProductItem key={index} price={list} orderList={orderList[index]}/>
                     </>
                 ))}
                 {/* {data.brand_list.map((brand: any, index: number) => {

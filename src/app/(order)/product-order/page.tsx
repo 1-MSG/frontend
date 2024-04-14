@@ -15,6 +15,7 @@ export default async function Page(
 
     const session = await getServerSession(options)
     const userId = session?.user.data.userId
+    const accessToken = session?.user.data.accessToken
 
     const orderList = searchParams.orderList ? JSON.parse(searchParams.orderList as string) : [];
     const priceList = searchParams.priceList ? JSON.parse(searchParams.priceList as string) : [];
@@ -67,6 +68,7 @@ export default async function Page(
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
             },
             body: JSON.stringify(orderFormData),
         })

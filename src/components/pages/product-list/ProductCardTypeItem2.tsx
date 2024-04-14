@@ -9,49 +9,52 @@ import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import LikeEvent from "@/components/pages/product-list/LikeEvent";
 import { useEffect, useState } from "react";
+import useSWR from "swr";
+import { useSession } from 'next-auth/react'
+import cardimg from "@/assets/image/maincard/card2.png"
 
+const fetcher = (args: any) => fetch(args).then(res => res.json())
+function useProduct(productId: number) {
+    const { data, error } = useSWR(`${process.env.API_BASE_URL}/product/${productId}`, fetcher)
+    console.log("1111", data);
+    console.log("productID", productId);
+    
+    
+    return {
+        data: data,
+        isError: error
+    }
+}
 
+const ImageFetcher = (args: any) => fetch(args).then(res => res.json())
+function useImage(productId: number) {
+    const { data, error } = useSWR(`${process.env.API_BASE_URL}/product/${productId}/image`, ImageFetcher)
+    console.log("2222", data);
+    return {
+        ImageValue: data,
+        ImageError: error
+    }
+}
 
 
 export default function ProductCardTypeItem2({ productId }: { productId: number }) {
+    const session = useSession();
+    const { data, isError } = useProduct(productId)
+    const {ImageValue, ImageError} = useImage(productId)
 
-    // const [productData, setProductData] = useState<CommonDataResType | null>(null);
-    // const [productImage, setProductImage] = useState<CommonDataResType | null>(null);
+    if (isError || ImageError) return <div>Failed to load</div>
+    if (!data || !ImageValue) return <div>Loading...</div>
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const productRes = await fetch(`${process.env.API_BASE_URL}/product/${productId}`);
-                const productData = await productRes.json();
-                console.log("productData", productData);
-                
-                //setProductData(productData);
+    const ProductData: CommonDataResType = data;
+    const product = ProductData.data;
+    // console.log(product);
 
-                const imageRes = await fetch(`${process.env.API_BASE_URL}/product/${productId}/image`);
-                const imageData = await imageRes.json();
-                console.log(imageData);
-                
-                //etProductImage(imageData);
-            } catch (error) {
-                console.error("Error fetching product data:", error);
-            }
-        };
+    const imageData: CommonDataResType = ImageValue;
+    const image = imageData.data;
+    // console.log("image ", image);
 
-        fetchData();
-    }, [productId]);
+    const accessToken = session.data?.user?.data?.accessToken;
 
-
-    // const session = await getServerSession(options)
-    // const accessToken = session?.user.data.accessToken
-    // console.log("accessToken ", accessToken);
-
-    //const productData: CommonDataResType = await getProductData(productId);
-    //const product = productData.data;
-    //console.log(productData && productData.data);
-
-    //const productImage: CommonDataResType = await getProductImage(productId);
-    //const image = productImage.data;
-    //console.log(productImage);
 
     function Rate(price: number, rate: number, salePrice: number) {
         //let n = (100 - rate) / 100;
@@ -77,24 +80,24 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
 
     return (
         <div className='pt-[10px] pb-[20px]'>
-            {/* <Link href={`/product-detail?productId=${productId}`}>
+            <Link href={`/product-detail?productId=${productId}`}>
                 <Image src={image.productImageUrl}
-                    alt={image.productImageDescription}
-                    width={175}
-                    height={175}
+                    alt=""
+                    width={500}
+                    height={500}
                     className='' />
-            </Link> */}
+            </Link>
 
             <div className='flex mt-[3px] py-[2px]'>
                 <div></div>
                 <div className='flex'>
-                    {/* <LikeEvent productId={productId} accessToken={accessToken}/> */}
+                    <LikeEvent productId={productId} accessToken={accessToken}/>
                     <button className='mr-[3px]'><CartIcon w={26} h={26} /></button>
                 </div>
             </div>
 
             <Link href={`/product-detail?productId=${productId}`} className='mt-[10px] pr-[20px] leading-[16px]'>
-                {/* <p className='text-[13px]'>
+                <p className='text-[13px]'>
                     <span className='font-bold'>{product.productBrand} </span>
                     {product.productName}</p>
                 <div className='mt-[4px]'>
@@ -105,7 +108,7 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
                     <p className='float-left ml-[4px]'>{product.productStar}</p>
                     <p className='float-left ml-[4px] text-[#ededed] text-[10px]' >|</p>
                     <p className='float-left ml-[4px]'>{Number(product.reviewCount).toLocaleString()}건</p>
-                </div> */}
+                </div>
             </Link>
         </div>
     )

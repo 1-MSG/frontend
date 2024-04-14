@@ -1,9 +1,56 @@
 import OrderInfo from "../../../components/pages/order/order-complete/orderInfo";
 import Benefit from "../../../components/pages/order/order-complete/benefit";
 import data from "@/dummydata/orderInfomation.json"
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 
-export default function Page() {
-    const giveData = data[0];
+async function getOrder(orderId:number, accessToken: string) {
+    const res = await fetch(`${process.env.API_BASE_URL}/order-result?orderId=${orderId}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+        }
+    })
+    if (!res.ok) {
+        throw new Error('서버 오류');
+    }
+    return res.json();
+}
+
+async function getUser(accessToken: string) {
+    const res = await fetch(`${process.env.API_BASE_URL}/user`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+        }
+    })
+    if (!res.ok) {
+        throw new Error('서버 오류');
+    }
+    return res.json();
+}
+
+export default async function Page(
+    { searchParams } : { searchParams: { [key: string]: string | string[] | undefined } }
+) {
+    const session = await getServerSession(options)
+    const orderId = searchParams.orderId
+        ? Number(searchParams.orderId)
+        : 0;
+
+    console.log("orderId", orderId);
+    
+    const accessToken = session?.user.data.accessToken
+
+    const OrderData = await getOrder(orderId, accessToken);
+    const order = OrderData.data;
+    console.log("order", order);
+
+    const UserData = await getUser(accessToken);
+    const user = UserData.data;
+    console.log("user", user);
 
     return (
         <main>
@@ -13,10 +60,10 @@ export default function Page() {
                 </div>
 
                 {/* 주문자 정보, 주문 정보 */}
-                <OrderInfo data={giveData}/>
+                <OrderInfo order={order} user={user}/>
 
                 {/* 혜택안내 */}
-                <Benefit total={giveData.total_amount}/>
+                <Benefit total={order.totalPrice}/>
 
             </div>
         </main>

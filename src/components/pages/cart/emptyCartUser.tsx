@@ -8,27 +8,6 @@ export default function EmptyCartUser() {
     return (
         <div>
             <div className="my-[20px] mx-[16px] tracking-[-0.07rem] ">
-                <div>
-                    <div className="my-[11px]">
-                        <div className="">
-                            <div className="inline-block pt-[4px] w-[20px] h-[20px] "><Position/></div>
-                            <h3 className="inline-block pl-[3px] text-[18px] font-bold">배송지명</h3>
-                            <span className="ml-[3px] text-white text-[12px] font-medium bg-[#ff5452] pt-[2px] px-[5px] pb-[2px] leading-[18px] ">기본배송지</span>
-                        </div>
-                        <p className="text-[13px] text-[#666666]">주소</p>
-                    </div>
-                    <div className="text-[13px] text-[#666666]">
-                        <div className="flex text-center">
-                            <div className="w-1/2 py-[8px] border border-[#ededed]">
-                                여러 곳으로 한방에
-                            </div>
-                            <div className="w-1/2 py-[8px] border border-[#ededed]">
-                                배송지 변경
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="my-[40px] px-[50px]">
                     <p className="mb-[40px] text-[18px] text-center">장바구니에 담긴 상품이 없습니다.</p>
                 </div>

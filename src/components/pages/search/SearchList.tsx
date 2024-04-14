@@ -1,6 +1,6 @@
 'use client'
 
-import { getListType } from "@/app/(search)/search-list/page";
+import { getListType } from "@/app/(main)/search-list/page";
 import { CommonDataResType } from "@/types/commonResType";
 import useSWR from "swr";
 import { useRouter } from 'next/navigation';

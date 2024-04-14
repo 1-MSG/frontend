@@ -8,6 +8,7 @@ import SpecialPriceContent from '@/components/pages/product-list/special-price/s
 import { CommonDataResType } from '@/types/commonResType';
 import { CategoryDataType } from "@/types/categoryDataType";
 import { BundleDataType } from '@/types/bundleDataType'
+import SpecialPriceListItem from '@/components/pages/product-list/special-price/SpecialPriceListItem'
 
 
 async function fetchData() {
@@ -58,11 +59,8 @@ export default async function Page() {
                 </div>
             </div>
 
-            <div className="px-[16px]">
-                {specialPrice.map((list: any, index: number) => (
-                    <SpecialPriceContent list={list} key={index}/>
-                ))}
-            </div>
+
+            <SpecialPriceListItem />
 
         </main>
     )

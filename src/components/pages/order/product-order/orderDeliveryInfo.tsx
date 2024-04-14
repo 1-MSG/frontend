@@ -1,32 +1,47 @@
 import { CommonDataResType } from "@/types/commonResType";
 import { redirect } from "next/navigation";
-
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 
 
 // 배송지 정보 가져오기
-async function getAddressInfo(userId: number) {
-    const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {cache: "no-cache"})
+async function getAddressInfo(userId: number, accessToken: string) {
+    // const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {cache: "no-cache"})
+    // if (!res.ok) {
+    //     throw new Error('서버 오류');
+    // }
+    // const data: CommonDataResType = await res.json();
+    // //console.log("address ", data);
+    
+    // if(data.data.length === 0) {
+    //     redirect("/address?callbackUrl=/product-order");
+    // }
+    // else {
+    //     return data;    
+    // }
+    const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+        }
+    })
     if (!res.ok) {
         throw new Error('서버 오류');
     }
-    const data: CommonDataResType = await res.json();
-    //console.log("address ", data);
-    
-    if(data.data.length === 0) {
-        redirect("/address?callbackUrl=/product-order");
-    }
-    else {
-        return data;    
-    }
+    return res.json();
     
 }
 
 export default async function OrderDeliveryInfo({userId}: {userId: number}) {
 
+    const session = await getServerSession(options)
+    const accessToken = session?.user.data.accessToken
+
     console.log(userId);
     
 
-    const addressInfo: CommonDataResType = await getAddressInfo(userId);
+    const addressInfo: CommonDataResType = await getAddressInfo(userId, accessToken);
     const data = addressInfo.data[0];
 
     //console.log(data);
