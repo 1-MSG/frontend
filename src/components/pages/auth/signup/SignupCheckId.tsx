@@ -78,10 +78,11 @@ export default function SignupCheckId() {
         <div className="py-[15px]">
             <div className=' border-b border-b-[#f8f8f8] flex'>
                 <p className='basis-1/6 leading-[41px] text-[#787878] font-semibold before:content-["*"] before:text-[#ff0000]'>아이디</p>
-                <div className='flex basis-5/6'>
-                    <input type="text" onChange={onChangeIdHandler} value={id} name="loginId" className='basis-3/5 border py-[10px] px-[10px] mr-[10px]' placeholder='영어 또는 숫자로 6~20자리' />
-                    <button onClick={() => checkId} className='font-bold basis-2/5 px-[17px] py-[10px] text-[#313131] bg-[#f5f5f5]'>중복확인</button>
-                </div>
+                {/* <div className='basis-5/6'> */}
+                    <input type="text" onChange={onChangeIdHandler} value={id} name="loginId" className='basis-5/6 border py-[10px] px-[10px]' placeholder='영어 또는 숫자로 6~20자리' />
+                    {/* <button onClick={() => checkId} className='font-bold basis-2/5 px-[17px] py-[10px] text-[#313131] bg-[#f5f5f5]'>중복확인</button> */}
+                {/* </div> */}
+
             </div>
             {idError &&
                 <div className="flex pt-[5px]">

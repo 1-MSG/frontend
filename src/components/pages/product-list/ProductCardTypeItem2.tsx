@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { useSession } from 'next-auth/react'
 import cardimg from "@/assets/image/maincard/card2.png"
+import Like from '@/images/svgs/Like';
 
 const fetcher = (args: any) => fetch(args).then(res => res.json())
 function useProduct(productId: number) {
@@ -47,7 +48,7 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
 
     const ProductData: CommonDataResType = data;
     const product = ProductData.data;
-    // console.log(product);
+    console.log(product);
 
     const imageData: CommonDataResType = ImageValue;
     const image = imageData.data;
@@ -92,6 +93,7 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
                 <div></div>
                 <div className='flex'>
                     {/* <LikeEvent productId={productId} accessToken={accessToken}/> */}
+                    <Like w={20} h={20} />
                     <button className='mr-[3px]'><CartIcon w={26} h={26} /></button>
                 </div>
             </div>

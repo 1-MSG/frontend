@@ -11,10 +11,10 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
     const session = useSession();
     const userId = session.data?.user?.data?.userId;
     const accessToken = session.data?.user?.data?.accessToken;
-    console.log("accessToken", accessToken);
+    // console.log("accessToken", accessToken);
 
-    console.log("orderList", orderList);
-    console.log("priceList", priceList);
+    // console.log("orderList", orderList);
+    // console.log("priceList", priceList);
 
     async function createCart() {
         if (orderList.length === 0) {
@@ -70,26 +70,26 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             return;
         }
 
-        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${accessToken}`
-            },
-        })
-        if (!res.ok) {
-            throw new Error('서버 오류');
-        }
-        const data: CommonDataResType = await res.json();
-        console.log("address ", data);
+        // const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         Authorization: `Bearer ${accessToken}`
+        //     },
+        // })
+        // if (!res.ok) {
+        //     throw new Error('서버 오류');
+        // }
+        // const data: CommonDataResType = await res.json();
+        // console.log("address ", data);
 
-        if (data.data.length === 0) {
-            alert('주소를 등록해주세요.')
-            router.push(`/address?productId=${productId}`)
-        }
-        else {
+        // if (data.data.length === 0) {
+        //     alert('주소를 등록해주세요.')
+        //     router.push(`/address?productId=${productId}`)
+        // }
+        // else {
             router.push(`/product-order?orderList=${JSON.stringify(orderList)}&priceList=${JSON.stringify(priceList)}`)
-        }
+        // }
     }
 
     return (
