@@ -21,28 +21,10 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             alert('상품을 선택해주세요.')
             return;
         }
-        if (userId == undefined || userId == null) { 
+        if (userId == undefined || userId == null) {
             alert('로그인이 필요합니다.')
             return;
         }
-        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${accessToken}`
-            },
-        })
-        if (!res.ok) {
-            throw new Error('서버 오류');
-        }
-        const data: CommonDataResType = await res.json();
-        console.log("address ", data);
-
-        if (data.data.length === 0) {
-            alert('주소를 등록해주세요.')
-            router.push( `/address?productId=${productId}`)
-        }
-
         const CartData = {
             brandId: Info.brandId,
             productId: productId,
@@ -83,18 +65,18 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             return;
         }
 
-        if (userId == undefined || userId == null) { 
+        if (userId == undefined || userId == null) {
             alert('로그인이 필요합니다.')
             return;
         }
 
         const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${accessToken}`
-                },
-            })
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`
+            },
+        })
         if (!res.ok) {
             throw new Error('서버 오류');
         }
@@ -103,10 +85,10 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
 
         if (data.data.length === 0) {
             alert('주소를 등록해주세요.')
-            router.push( `/address?productId=${productId}`)
+            router.push(`/address?productId=${productId}`)
         }
         else {
-            router.push( `/product-order?orderList=${JSON.stringify(orderList)}&priceList=${JSON.stringify(priceList)}`)
+            router.push(`/product-order?orderList=${JSON.stringify(orderList)}&priceList=${JSON.stringify(priceList)}`)
         }
     }
 

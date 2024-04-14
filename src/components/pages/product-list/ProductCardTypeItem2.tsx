@@ -16,8 +16,8 @@ import cardimg from "@/assets/image/maincard/card2.png"
 const fetcher = (args: any) => fetch(args).then(res => res.json())
 function useProduct(productId: number) {
     const { data, error } = useSWR(`${process.env.API_BASE_URL}/product/${productId}`, fetcher)
-    console.log("1111", data);
-    console.log("productID", productId);
+    // console.log("1111", data);
+    // console.log("productID", productId);
     
     
     return {
@@ -29,7 +29,7 @@ function useProduct(productId: number) {
 const ImageFetcher = (args: any) => fetch(args).then(res => res.json())
 function useImage(productId: number) {
     const { data, error } = useSWR(`${process.env.API_BASE_URL}/product/${productId}/image`, ImageFetcher)
-    console.log("2222", data);
+    // console.log("2222", data);
     return {
         ImageValue: data,
         ImageError: error
@@ -91,7 +91,7 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
             <div className='flex mt-[3px] py-[2px]'>
                 <div></div>
                 <div className='flex'>
-                    <LikeEvent productId={productId} accessToken={accessToken}/>
+                    {/* <LikeEvent productId={productId} accessToken={accessToken}/> */}
                     <button className='mr-[3px]'><CartIcon w={26} h={26} /></button>
                 </div>
             </div>
