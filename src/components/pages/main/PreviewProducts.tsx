@@ -9,7 +9,7 @@ import {
     Key,
 } from 'react';
 import { ProductIdListByCategoryType } from '@/types/productDataType';
-import ProductCardTypeItem from '../product-list/ProductCardTypeItem';
+import ProductCardTypeItem2 from '../product-list/ProductCardTypeItem2';
 import { CommonDataResType } from '@/types/commonResType';
 
 async function getRandom() {
@@ -43,7 +43,7 @@ export default async function PreviewProducts() {
             <div className="grid grid-cols-2 gap-2 mx-[16px]">
                 {product.map(
                     (item: ProductIdListByCategoryType, index: number) => (
-                        <ProductCardTypeItem
+                        <ProductCardTypeItem2
                             productId={item.productId}
                             key={index}
                         />

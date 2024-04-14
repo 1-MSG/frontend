@@ -12,14 +12,30 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
     const userId = session.data?.user?.data?.userId;
     //console.log("session", session.data?.user?.data?.accessToken);
 
-    //console.log("orderList", orderList);
-    //console.log("priceList", priceList);
+    console.log("orderList", orderList);
+    console.log("priceList", priceList);
 
     async function createCart() {
         if (orderList.length === 0) {
             alert('상품을 선택해주세요.')
             return;
         }
+        if (userId == undefined || userId == null) { 
+            alert('로그인이 필요합니다.')
+            return;
+        }
+        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, { cache: "no-cache" })
+        if (!res.ok) {
+            throw new Error('서버 오류');
+        }
+        const data: CommonDataResType = await res.json();
+        console.log("address ", data);
+
+        if (data.data.length === 0) {
+            alert('주소를 등록해주세요.')
+            router.push( `/address?productId=${productId}`)
+        }
+
         const CartData = {
             brandId: Info.brandId,
             productId: productId,

@@ -21,7 +21,7 @@ export default function LoginContainer() {
 
     useEffect(() => {
         if (session) {
-            router.push('/');
+            // router.push('/');
         }
         console.log(session);
     }, [session, router]);
@@ -195,7 +195,7 @@ export default function LoginContainer() {
                     </p>
                 </Link>
             </div>
-            <p onClick={() => signOut()}>logout</p>
+            {/* <p onClick={() => signOut()}>logout</p> */}
         </>
     );
 }

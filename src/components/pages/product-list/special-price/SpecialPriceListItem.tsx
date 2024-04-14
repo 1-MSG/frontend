@@ -5,14 +5,15 @@ import { useRef } from "react";
 import { useObserver } from "../useObserver";
 import ProductCardTypeItem2 from "@/components/pages/product-list/ProductCardTypeItem2";
 import { Suspense } from 'react';
+import SpecialPriceContent from "./specialPriceContent";
 
+export default function SpecialPriceListItem() {
 
-export default function RankingProductList({ maxPage }: { maxPage: number }) {
     const bottom = useRef(null);
     // const maxPage = 5;
 
     const getList = async ({ pageParam = 0 }: { pageParam: number }) => {
-        const res = await fetch(`${process.env.API_BASE_URL}/ranking?page=${pageParam}&size=10&sort=`, {
+        const res = await fetch(`${process.env.API_BASE_URL}/bundles?page=${pageParam}&size=10&sort=`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -20,13 +21,13 @@ export default function RankingProductList({ maxPage }: { maxPage: number }) {
             cache: "no-cache",
         })
 
-        const RankingList: CommonDataResType = await res.json();
-        if (RankingList.isSuccess === false) {
+        const specialPrice: CommonDataResType = await res.json();
+        if (specialPrice.isSuccess === false) {
             return false;
         }
-        console.log(RankingList.data);
+        console.log(specialPrice.data);
 
-        return RankingList.data
+        return specialPrice.data
     }
 
     const {
@@ -39,7 +40,7 @@ export default function RankingProductList({ maxPage }: { maxPage: number }) {
         isFetchingPreviousPage,
         ...result
     } = useInfiniteQuery({
-        queryKey: ['ranking'],
+        queryKey: ['bundle'],
         queryFn: getList,
         staleTime: 1000 * 20 * 20,
         gcTime: 300 * 1000,
@@ -52,6 +53,7 @@ export default function RankingProductList({ maxPage }: { maxPage: number }) {
         initialPageParam: 0,
     })
 
+   
     const onIntersect = ([entry]: any) => entry.isIntersecting && fetchNextPage();
 
     useObserver({
@@ -60,20 +62,16 @@ export default function RankingProductList({ maxPage }: { maxPage: number }) {
     });
 
     return (
-        <div>
-            {data && data.pages?.map((page, i) => {
-                return (
-                    <div key={i}>
-                        <div className='grid grid-cols-2 gap-2 mx-[16px]'>
-                            {page.productList.map((product: any, index: number) => (
-                                <Suspense fallback={<div>Loading...</div>}>
-                                    <ProductCardTypeItem2 key={index} productId={Number(product.productId)} />
-                                </Suspense>
-                            ))}
-                        </div>
-                    </div>
-                )
-            })}
+        <div className="px-[16px]">
+            {data && data.pages.map((page: any, index: number) => (
+                <div key={index}>
+                    {page.bundles.map((bundle: any, i: number) => (
+                        <Suspense fallback={<div>test...</div>}>
+                            <SpecialPriceContent key={i} list={bundle} />
+                        </Suspense>
+                    ))}
+                </div>
+            ))}
             <div ref={bottom}></div>
         </div>
     )

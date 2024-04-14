@@ -12,8 +12,8 @@ export default function SpecialPriceContent({ list }: { list: any }) {
                     <div>
                         <Image src={list.bundleImage}
                             alt=""
-                            width={358}
-                            height={215}
+                            width={500}
+                            height={500}
                             className="" />
                     </div>
                 </Link>

@@ -14,8 +14,8 @@ function BackBtn() {
     };
 
     return (
-        <div className='flex gap-[3px] items-center w-[30px] h-[14px]'>
-            <Image src={backBtn} alt="" onClick={goBack}></Image>
+        <div className='flex gap-[3px] items-center w-[30px] h-[14px]' onClick={goBack}>
+            <Image src={backBtn} alt="" />
         </div>
     )
 }

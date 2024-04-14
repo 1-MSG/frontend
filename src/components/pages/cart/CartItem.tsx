@@ -38,14 +38,14 @@ function useOption(optionId: number) {
 }
 
 export default function CartItem({
-    list, orderList, priceList, handleSingleCheck, checkItems, setTotal, maxOrderList
+    item, orderList, priceList, setTotal
 }: {
-    list: CartDataType, orderList: any, priceList: any, handleSingleCheck: any, checkItems: any, setTotal: any, maxOrderList: any
+    item:any, orderList: any, priceList: any, setTotal: any
 }) {
 
-    const { data, isError } = useProduct(list.productId)
-    const {ImageValue, ImageError} = useImage(list.productId)
-    const {OptionValue, OptionError} = useOption(list.productOptionId)
+    const { data, isError } = useProduct(item.productId)
+    const {ImageValue, ImageError} = useImage(item.productId)
+    const {OptionValue, OptionError} = useOption(item.productOptionId)
 
     if (isError || ImageError || OptionError) return <div>Failed to load</div>
     if (!data || !ImageValue || !OptionValue) return <div>Loading...</div>
@@ -60,45 +60,41 @@ export default function CartItem({
 
     const optionData: CommonDataResType = OptionValue;
     const option = [...optionData.data].reverse()
-   // console.log("option", option);
+    //console.log("option", option);
     
     let optionText = "";
-    option.map((item) => {
+    option.map((item:any) => {
         optionText += item.optionsName + " ";
     });
 
-    // orderList.push({
-    //     optionId: list.productOptionId,
-    //     optionName: optionText
-    // });
-    const idx = orderList.findIndex((e: any) => e.cartId === list.cartId);
-    orderList[idx] = {
-        cartId: list.cartId,
-        optionId: list.productOptionId,
-        optionName: optionText
-    }
-
-    maxOrderList.push({
-        cartId: list.cartId,
-        optionId: list.productOptionId,
+    orderList.push({
+        cartId: item.cartId,
+        optionId: item.productOptionId,
         optionName: optionText
     })
 
     priceList.push({
-        cartId: list.cartId,
-        productId: list.productId,
+        cartId: item.cartId,
+        productId: item.productId,
         productPrice: product.productPrice,
         discountPrice: product.discountPrice,
         discountRate: product.discountRate,
         salePrice: 0,
-        count: list.cartProductQuantity,
+        count: item.cartProductQuantity,
     });
+
+    console.log("orderList", orderList);
+    
+    console.log("priceList", priceList);
+
+    
+    
 
     let sum = 0;
     function GetPrice(cartId: number, salePrice: number, count: number) {
         const value = {
             cartId: cartId,
-            productId: list.productId,
+            productId: item.productId,
             productPrice: product.productPrice,
             discountPrice: product.discountPrice,
             discountRate: product.discountRate,
@@ -110,20 +106,21 @@ export default function CartItem({
         sum = 0;
         priceList.map((e: any) => sum += e.salePrice)
         setTotal(sum)
-        // useEffect(() => {
-        //     setTotal(sum)
-        // })
+        useEffect(() => {
+            setTotal(sum)
+        })
     }
+
 
     return(
         <div className="grid grid-cols-4 px-[16px] py-[20px] border-b border-b-[#f5f5f5] last:border-b-none">
             <div className="relative">
-                <Image src={image.productImageUrl} alt={image.productImageDescription} width={87} height={87} />
-                <input type='checkbox'
-                    onChange={(e) => handleSingleCheck(e.target.checked, list.cartId)}
+                <Image src={image.productImageUrl} alt={image.productImageDescription} width={200} height={200} />
+                {/* <input type='checkbox'
+                    // onChange={(e) => handleSingleCheck(e.target.checked, item.cartId)}
                     //체크된 아이템 배열에 해당 아이템이 있을 경우 선택 활성화, 아닐 시 해제
-                    checked={checkItems.includes(list.cartId) ? true : false}
-                    className="absolute top-0" />
+                    // checked={checkItems.includes(item.cartId) ? true : false}
+                    className="absolute top-0" /> */}
             </div>
 
             <div className="col-start-2 col-end-5 ml-[10px] mb-[6px]">
@@ -141,11 +138,11 @@ export default function CartItem({
 
                 {/* 수량 변경 */}
                 <ProductCount 
-                    quantity={list.cartProductQuantity} 
+                    quantity={item.cartProductQuantity} 
                     productPrice={product.productPrice} 
                     discountPrice={product.discountPrice}
                     GetPrice={GetPrice}
-                    cartId={list.cartId}
+                    cartId={item.cartId}
                 />
 
 
