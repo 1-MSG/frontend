@@ -18,6 +18,8 @@ export default function LikeEvent({
     const router = useRouter();
     const session = useSession();
     // console.log('session', session.data?.user?.data?.accessToken);
+    console.log(accessToken);
+    
 
     useEffect(() => {
         const getLike: any = async () => {
@@ -44,6 +46,10 @@ export default function LikeEvent({
     }, [productId, accessToken, session.status]);
 
     async function handleClick() {
+        if(accessToken === undefined) {
+            alert('로그인이 필요합니다.');
+            return;
+        }
         if (isLike === true) {
             const res = await fetch(
                 `${process.env.API_BASE_URL}/like/${productId}`,
