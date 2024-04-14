@@ -7,9 +7,8 @@ import ProductCardTypeItem2 from "@/components/pages/product-list/ProductCardTyp
 import { Suspense } from 'react';
 
 
-export default function RankingProductList({ maxPage }: { maxPage: number }) {
+export default function RankingProductList() {
     const bottom = useRef(null);
-    // const maxPage = 5;
 
     const getList = async ({ pageParam = 0 }: { pageParam: number }) => {
         const res = await fetch(`${process.env.API_BASE_URL}/ranking?page=${pageParam}&size=10&sort=`, {
