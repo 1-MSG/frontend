@@ -66,8 +66,8 @@ export default function RankingProductList({ maxPage }: { maxPage: number }) {
                     <div key={i}>
                         <div className='grid grid-cols-2 gap-2 mx-[16px]'>
                             {page.productList.map((product: any, index: number) => (
-                                <Suspense fallback={<div>Loading...</div>}>
-                                    <ProductCardTypeItem2 key={index} productId={Number(product.productId)} />
+                                <Suspense fallback={<div>Loading...</div>} key={index}>
+                                    <ProductCardTypeItem2 productId={Number(product.productId)} />
                                 </Suspense>
                             ))}
                         </div>

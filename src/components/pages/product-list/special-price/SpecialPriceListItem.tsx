@@ -66,8 +66,8 @@ export default function SpecialPriceListItem() {
             {data && data.pages.map((page: any, index: number) => (
                 <div key={index}>
                     {page.bundles.map((bundle: any, i: number) => (
-                        <Suspense fallback={<div>test...</div>}>
-                            <SpecialPriceContent key={i} list={bundle} />
+                        <Suspense fallback={<div>test...</div>} key={i}>
+                            <SpecialPriceContent list={bundle} />
                         </Suspense>
                     ))}
                 </div>
