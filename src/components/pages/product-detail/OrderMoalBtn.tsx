@@ -10,7 +10,8 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
     const router = useRouter();
     const session = useSession();
     const userId = session.data?.user?.data?.userId;
-    //console.log("session", session.data?.user?.data?.accessToken);
+    const accessToken = session.data?.user?.data?.accessToken;
+    console.log("accessToken", accessToken);
 
     console.log("orderList", orderList);
     console.log("priceList", priceList);
@@ -24,7 +25,13 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             alert('로그인이 필요합니다.')
             return;
         }
-        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, { cache: "no-cache" })
+        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`
+            },
+        })
         if (!res.ok) {
             throw new Error('서버 오류');
         }
@@ -47,7 +54,7 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${session.data?.user?.data?.accessToken}`
+                    Authorization: `Bearer ${accessToken}`
                 },
                 body: JSON.stringify(CartData)
             })
@@ -81,7 +88,13 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             return;
         }
 
-        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, { cache: "no-cache" })
+        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${accessToken}`
+                },
+            })
         if (!res.ok) {
             throw new Error('서버 오류');
         }
