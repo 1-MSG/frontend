@@ -147,6 +147,7 @@ export default function OrderProductInfo({ CartData }: { CartData: CartDataType[
             {
                 CartData.map((item: CartDataType) => (
                     <CartItem
+                        key={item.cartId}
                         item={item}
                         orderList={orderList}
                         priceList={priceList}
