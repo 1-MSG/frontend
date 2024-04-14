@@ -1,7 +1,6 @@
 'use client'
 
 import { CommonDataResType } from '@/types/commonResType';
-import ProductCardTypeItem from './ProductCardTypeItem';
 import { ProductCardDataType, ProductIdListByCategoryType } from '@/types/productDataType';
 import SsgDeliveryIcon from '@/images/svgs/SsgDeliveryIcon';
 import DepartmentIcon from '@/images/svgs/DepartmentIcon';
