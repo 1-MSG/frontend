@@ -30,19 +30,19 @@ async function getUser(accessToken: string) {
     return res.json();
 }
 
-async function getOrderCount(accessToken: string) {
-    const res = await fetch(`${process.env.API_BASE_URL}/orders`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${accessToken}`,
-        },
-    });
-    // if (!res.ok) {
-    //     throw new Error('서버 오류');
-    // }
-    return res.json();
-}
+// async function getOrderCount(accessToken: string) {
+//     const res = await fetch(`${process.env.API_BASE_URL}/orders`, {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             Authorization: `Bearer ${accessToken}`,
+//         },
+//     });
+//     // if (!res.ok) {
+//     //     throw new Error('서버 오류');
+//     // }
+//     return res.json();
+// }
 
 export default async function Page() {
     const session = await getServerSession(options);
@@ -58,9 +58,9 @@ export default async function Page() {
     const user = UserData.data;
     console.log('user', user);
 
-    const OrdeCountrData = await getOrderCount(accessToken);
-    const order = OrdeCountrData.data.length;
-    console.log('order', order);
+    // const OrdeCountrData = await getOrderCount(accessToken);
+    // const order = OrdeCountrData.data.length;
+    // console.log('order', order);
 
     return (
         <>
@@ -104,7 +104,7 @@ export default async function Page() {
 
             <div className="h-[40px] rounded-t-3xl shadow-[0px_17px_15px_15px_rgba(0,0,0,0.2)]"></div>
 
-            <UsersCategory order={order} />
+            <UsersCategory />
 
             <UserFooter />
             <LeftNav />
