@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 function Ssgpay() {
     return (
-            <Image src={ssgpay} alt=""></Image>
+        <Image src={ssgpay} alt="" className='block  m-auto'/>
     )
 }
 

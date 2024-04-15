@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 function Payco() {
     return (
-            <Image src={payco} alt=""></Image>
+            <Image src={payco} alt="" className='block  m-auto'/>
     )
 }
 

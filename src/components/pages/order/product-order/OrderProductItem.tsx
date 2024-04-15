@@ -37,7 +37,7 @@ export default async function OrderProductItem({price, orderList}: {price: any, 
     return (
         <div  className='grid grid-cols-7 py-[20px] border-b border-[#f0f0f0]'>
             <div className="col-span-2 align-top">
-                <Image src={Images.productImageUrl} alt={Images.productImageDescription} width={100} height={100} className="" />
+                <Image src={Images.productImageUrl} alt={Images.productImageDescription} width={200} height={200} className="" />
             </div>
             <div className="col-span-5 ml-[10px]">
                 <p className="text-[14px]">
