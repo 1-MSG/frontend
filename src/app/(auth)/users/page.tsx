@@ -50,9 +50,9 @@ export default async function Page() {
 
     console.log('accessToken ', accessToken);
 
-    // if (accessToken == undefined) {
-    //     redirect("/login?callbackUrl=users");
-    // }
+    if (accessToken == undefined) {
+        redirect("/login?callbackUrl=users");
+    }
 
     const UserData = await getUser(accessToken);
     const user = UserData.data;

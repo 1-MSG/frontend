@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 function Kakaopay() {
     return (
-            <Image src={kakaopay} alt=""></Image>
+            <Image src={kakaopay} alt="" className='block  m-auto'/>
     )
 }
 

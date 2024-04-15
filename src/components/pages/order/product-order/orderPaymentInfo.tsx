@@ -15,10 +15,10 @@ export default function OrderPaymentInfo({SaleTotal}: {SaleTotal: number}) {
             </p>
 
             <ul className="grid gap-1 grid-cols-3 grid-row-3 text-center text-[13px] leading-[48px] tracking-[-0.1rem]">
-                <li className="border border-black bg-black text-white">신용카드</li>
-                <li className="m-auto border border-[#d8d8d8] px-[22px] py-[15px]"><Ssgpay /></li>
-                <li className="m-auto border border-[#d8d8d8] px-[21px] py-[13px]"><Kakaopay /></li>
-                <li className="m-auto border border-[#d8d8d8] px-[23px] py-[14px]"><Payco /></li>
+                <li className="w-full border border-black bg-black text-white">신용카드</li>
+                <li className="w-full m-auto border border-[#d8d8d8] px-[22px] py-[15px]"><Ssgpay /></li>
+                <li className="w-full border border-[#d8d8d8] px-[21px] py-[13px]"><Kakaopay /></li>
+                <li className="w-full border border-[#d8d8d8] px-[23px] py-[14px]"><Payco /></li>
                 <li className="border border-[#d8d8d8]">휴대폰 소액결제</li>
                 <li className="border border-[#d8d8d8]">무통장 입금</li>
                 <li className="border border-[#d8d8d8]">실시간 계좌이체</li>
