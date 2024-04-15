@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function UsersOrderInquiry({order}: {order:number}) {
+export default function UsersOrderInquiry() {
     return (
         <div className="tracking-[-0.05rem]">
             <div className="flex justify-between">
@@ -68,7 +68,7 @@ export default function UsersOrderInquiry({order}: {order:number}) {
                 </div>
                 <div className="flex px-[10px]">
                     <span className="text-[12px] text-[#444444] content-center pr-[20px]">구매확정</span>
-                    <strong className="text-[14px] text-[#e5e5e5] content-center">{order}</strong>
+                    <strong className="text-[14px] text-[#e5e5e5] content-center">0</strong>
                 </div>
             </div>
 

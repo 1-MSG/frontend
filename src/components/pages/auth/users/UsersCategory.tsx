@@ -3,11 +3,11 @@ import UsersMenu from "./UsersMenu";
 import UsersOrderInquiry from "./UsersOrderInquiry";
 import UsersSubMenu from "./UsersSubMenu";
 
-export default function UsersCategory({order} : {order:number}) {
+export default function UsersCategory() {
     return (
         <>
             <div className="px-[16px] bg-white">
-                <UsersOrderInquiry order={order}/>
+                <UsersOrderInquiry/>
 
                 <UsersMenu />
 
