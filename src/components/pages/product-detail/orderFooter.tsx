@@ -36,7 +36,7 @@ export default function OrderFooter({
             if (data.isSuccess === false) {
                 return false;
             }
-            console.log(data);
+            // console.log(data);
             setIsLike(data.data.like);
         };
         if (session.status == 'authenticated') getLike();
@@ -58,7 +58,7 @@ export default function OrderFooter({
                 throw new Error('서버 오류');
             }
             alert('좋아요를 삭제했습니다.');
-            console.log('좋아요 삭제 성공');
+            // console.log('좋아요 삭제 성공');
             setIsLike(false);
         } else {
             const check = await fetch(

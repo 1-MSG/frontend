@@ -10,6 +10,7 @@ import PreviewProducts from "@/components/pages/main/PreviewProducts";
 import PreviewCards from "@/components/pages/main/PreviewCards";
 import PreviewPopularityProducts from "@/components/pages/main/PreviewPopularityProducts";
 import RightNav from "@/components/layout/RightNav";
+import PreviewRanking from "@/components/pages/main/PreviewRanking";
 
 
 export default async function Home() {
@@ -28,11 +29,13 @@ export default async function Home() {
 
       <MainCategory/>
 
-      <PreviewProducts/>
+      <PreviewRanking/>
 
       <PreviewCards/>
 
       <PreviewPopularityProducts/>
+
+      <PreviewProducts/>
 
       {/* 클라이언트 컴포넌트 호출(무한 스크롤) */}
       

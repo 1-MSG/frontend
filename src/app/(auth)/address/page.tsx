@@ -9,11 +9,12 @@ export default function Page(
 ) {
 
     const session = useSession();
-    console.log("session", session.data?.user?.data?.userId);
+    // console.log("session", session.data?.user?.data?.userId);
     const userId = session.data?.user?.data?.userId;
+    const accessToken = session.data?.user?.data?.accessToken;
     
     const productId = searchParams.productId ? Number(searchParams.productId): 0;
-    console.log("productId", productId);
+    // console.log("productId", productId);
     
 
     async function createUser(formData: FormData) {
@@ -25,17 +26,18 @@ export default function Page(
             address: `${formData.get('address')} ${formData.get('addressDetail')}`
         }
 
-        console.log(userFormData)
+        // console.log(userFormData)
         const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`
             },
             body: JSON.stringify(userFormData),
         })
         if (res.ok) {
-            console.log("배송지 등록 성공");
-            console.log(res.status);
+            // console.log("배송지 등록 성공");
+            // console.log(res.status);
             redirect(`/product-detail?productId=${productId}`);
         }
 

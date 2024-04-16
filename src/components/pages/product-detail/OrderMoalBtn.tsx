@@ -25,38 +25,58 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             alert('로그인이 필요합니다.')
             return;
         }
-        const CartData = {
-            brandId: Info.brandId,
-            productId: productId,
-        }
-        console.log("CartData ", CartData);
-
-        const func = async (optionId: number) => {
-            const res = await fetch(`${process.env.API_BASE_URL}/cart/option/${optionId}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${accessToken}`
-                },
-                body: JSON.stringify(CartData)
-            })
-            console.log(res);
-
-            if (!res.ok) {
-                throw new Error('서버 오류');
-            }
-            else if (res.ok) {
-                console.log("장바구니 성공");
-            }
-            return res.json();
-        }
-
-        orderList.map((item: any) => {
-            func(item.optionId)
+        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`
+            },
         })
+        if (!res.ok) {
+            throw new Error('서버 오류');
+        }
+        const data: CommonDataResType = await res.json();
+        console.log("address ", data);
 
-        alert('장바구니에 담겼습니다.')
-        redirect(`/product-detail?productId=${productId}`)
+        if (data.data.length === 0) {
+            alert('주소를 등록해주세요.')
+            router.push(`/address?productId=${productId}`)
+        }
+        else {
+            const CartData = {
+                brandId: Info.brandId,
+                productId: productId,
+            }
+            console.log("CartData ", CartData);
+    
+            const func = async (optionId: number) => {
+                const res = await fetch(`${process.env.API_BASE_URL}/cart/option/${optionId}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${accessToken}`
+                    },
+                    body: JSON.stringify(CartData)
+                })
+                console.log(res);
+    
+                if (!res.ok) {
+                    throw new Error('서버 오류');
+                }
+                else if (res.ok) {
+                    console.log("장바구니 성공");
+                }
+                return res.json();
+            }
+    
+            orderList.map((item: any) => {
+                func(item.optionId)
+            })
+    
+            alert('장바구니에 담겼습니다.')
+            redirect(`/product-detail?productId=${productId}`)
+        }
+        
     }
 
     async function createOrder() {
@@ -70,26 +90,26 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             return;
         }
 
-        // const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         Authorization: `Bearer ${accessToken}`
-        //     },
-        // })
-        // if (!res.ok) {
-        //     throw new Error('서버 오류');
-        // }
-        // const data: CommonDataResType = await res.json();
-        // console.log("address ", data);
+        const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`
+            },
+        })
+        if (!res.ok) {
+            throw new Error('서버 오류');
+        }
+        const data: CommonDataResType = await res.json();
+        console.log("address ", data);
 
-        // if (data.data.length === 0) {
-        //     alert('주소를 등록해주세요.')
-        //     router.push(`/address?productId=${productId}`)
-        // }
-        // else {
+        if (data.data.length === 0) {
+            alert('주소를 등록해주세요.')
+            router.push(`/address?productId=${productId}`)
+        }
+        else {
             router.push(`/product-order?orderList=${JSON.stringify(orderList)}&priceList=${JSON.stringify(priceList)}`)
-        // }
+        }
     }
 
     return (

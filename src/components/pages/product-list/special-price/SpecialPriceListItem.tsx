@@ -25,7 +25,7 @@ export default function SpecialPriceListItem() {
         if (specialPrice.isSuccess === false) {
             return false;
         }
-        console.log(specialPrice.data);
+        // console.log(specialPrice.data);
 
         return specialPrice.data
     }

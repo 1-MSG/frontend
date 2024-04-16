@@ -4,9 +4,8 @@ import { useCallback, useState } from "react"
 import SpecialPriceOrderFooter from '@/components/pages/product-list/special-price/specialPriceOrderFooter'
 
 
-export default function SpecialPriceLead(props: any) {
+export default function SpecialPriceLead({bundle} : {bundle: any}) {
 
-    const bundle = props.bundle;
     const [orderList, setOrderList] = useState([]);
     const priceList:any[] = [];
     const [total, setTotal] = useState(0);

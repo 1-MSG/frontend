@@ -17,6 +17,7 @@ export default function SpecialPriceOrderFooter(props: any) {
     const clickOrderModal = () => { setOrderModal(!orderModal) }
 
     
+    
     return (
         <div>
             <ul className='flex fixed w-full z-10 bottom-0 h-[52px] text-center leading-[52px]'>

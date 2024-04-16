@@ -5,13 +5,13 @@ import { XMarkIcon } from '@heroicons/react/20/solid'
 
 import Image from 'next/image'
 
-export interface userDataType {
+export interface DataType {
     userName: string,
     userPhoto: string,
 }
 
-export default function SsgNotification({isView, userData}:{isView:boolean, userData?:userDataType}) {
-  const [show, setShow] = useState(true)
+export default function SsgNotification({isView}:{isView:boolean}) {
+  const [show, setShow] = useState(isView)
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function SsgNotification({isView, userData}:{isView:boolean, user
       >
         <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
-          <Transition
+          <Transition 
             show={show}
             as={Fragment}
             enter="transform ease-out duration-300 transition"
@@ -36,18 +36,18 @@ export default function SsgNotification({isView, userData}:{isView:boolean, user
               <div className="w-0 flex-1 p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 pt-0.5">
-                    <Image
+                    {/* <Image
                       className="h-10 w-10 rounded-full"
                       src={userData && userData.userPhoto || ""}
                       alt={userData && userData.userName || ""}
                     width={40}
                     height={40}
                     priority
-                    />
+                    /> */}
                   </div>
                   <div className="ml-3 w-0 flex-1">
-                    <p className="text-sm font-medium text-gray-900">{userData && userData.userName}</p>
-                    <p className="mt-1 text-sm text-gray-500">어서오세요~ {userData && userData?.userName }님</p>
+                    <p className="text-sm font-medium text-gray-900">준비 중인 기능입니다!</p>
+                    {/* <p className="mt-1 text-sm text-gray-500">어서오세요~ {userData && userData?.userName }님</p> */}
                   </div>
                 </div>
               </div>

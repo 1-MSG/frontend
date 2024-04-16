@@ -10,7 +10,7 @@ async function getSpecialPriceList() {
         `${process.env.API_BASE_URL}/bundles?page=1&size=10`,
     );
     const data: CommonDataResType = await res.json();
-    console.log('특가 상품 리스트 조회', data.data);
+    // console.log('특가 상품 리스트 조회', data.data);
     if (data.isSuccess === false) {
         console.error('특가 상품 리스트 조회 실패');
     }

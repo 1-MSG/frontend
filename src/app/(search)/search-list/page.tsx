@@ -7,12 +7,14 @@ import RecentSearch from "../../../components/pages/search/RecentSearch";
 import { CommonDataResType } from "@/types/commonResType";
 import SearchList from "@/components/pages/search/SearchList";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export interface getListType {
     productName: string;
 }
 
 async function searchFetchData(searchText: string) {
+    // if(searchText == undefined) return;
     console.log(searchText);
     const res = await fetch(`${process.env.API_BASE_URL}/search-list?keyword=${searchText}`);
     if (res.ok) {
@@ -46,7 +48,7 @@ export default async function Page({
                 <BackBtn/>
                 <SearchForm getSearchData={getSearchData} searchText={searchText}/>
                 <div className="flex items-center justify-end">
-                <CartIcon w={45} h={45}/>
+                <Link href="/cart"><CartIcon w={45} h={45}/></Link>
                 </div>
             </div>
             {

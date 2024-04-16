@@ -6,7 +6,8 @@ import { CommonDataResType } from '@/types/commonResType';
 
 async function fetchData(){
     const res = await fetch(`${process.env.API_BASE_URL}/category?level=0`, {
-        next: { revalidate: 3600*24 }
+        next: { revalidate: 3600*24 },
+        cache: 'no-cache',
     });
 
     //console.log(res);
