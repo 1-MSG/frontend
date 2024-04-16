@@ -22,12 +22,12 @@ export default async function OrderCustomerInfo() {
     const session = await getServerSession(options)
     const accessToken = session?.user.data.accessToken
 
-    console.log("accessToken ", accessToken);
+    // console.log("accessToken ", accessToken);
 
     const Info: CommonDataResType = await getAddressInfo(accessToken);
     const data = Info.data;
 
-    console.log(data);
+    // console.log(data);
 
 
     return (

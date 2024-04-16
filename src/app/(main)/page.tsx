@@ -16,7 +16,7 @@ import PreviewRanking from "@/components/pages/main/PreviewRanking";
 export default async function Home() {
 
   const session = await getServerSession(options);
-  console.log('mainsession',session?.user);
+  // console.log('mainsession',session?.user);
 
   return (
     <>
