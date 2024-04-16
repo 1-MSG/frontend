@@ -43,6 +43,10 @@ export default function OrderFooter({
     }, [productId, accessToken, session.status]);
 
     async function handleClick() {
+        if(accessToken === undefined) {
+            alert('로그인이 필요합니다.');
+            return;
+        }
         if (isLike === true) {
             const res = await fetch(
                 `${process.env.API_BASE_URL}/like/${productId}`,

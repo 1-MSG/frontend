@@ -26,7 +26,7 @@ export default async function PreviewRanking() {
     
     const product = await getRanking();
 
-    console.log('product', product);
+    // console.log('product', product);
 
     if (product.productList.length % 2 != 0) product.productList.pop();
 

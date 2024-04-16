@@ -32,6 +32,9 @@ export default function OrderModal({
     const [childOption, setChildOption] = useState<OptionDataType[]>([] as OptionDataType[]);
     // const [optionId, setOptionId] = useState<number>(0);
     const params = useSearchParams();
+    const [zeroId, setZeroId] = useState<number>(0);
+    const [zeroStock, setZeroStock] = useState<number>(0);
+    let kindLen = 0;
 
     useEffect(() => {
         const getData = async () => {
@@ -40,12 +43,12 @@ export default function OrderModal({
                 const data: CommonDataResType = await res.json();
                 setKind(data.data.reverse());
                 setLastLevel(data.data.length);
-                // console.log("kind ", data);
                 setSelectedList(new Array(data.data.length).fill(false));
                 setSelectedList((prev) => {
                     prev[0] = true;
                     return prev;
                 })
+
             }
         }
         getData();
@@ -54,31 +57,47 @@ export default function OrderModal({
             const res = await fetch(`${process.env.API_BASE_URL}/option/first/${productId}`)
             if (res.ok) {
                 const data: CommonDataResType = await res.json();
-                console.log("option ", data);
+                // console.log("option ", data);
                 setOption(data.data);
+
+                if(data.data[0].optionId == null) {
+                    orderList.push({
+                        optionId: data.data[0].productOptionId,
+                        optionName: '',
+                    })
+                    // setZeroId(data.data[0].productOptionId)
+                    // setZeroStock(data.data[0].stock)
+                }
             }
         }
         getOptionFirstData();
 
     }, [productId])
 
-    const handleGetOptionListData = async (optionId: number, optionName: string) => {
+
+    const handleGetOptionListData = async (optionId: number, optionName: string, productOptionId: number) => {
 
         console.log("optionId get handler", optionId);
+        console.log("selectedLevel", selectedLevel);
+
         if (selectedLevel === lastLevel) {
 
             let option1 = params.get('option1');
             let option2 = params.get('option2');
-           // console.log("option1name ", option1);
-            //console.log("option2name ", option2);
+            let name = ''
 
             if (option1 == null) option1 = '';
             if (option2 == null) option2 = '';
 
-            const name = option1 + " " + option2 + " " + optionName;
+            if (selectedLevel === 1 && orderList.length != 0) {
+                name = optionName;
+            }
+            else {
+                name = option1 + " " + option2 + " " + optionName;
+            }
 
             const value = {
-                optionId: optionId,
+                optionId: productOptionId,
                 optionName: name,
             }
             const priceValue = {
@@ -89,12 +108,16 @@ export default function OrderModal({
                 salePrice: 0,
                 count: 1
             }
+
+            const idx = orderList.findIndex((e: any) => e.optionId === productOptionId);
+            if (idx !== -1) {
+                alert('이미 선택된 옵션입니다.');
+                return;
+            }
             orderList.push(value)
             priceList.push(priceValue)
-            setSelectedList((prev) => {
-                prev[1] = true;
-                return prev;
-            })
+            setSelectedLevel(1);
+            setChildOption([]);
             //console.log("orderList", orderList);
 
             //return alert("마지막 옵션입니다.");
@@ -128,6 +151,15 @@ export default function OrderModal({
         })
     }
 
+    const ReduceOrder = orderList.reduce((acc: any, cur: any) => {
+        if (!acc.find((item: any) => item.optionId === cur.optionId)) {
+            acc.push(cur);
+        }
+        return acc;
+    }, []);
+
+    // console.log("ReduceOrder", ReduceOrder);
+
 
     return (
         <>
@@ -151,6 +183,29 @@ export default function OrderModal({
                 </div>
                 <div>
                     {
+                        lastLevel == 0 ?
+                            <div className="px-[15px] pt-[12px]">
+                                <div className="relative mt-[5px] pt-[13px] px-[15px] rounded-md bg-[#f8f8f8]">
+                                    <div className="text-left text-[13px] text-[#222222] leading-[13px]">
+                                        <p>{Info.productName}</p>
+                                        <ProductDetailCount discountPrice={Info.discountPrice} getPrice2={GetPrice2} index={0} />
+                                    </div>
+                                </div>
+                            </div>
+                            :
+                            kind.length > 0 && kind.map((item: OptionListType, index: number) => (
+                                <OrderOption
+                                    item={item}
+                                    key={index}
+                                    setOpenedOptionName={setOpenedOptionName}
+                                    setIsOpenModal={setIsOpenModal}
+                                    selected={selectedList[index]}
+                                    index={index}
+                                    setSelectedLevel={setSelectedLevel}
+                                />
+                            ))
+                    }
+                    {/* {
                         kind.length > 0 && kind.map((item: OptionListType, index: number) => (
                             <OrderOption
                                 item={item}
@@ -162,26 +217,28 @@ export default function OrderModal({
                                 setSelectedLevel={setSelectedLevel}
                             />
                         ))
-                    }
+                    } */}
                     <div>
                         <div className="px-[15px] pt-[12px] max-h-[300px] overflow-y-scroll">
-                            {orderList.length == 0 ? <div></div> :
-                                <div>
-                                    {orderList.map((list: any, index: number) => {
-                                        return (
-                                            <div key={index} className=" relative mt-[5px] pt-[13px] px-[15px] border border-[#707070] rounded-md bg-[#f8f8f8]">
-                                                <div className="text-left text-[13px] text-[#222222] leading-[13px]">
-                                                    <p>{list.optionName}</p>
+                            {
+                                lastLevel == 0 ? <div></div> :
+                                ReduceOrder.length == 0 ? <div></div> :
+                                    <div>
+                                        {ReduceOrder.map((list: any, index: number) => {
+                                            return (
+                                                <div key={index} className=" relative mt-[5px] pt-[13px] px-[15px] border border-[#707070] rounded-md bg-[#f8f8f8]">
+                                                    <div className="text-left text-[13px] text-[#222222] leading-[13px]">
+                                                        <p>{list.optionName}</p>
 
-                                                    <ProductDetailCount discountPrice={Info.discountPrice} getPrice2={GetPrice2} index={index} />
-                                                    <div onClick={() => onRemove(index)} className="absolute top-0 right-0 pt-[5px] pr-[5px]">
-                                                        <XIcon />
+                                                        <ProductDetailCount discountPrice={Info.discountPrice} getPrice2={GetPrice2} index={index} />
+                                                        <div onClick={() => onRemove(index)} className="absolute top-0 right-0 pt-[5px] pr-[5px]">
+                                                            <XIcon />
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
+                                            )
+                                        })}
+                                    </div>
                             }
                         </div>
                     </div>
@@ -193,7 +250,7 @@ export default function OrderModal({
                         <span>원</span>
                     </strong>
                 </div>
-                <OrderModalBtn productId={productId} orderList={orderList} priceList={priceList} Info={Info}/>
+                <OrderModalBtn productId={productId} orderList={ReduceOrder} priceList={priceList} Info={Info} />
             </div>
         </>
     )

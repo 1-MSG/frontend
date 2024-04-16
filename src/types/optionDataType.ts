@@ -4,6 +4,7 @@ export interface OptionListType {
 }
 
 export interface OptionDataType {
+    productOptionId: Number;
     optionId: Number;
     optionType: String;
     stock: Number;

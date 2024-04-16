@@ -51,13 +51,16 @@ export default async function Page() {
                 {/* 비회원일 때 장바구니 물건이 있으면*/}
                 {/* <NotUser/> */}
 
-                {/* 회원일 때 장바구니 물건이 없으면*/}
-                {/* <EmptyCartUser/>*/}
+                {CartData.length === 0 ?
+                    <EmptyCartUser />
+                    :
+                    <>
+                        <CartUserAddress userId={userId} accessToken={accessToken} />
+                        <OrderProductInfo CartData={CartData} />
+                    </>
+                }
 
 
-                {/* 주문상품유닛 */}
-                <CartUserAddress userId={userId} accessToken={accessToken}/>
-                <OrderProductInfo CartData={CartData} />
             </div>
         </main>
     )
