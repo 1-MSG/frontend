@@ -82,7 +82,7 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
     return (
         <div className='pt-[10px] pb-[20px]'>
             <Link href={`/product-detail?productId=${productId}`}>
-                <Image src={image.productImageUrl}
+                <Image src={image?.productImageUrl}
                     alt=""
                     width={500}
                     height={500}
