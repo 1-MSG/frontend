@@ -1,6 +1,4 @@
-import categoryList from "@/dummydata/categoryDetail.json"
 import CategoryTab from "@/components/pages/catogory-list/categoryTab"
-import productList from "@/dummydata/productList.json"
 import ProductConetent from "@/components/pages/product-list/productContent"
 import CategoryListHeader from "@/components/pages/catogory-list/categoryListHeader"
 import CategorySmallTab from "@/components/pages/catogory-list/CategorySmallTab"

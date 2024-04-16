@@ -7,22 +7,19 @@ import { CommonDataResType } from '@/types/commonResType';
 async function fetchData(){
     const res = await fetch(`${process.env.API_BASE_URL}/category?level=0`, {
         next: { revalidate: 3600*24 },
-        cache: 'no-cache',
+        // cache: 'no-cache', //revalidate나 cache 둘 중 하나만 사용하라는 경고가 떠 주석처리
     });
 
     //console.log(res);
     
     return res.json();
-
     //const res = categoryData;
     //return res.cetegory_list; 
 };
 
-
 export default async function Page() {
 
     const result: CommonDataResType = await fetchData();
-    //console.log(result.data)
 
     const categoryList: CategoryDataType[] = result.data;
 
