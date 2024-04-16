@@ -38,7 +38,7 @@ export default async function OrderDeliveryInfo({userId}: {userId: number}) {
     const session = await getServerSession(options)
     const accessToken = session?.user.data.accessToken
 
-    console.log(userId);
+    // console.log(userId);
     
 
     const addressInfo: CommonDataResType = await getAddressInfo(userId, accessToken);

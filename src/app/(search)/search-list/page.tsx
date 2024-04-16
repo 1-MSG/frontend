@@ -1,6 +1,5 @@
 import SearchForm from "@/components/pages/search/SearchForm";
 import CartIcon from "@/images/svgs/CartIcon";
-import BackBtn from '@/components/pages/search/BackBtn';
 import RecommendSearch from "@/components/pages/search/RecommendSearch";
 import Event from "@/components/pages/search/Event";
 import RecentSearch from "../../../components/pages/search/RecentSearch";
@@ -8,6 +7,8 @@ import { CommonDataResType } from "@/types/commonResType";
 import SearchList from "@/components/pages/search/SearchList";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import BackBtn from "@/images/svgs/BackBtn";
+
 
 export interface getListType {
     productName: string;
@@ -15,11 +16,11 @@ export interface getListType {
 
 async function searchFetchData(searchText: string) {
     // if(searchText == undefined) return;
-    console.log(searchText);
+    // console.log(searchText);
     const res = await fetch(`${process.env.API_BASE_URL}/search-list?keyword=${searchText}`);
     if (res.ok) {
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         return data;   
     }
 }
@@ -45,7 +46,7 @@ export default async function Page({
     return (
         <>
             <div className="w-full flex justify-between items-center py-[8px] pl-[16px] pr-[10px] gap-3">
-                <BackBtn/>
+                <Link href='/'><BackBtn/></Link>
                 <SearchForm getSearchData={getSearchData} searchText={searchText}/>
                 <div className="flex items-center justify-end">
                 <Link href="/cart"><CartIcon w={45} h={45}/></Link>

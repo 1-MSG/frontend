@@ -56,7 +56,7 @@ export default async function Page() {
 
     const UserData = await getUser(accessToken);
     const user = UserData.data;
-    console.log('user', user);
+    // console.log('user', user);
 
     // const OrdeCountrData = await getOrderCount(accessToken);
     // const order = OrdeCountrData.data.length;

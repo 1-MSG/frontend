@@ -18,7 +18,7 @@ export default async function CartUserAddress({userId, accessToken}: {userId: nu
 
     const UserData = await getAddress(userId, accessToken);
     const address = UserData.data[0];
-    console.log("address", address);
+    // console.log("address", address);
 
     return (
         <div className="my-[20px] mx-[16px] tracking-[-0.07rem] ">

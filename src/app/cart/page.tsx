@@ -31,7 +31,7 @@ export default async function Page() {
     const userId = session?.user.data.userId
     const accessToken = session?.user.data.accessToken
 
-    console.log("accessToken ", accessToken);
+    // console.log("accessToken ", accessToken);
 
     if (accessToken == undefined) {
         redirect("/login?callbackUrl=cart");
@@ -39,7 +39,7 @@ export default async function Page() {
 
     const CartDataList = await getCartList(accessToken);
     const CartData = CartDataList.data;
-    console.log("CartData", CartData);
+    // console.log("CartData", CartData);
 
     return (
         <main>
