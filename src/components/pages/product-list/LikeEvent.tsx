@@ -47,7 +47,9 @@ export default function LikeEvent({
 
     async function handleClick() {
         if(accessToken === undefined) {
-            alert('로그인이 필요합니다.');
+            if (confirm('로그인이 필요한 서비스 입니다. 로그인 페이지로 이동하시겠습니까?')){
+                router.push('/login');
+            }
             return;
         }
         if (isLike === true) {

@@ -11,7 +11,13 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
     const router = useRouter();
     const [middleCategory, setMiddleCategory] = useState<CategoryDataType[]>();
 
-    const handleClick = (id: number) => {
+    const handleClick = (id: number, name: string) => {
+        
+        if(name=="상품 전체보기"){
+            // console.log("상품전체보기를 클릭")
+            alert("준비중입니다")
+            return
+        }
         router.push(`/category-product?categoryId=${id.toString()}`);
     }
 
@@ -33,11 +39,11 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
         getData();
     }, [categoryId])
     
-    
+    // console.log('??',middleCategory);
     return(
         <div className='flex flex-wrap'>
             {middleCategory?.map((item: CategoryDataType) => (
-                <div key={item.categoryId} className={"w-1/2 h-[38px] text-[14px] tracking-[-0.07rem] content-center" + (checkCategoryName(item.categoryName) != undefined ? " text-[#ff5452]" : " text-[#222222]") } onClick={()=>handleClick(item.categoryId)}>
+                <div key={item.categoryId} className={"w-1/2 h-[38px] text-[14px] tracking-[-0.07rem] content-center" + (checkCategoryName(item.categoryName) != undefined ? " text-[#ff5452]" : " text-[#222222]") } onClick={()=>handleClick(item.categoryId,item.categoryName)}>
                     {item.categoryName}
                 </div>
             ))}
