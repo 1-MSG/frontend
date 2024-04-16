@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer"
 import Nav from "@/components/layout/Nav"
 
 async function getCategoryLid(categoryId: number) {
+    console.log(process.env.API_BASE_URL);
     const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`, {
         cache: 'no-cache',
     })
