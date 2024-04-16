@@ -48,7 +48,7 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
 
     const ProductData: CommonDataResType = data;
     const product = ProductData.data;
-    console.log(product);
+    // console.log(product);
 
     const imageData: CommonDataResType = ImageValue;
     const image = imageData.data;
@@ -92,8 +92,8 @@ export default function ProductCardTypeItem2({ productId }: { productId: number 
             <div className='flex mt-[3px] py-[2px]'>
                 <div></div>
                 <div className='flex'>
-                    {/* <LikeEvent productId={productId} accessToken={accessToken}/> */}
-                    <Like w={20} h={20} />
+                    <LikeEvent productId={productId} accessToken={accessToken}/>
+                    {/* <Like w={20} h={20} /> */}
                     <button className='mr-[3px]'><CartIcon w={26} h={26} /></button>
                 </div>
             </div>

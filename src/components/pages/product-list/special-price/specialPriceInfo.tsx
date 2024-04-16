@@ -11,8 +11,8 @@ export default function SpecialPriceInfo(props:any) {
             <div>
                 <Image src={bundle.bundleImage}
                     alt=''
-                    width={390}
-                    height={374}
+                    width={500}
+                    height={500}
                     className='z-0' />
             </div>
 

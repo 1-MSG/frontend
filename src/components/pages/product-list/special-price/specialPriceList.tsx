@@ -41,7 +41,7 @@ export default async function SpecialPriceList({ productId, idx}: { productId: n
 
                 <div className="grid grid-cols-6 gap-2">
                     <div className="col-span-2">
-                        <Image src={image.productImageUrl} width={100} height={100} alt='' />
+                        <Image src={image.productImageUrl} width={200} height={200} alt='' />
                     </div>
                     <div className="col-span-4">
                         <Link href="" className="pt-[6px] pr-[8px] text-[13px] tracking-[-0.07rem] text-[#222222]">

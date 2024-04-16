@@ -109,8 +109,8 @@ export const NavItem = ({
     return (
         <li className="relative px-[5px]" onClick={handleOpen} role={gx.toString()}>
             <div onClick={() => handleClick(item.categoryId)}>
-                <div className="w-[64px] h-[64px]">
-                    <Image src={item.categoryImage} width={100} height={100} alt="" />
+                <div >
+                    <Image src={item.categoryImage} width={100} height={100} alt="" className="block m-auto"/>
                 </div>
                 <p className="mt-[5px] text-[11px] font-normal tracking-[-0.07rem] text-[#444444] text-center">{item.categoryName}</p>
             </div>

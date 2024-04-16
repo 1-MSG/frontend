@@ -18,7 +18,7 @@ export default function LikeEvent({
     const router = useRouter();
     const session = useSession();
     // console.log('session', session.data?.user?.data?.accessToken);
-    console.log(accessToken);
+    // console.log(accessToken);
     
 
     useEffect(() => {

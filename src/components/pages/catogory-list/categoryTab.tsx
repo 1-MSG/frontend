@@ -11,7 +11,7 @@ export default function CategoryTab(props:any) {
     const params = useSearchParams();
     const categoryIdParam = params.get('categoryId');
     
-    console.log('categoryIdParam', categoryIdParam);
+    // console.log('categoryIdParam', categoryIdParam);
 
     const handleClick = (id: number, pageParam:number) => {
         router.push(`/category-product?categoryId=${id.toString()}&page=${pageParam}&size=6&sort=`);

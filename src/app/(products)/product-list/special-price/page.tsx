@@ -43,7 +43,7 @@ export default async function Page() {
     
 
     return (
-        <main>
+        <main className='mb-[20px]'>
             {/* 랭킹 탭 */}
             <RankingTab />
 

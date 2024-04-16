@@ -7,7 +7,14 @@ import { useEffect, useState } from "react";
 
 
 export default function OrderOptionModal({ 
-    setIsOpenModal, productId, openedOptionName, optionData, childOption, selectedLevel, setSelectedList, handleGetOptionListData
+    setIsOpenModal, 
+    productId, 
+    openedOptionName, 
+    optionData, 
+    childOption, 
+    selectedLevel, 
+    setSelectedList, 
+    handleGetOptionListData
 }: { 
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>, 
     productId: number,

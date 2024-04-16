@@ -30,7 +30,7 @@ export default async function Page({
     const BundleInfo: CommonDataResType = await getSpecialPriceDetail(bundleId);
     const bundle = BundleInfo.data;
 
-    //console.log(bundle);
+    console.log(bundle);
     
 
     return (

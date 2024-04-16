@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function CategoryItem({categoryId}: {categoryId: number}) {
-    console.log("categoryId", categoryId);
+    // console.log("categoryId", categoryId);
 
     const router = useRouter();
     const [middleCategory, setMiddleCategory] = useState<CategoryDataType[]>();
@@ -26,7 +26,7 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
             const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`)
             if (res.ok) {
                 const data = await res.json();
-                console.log(data);
+                // console.log(data);
                 setMiddleCategory(data.data.subCategories);
             }
         }
@@ -45,47 +45,3 @@ export default function CategoryItem({categoryId}: {categoryId: number}) {
     )
 }
 
-// const queryClient = new QueryClient()
-
-// export default function CategoryItem({categoryId}: {categoryId: number}) {
-
-//     console.log("categoryId", categoryId);
-    
-//     return (
-//         <QueryClientProvider client={queryClient}>
-//             <Items categoryId={categoryId}/>
-//         </QueryClientProvider>
-//     )
-// }
-
-// function Items({categoryId}: {categoryId: number}) {
-//     const { data, isLoading, error } = useQuery({ 
-//       queryKey: [''],
-//       queryFn: () =>
-//         fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`).then(
-//           (res) => res.json(),
-//         ),
-//     })
-
-
-//     // if (isPending) return 'Loading...'
-
-//     // if (error) return 'An error has occurred: ' + error.message
-
-
-//     //const data = categoryMiddle.category_middle_list1;
-//     console.log(data);
-
-
-//     return (
-//         <div className='flex flex-wrap'>
-//             {/* {data.map((item: CategoryDataType) => (
-//                 <Link key={item.id} href="" className="w-1/2 h-[38px] text-[#222222] text-[14px] tracking-[-0.07rem] content-center">
-//                     {item.product_category_name}
-//                 </Link>
-//             ))} */}
-
-
-//         </div>
-//     )
-// }

@@ -11,7 +11,7 @@ export default function RankingProductList() {
     const bottom = useRef(null);
 
     const getList = async ({ pageParam = 0 }: { pageParam: number }) => {
-        const res = await fetch(`${process.env.API_BASE_URL}/ranking?page=${pageParam}&size=10&sort=`, {
+        const res = await fetch(`https://sssg.shop/api/v1/ranking?page=${pageParam}&size=10&sort=`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export default function RankingProductList() {
         if (RankingList.isSuccess === false) {
             return false;
         }
-        console.log(RankingList.data);
+        // console.log(RankingList.data);
 
         return RankingList.data
     }

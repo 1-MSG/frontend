@@ -8,14 +8,17 @@ import Footer from "@/components/layout/Footer"
 import Nav from "@/components/layout/Nav"
 
 async function getCategoryLid(categoryId: number) {
-    const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`)
+    const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryId}`, {
+        cache: 'no-cache',
+    })
     
     return res.json();
 }
 
 async function getCategoryList(categoryLid: number) {
     const res = await fetch(`${process.env.API_BASE_URL}/category-child?categoryId=${categoryLid}`, {
-        next: { revalidate: 3600*24 }
+        next: { revalidate: 3600*24 },
+        cache: 'no-cache',
     })
     return res.json();
 }

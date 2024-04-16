@@ -91,6 +91,10 @@ export default function OrderModal({
             }
             orderList.push(value)
             priceList.push(priceValue)
+            setSelectedList((prev) => {
+                prev[1] = true;
+                return prev;
+            })
             //console.log("orderList", orderList);
 
             //return alert("마지막 옵션입니다.");
