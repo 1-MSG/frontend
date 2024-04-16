@@ -35,11 +35,11 @@ export default function OrderOptionModal({
     const option2name = params.get('option2');
     const option3name = params.get('option3');
 
-    const handleSelectOption = (optionName:string, optionId:number) => {
+    const handleSelectOption = (optionName:string, optionId:number, productOptionId:number) => {
         console.log("optionName ", optionName);
         console.log("selectedLevel ", selectedLevel);
         setIsOpenModal(false);
-        handleGetOptionListData(optionId, optionName);
+        handleGetOptionListData(optionId, optionName, productOptionId);
         
         if ( selectedLevel == 1 ) {
             setSelectedList((prev) => {
@@ -60,7 +60,9 @@ export default function OrderOptionModal({
 
     //
 
-    // console.log("option ", option);
+    console.log("option ", optionData);
+    console.log("childOption ", childOption);
+    
 
 
     // // const { clickOptionModal } = props;
@@ -99,7 +101,7 @@ export default function OrderOptionModal({
                                     option.stock > 0  &&
                                         <li key={option.optionId}
                                             className="mt-[12px] first:mt-0 text-[12px] text-left h-[50px]"
-                                            onClick={() => handleSelectOption(option.optionName, option.optionId)}
+                                            onClick={() => handleSelectOption(option.optionName, option.optionId, option.productOptionId)}
                                         >
                                              <div className="flex">
                                                 <span>{option.optionName} 
@@ -114,10 +116,10 @@ export default function OrderOptionModal({
                             :
                             optionData.length > 0 ? optionData.map((option: any) => {
                                 return (
-                                    option.stock > 0 || option.stock === null  &&
+                                    (option.stock > 0 || option.stock === null)  &&
                                         <li key={option.optionId}
                                             className="mt-[12px] first:mt-0 text-[12px] text-left h-[50px]"
-                                            onClick={() => handleSelectOption(option.optionName, option.optionId)}
+                                            onClick={() => handleSelectOption(option.optionName, option.optionId, option.productOptionId)}
                                         >
                                             {option.optionName}
                                         </li>

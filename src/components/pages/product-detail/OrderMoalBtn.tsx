@@ -36,7 +36,7 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             throw new Error('서버 오류');
         }
         const data: CommonDataResType = await res.json();
-        console.log("address ", data);
+        // console.log("address ", data);
 
         if (data.data.length === 0) {
             alert('주소를 등록해주세요.')
@@ -47,7 +47,7 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
                 brandId: Info.brandId,
                 productId: productId,
             }
-            console.log("CartData ", CartData);
+            // console.log("CartData ", CartData);
     
             const func = async (optionId: number) => {
                 const res = await fetch(`${process.env.API_BASE_URL}/cart/option/${optionId}`, {
@@ -58,7 +58,7 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
                     },
                     body: JSON.stringify(CartData)
                 })
-                console.log(res);
+                // console.log(res);
     
                 if (!res.ok) {
                     throw new Error('서버 오류');
@@ -101,7 +101,7 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
             throw new Error('서버 오류');
         }
         const data: CommonDataResType = await res.json();
-        console.log("address ", data);
+        // console.log("address ", data);
 
         if (data.data.length === 0) {
             alert('주소를 등록해주세요.')

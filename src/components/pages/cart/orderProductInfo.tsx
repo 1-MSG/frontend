@@ -20,10 +20,6 @@ export default function OrderProductInfo({ CartData }: { CartData: CartDataType[
     const [orderList, setOrderList] = useState([]) // 장바구니에서 주문할 상품 리스트
     const [priceList, setPriceList] = useState([]) // 장바구니에서 주문할 상품 가격 리스트
 
-    let delivery: any = [];
-    let brandTotal: any = [];
-    let discountTotal: any = [];
-    let originalTotal: any = [];
 
     // useEffect(() => {
     //     if (checkItems.length == 0) setValue(maxValue);
@@ -118,8 +114,8 @@ export default function OrderProductInfo({ CartData }: { CartData: CartDataType[
         return acc;
     }, []);
 
-    console.log("ReduceOrder", ReduceOrder);
-    console.log("ReducePrice", ReducePrice);
+    // console.log("ReduceOrder", ReduceOrder);
+    // console.log("ReducePrice", ReducePrice);
 
     return (
 
@@ -152,6 +148,7 @@ export default function OrderProductInfo({ CartData }: { CartData: CartDataType[
                         orderList={orderList}
                         priceList={priceList}
                         setTotal={setTotal}
+                        setOrderList={setOrderList}
                     />
                 ))
             }
