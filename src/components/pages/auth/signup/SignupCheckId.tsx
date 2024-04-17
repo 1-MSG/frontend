@@ -50,7 +50,7 @@ export default function SignupCheckId() {
     }
 
     async function checkId(loginId: string) {
-        console.log(loginId);
+        // console.log(loginId);
 
         try {
             const response = await fetch(`${process.env.API_BASE_URL}/auth/check-duplicate-id`, {
@@ -62,10 +62,10 @@ export default function SignupCheckId() {
             });
 
             if (response.ok) {
-                console.log("사용 가능한 아이디 입니다.");
+                // console.log("사용 가능한 아이디 입니다.");
                 return loginId;
             } else {
-                console.log("사용이 불가능한 아이디 입니다.");
+                // console.log("사용이 불가능한 아이디 입니다.");
                 return '';
             }
         } catch (error) {

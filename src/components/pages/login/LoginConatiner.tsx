@@ -63,8 +63,8 @@ export default function LoginContainer() {
             // 로그인 실패 시
             alert(`로그인에 실패하였습니다. 다시 시도해주세요. (error:${result?.error})`);
           } else {
+            // 로그인 성공 시
             router.push('/')
-            // 로그인 성공 시, 필요한 추가 동작을 여기에 작성
           }
     };
 

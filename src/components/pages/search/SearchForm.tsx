@@ -27,7 +27,7 @@ function SearchForm({
             // 로컬 스토리지에 검색 기록 저장
             localStorage.setItem('searchHistory', JSON.stringify(newSearchHistory));
 
-            console.log('검색어가 로컬 스토리지에 저장되었습니다:', searchText);
+            // console.log('검색어가 로컬 스토리지에 저장되었습니다:', searchText);
         }
     };
 

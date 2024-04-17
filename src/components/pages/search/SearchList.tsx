@@ -24,7 +24,7 @@ function SearchList({ searchList }: { searchList: getListType[] }) {
         if (res.ok) {
             const ProductData: CommonDataResType = await res.json();
             const product = ProductData.data.searchProductDtos[0];
-            console.log(product);
+            // console.log(product);
 
             router.push(`/product-detail?productId=${product.productId}`);
         }

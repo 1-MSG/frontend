@@ -64,7 +64,7 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
                     throw new Error('서버 오류');
                 }
                 else if (res.ok) {
-                    console.log("장바구니 성공");
+                    // console.log("장바구니 성공");
                 }
                 return res.json();
             }
