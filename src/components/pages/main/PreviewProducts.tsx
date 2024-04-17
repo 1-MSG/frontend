@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Adv1 from '@/assets/image/mainadvertisement/adv1.png';
-import {
-    ReactElement,
-    JSXElementConstructor,
-    ReactNode,
-    ReactPortal,
-    PromiseLikeOfReactNode,
-    Key,
-} from 'react';
+// import {
+//     ReactElement,
+//     JSXElementConstructor,
+//     ReactNode,
+//     ReactPortal,
+//     PromiseLikeOfReactNode,
+//     Key,
+// } from 'react';
 import { ProductIdListByCategoryType } from '@/types/productDataType';
 import ProductCardTypeItem2 from '../product-list/ProductCardTypeItem2';
 import { CommonDataResType } from '@/types/commonResType';

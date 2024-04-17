@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import {
-    ReactElement,
-    JSXElementConstructor,
-    ReactNode,
-    ReactPortal,
-    PromiseLikeOfReactNode,
-    Key,
-} from 'react';
+// import Image from 'next/image';
+// import {
+//     ReactElement,
+//     JSXElementConstructor,
+//     ReactNode,
+//     ReactPortal,
+//     PromiseLikeOfReactNode,
+//     Key,
+// } from 'react';
 import { ProductIdListByCategoryType } from '@/types/productDataType';
 import ProductCardTypeItem2 from '../product-list/ProductCardTypeItem2';
 import { CommonDataResType } from '@/types/commonResType';
