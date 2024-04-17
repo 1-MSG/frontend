@@ -40,15 +40,32 @@ export default function LoginContainer() {
         });
     };
 
-    const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    // const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     console.log("페이로드",payLoad);
+    //     signIn('credentials', {
+    //         redirect: true,
+    //         loginId: payLoad.loginId,
+    //         password: payLoad.password,
+    //         callbackUrl: '/',
+    //     });
+    // };
+
+    const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(payLoad);
-        signIn('credentials', {
-            redirect: true,
+        const result = await signIn('credentials', {
+            redirect: false,
             loginId: payLoad.loginId,
             password: payLoad.password,
-            callbackUrl: '/',
         });
+
+        if (!result?.ok) {
+            // 로그인 실패 시
+            alert(`로그인에 실패하였습니다. 다시 시도해주세요. (error:${result?.error})`);
+          } else {
+            router.push('/')
+            // 로그인 성공 시, 필요한 추가 동작을 여기에 작성
+          }
     };
 
     return (
