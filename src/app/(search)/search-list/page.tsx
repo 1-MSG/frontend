@@ -36,7 +36,7 @@ export default async function Page({
         const searchData = {
             keyword: searchForm.get('keyword'),
         }
-        console.log(searchData);
+        // console.log(searchData);
     }
 
     const searchText = searchParams.keyword as string;

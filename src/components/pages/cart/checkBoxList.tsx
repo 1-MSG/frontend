@@ -17,11 +17,11 @@ export default function CheckBoxList() {
         if (checked) {
             // 단일 선택 시 체크된 아이템을 배열에 추가
             setCheckItems(prev => [...prev, id]);
-            console.log(checkItems)
+            // console.log(checkItems)
         } else {
             // 단일 선택 해제 시 체크된 아이템을 제외한 배열 (필터)
             setCheckItems(checkItems.filter((el) => el !== id));
-            console.log(checkItems)
+            // console.log(checkItems)
         }
     };
 
@@ -32,12 +32,12 @@ export default function CheckBoxList() {
             const idArray: any = [];
             data.forEach((el) => idArray.push(el.id));
             setCheckItems(idArray);
-            console.log(checkItems)
+            // console.log(checkItems)
         }
         else {
             // 전체 선택 해제 시 checkItems 를 빈 배열로 상태 업데이트
             setCheckItems([]);
-            console.log(checkItems)
+            // console.log(checkItems)
         }
     }
 

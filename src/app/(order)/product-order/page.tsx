@@ -20,8 +20,8 @@ export default async function Page(
     const orderList = searchParams.orderList ? JSON.parse(searchParams.orderList as string) : [];
     const priceList = searchParams.priceList ? JSON.parse(searchParams.priceList as string) : [];
 
-    console.log(orderList);
-    console.log(priceList);
+    // console.log(orderList);
+    // console.log(priceList);
 
 
     let SaleTotal = 0;
@@ -49,7 +49,7 @@ export default async function Page(
         })
     ))
 
-    console.log("orderProductDetails ", orderProductDetails);
+    // console.log("orderProductDetails ", orderProductDetails);
     
 
 
@@ -63,7 +63,7 @@ export default async function Page(
             orderProductDetails: orderProductDetails,
         }
 
-        console.log("orderForm", orderFormData)
+        // console.log("orderForm", orderFormData)
         const res = await fetch(`${process.env.API_BASE_URL}/orders`, {
             method: "POST",
             headers: {
@@ -73,7 +73,7 @@ export default async function Page(
             body: JSON.stringify(orderFormData),
         })
         const data = await res.json();
-        console.log("data", data.data);
+        // console.log("data", data.data);
         redirect(`/order-complete?orderId=${data.data}`)
     }
 

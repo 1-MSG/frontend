@@ -48,7 +48,7 @@ export default async function Page() {
     const session = await getServerSession(options);
     const accessToken = session?.user.data.accessToken;
 
-    console.log('accessToken ', accessToken);
+    // console.log('accessToken ', accessToken);
 
     if (accessToken == undefined) {
         redirect("/login?callbackUrl=users");

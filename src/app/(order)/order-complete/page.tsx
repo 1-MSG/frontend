@@ -1,6 +1,5 @@
 import OrderInfo from "../../../components/pages/order/order-complete/orderInfo";
 import Benefit from "../../../components/pages/order/order-complete/benefit";
-import data from "@/dummydata/orderInfomation.json"
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 
@@ -13,6 +12,7 @@ async function getOrder(orderId:number, accessToken: string) {
         }
     })
     if (!res.ok) {
+        // alert("서버에 문제가 생겼습니다. 잠시 후 다시 시도해주세요")
         throw new Error('서버 오류');
     }
     return res.json();
@@ -40,17 +40,17 @@ export default async function Page(
         ? Number(searchParams.orderId)
         : 0;
 
-    console.log("orderId", orderId);
+    // console.log("orderId", orderId);
     
     const accessToken = session?.user.data.accessToken
 
     const OrderData = await getOrder(orderId, accessToken);
     const order = OrderData.data;
-    console.log("order", order);
+    // console.log("order", order);
 
     const UserData = await getUser(accessToken);
     const user = UserData.data;
-    console.log("user", user);
+    // console.log("user", user);
 
     return (
         <main>

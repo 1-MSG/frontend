@@ -31,7 +31,7 @@ export default function ProductConetent({ categoryId }: { categoryId: number }) 
     const bottom = useRef(null);
 
     if (categoryId === 0) {
-        console.log('카테고리 정보가 없습니다.');
+        // console.log('카테고리 정보가 없습니다.');
     }
 
     const getList = async ({ pageParam = 0 }: { pageParam: number }) => {
@@ -47,7 +47,7 @@ export default function ProductConetent({ categoryId }: { categoryId: number }) 
         if (productList.isSuccess === false) {
             return false;
         }
-        console.log(productList.data);
+        // console.log(productList.data);
 
         return productList.data
     }

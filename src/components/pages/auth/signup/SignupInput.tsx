@@ -22,7 +22,7 @@ export default function SignupInput() {
             // addressDetail: formData.get('addressDetail'),
         }
 
-        console.log(userFormData)
+        // console.log(userFormData)
         const res = await fetch(`${process.env.API_BASE_URL}/auth/signup`, {
             method: "POST",
             headers: {
@@ -31,13 +31,13 @@ export default function SignupInput() {
             body: JSON.stringify(userFormData),
         })
         if (res.ok) {
-            console.log("회원가입 성공");
-            console.log(res.status);
+            // console.log("회원가입 성공");
+            // console.log(res.status);
             // 
             redirect('/login')
         }
 
-        console.log(res);
+        // console.log(res);
     }
 
 

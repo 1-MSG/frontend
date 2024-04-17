@@ -25,7 +25,7 @@ function OrderOption({
     // console.log("item ", item);
     // console.log("selected ", selected);
     const handleSetOpenedOptionName = () => {
-        console.log("item ", item);
+        // console.log("item ", item);
         
        if(selected) {
         setSelectedLevel(item.optionLevel);

@@ -12,7 +12,7 @@ export const options: NextAuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials, req) {
-        console.log('credentials',credentials)
+        // console.log('credentials',credentials)
         if ( !credentials?.loginId || !credentials?.password ) {
           return null;
         }
@@ -29,7 +29,7 @@ export const options: NextAuthOptions = {
         })
           const data = await res.json()
           if(data.isSuccess === true) {
-            console.log('ssg data',data)
+            // console.log('ssg data',data)
             return data
           }
           return null;
@@ -45,7 +45,7 @@ export const options: NextAuthOptions = {
   callbacks: {
     async signIn({ user, profile}):Promise<any> {
       if(profile) {
-        console.log('ssg profile',profile, user)
+        // console.log('ssg profile',profile, user)
         const res = await fetch(`http://10.10.10.139:8080/api/v1/oauth/signup/easy`,{
           method: 'POST',
           headers: {
@@ -58,10 +58,10 @@ export const options: NextAuthOptions = {
           })
         
         })
-        console.log(res)
+        // console.log(res)
         if (res.ok) {
           const getData = await res.json()
-          console.log('ssg user',getData, profile.name)
+          // console.log('ssg user',getData, profile.name)
           return { ...user, name: profile.name, email: getData.email, id: getData.id, oauth_id: getData.oauth_id, oauth_name: getData.oauth_name, role: getData.role }
         } 
         return 'easy-signup'

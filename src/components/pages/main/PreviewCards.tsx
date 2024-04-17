@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Adv1 from '@/assets/image/mainadvertisement/adv1.png'
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode, Key } from "react";
+// import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode, Key } from "react";
 import card1 from '@/assets/image/maincard/card1.png'
 import card2 from '@/assets/image/maincard/card2.png'
 import card3 from '@/assets/image/maincard/card3.png'

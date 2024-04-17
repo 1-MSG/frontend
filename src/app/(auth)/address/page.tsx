@@ -41,7 +41,7 @@ export default function Page(
             redirect(`/product-detail?productId=${productId}`);
         }
 
-        console.log(res);
+        // console.log(res);
     }
 
     return (
