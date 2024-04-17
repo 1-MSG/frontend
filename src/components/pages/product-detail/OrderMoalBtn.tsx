@@ -23,6 +23,7 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
         }
         if (userId == undefined || userId == null) {
             alert('로그인이 필요합니다.')
+            router.push(`/login`)
             return;
         }
         const res = await fetch(`${process.env.API_BASE_URL}/address/${userId}`, {
@@ -87,6 +88,7 @@ export default function OrderModalBtn({ productId, orderList, priceList, Info }:
 
         if (userId == undefined || userId == null) {
             alert('로그인이 필요합니다.')
+            router.push(`/login`)
             return;
         }
 

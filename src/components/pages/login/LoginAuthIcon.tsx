@@ -17,10 +17,12 @@ export default function LoginAuthIcon() {
             <div>
                 <Image src={authIcon1} alt='NAVER LOGIN' style={{width:'53px', height:'73px'}}/>
             </div>
-            <div onClick={()=>signIn(
-                'kakao',
-                { callbackUrl: 'http://localhost:3000/' },
-            )}>
+            <div 
+            // onClick={()=>signIn(
+            //     'kakao',
+            //     { callbackUrl: 'http://localhost:3000/' },
+            // )}
+            >
                 <Image src={authIcon2} alt='KAKAO LOGIN' style={{width:'53px', height:'73px'}}/>
             </div>
             <div>
